@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08A8E7392B69827800575C9B /* CarteretApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E7382B69827800575C9B /* CarteretApp.swift */; };
+		08A8E73B2B69827800575C9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E73A2B69827800575C9B /* ContentView.swift */; };
+		08A8E73D2B69827800575C9B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E73C2B69827800575C9B /* Item.swift */; };
+		08A8E73F2B69827D00575C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08A8E73E2B69827D00575C9B /* Assets.xcassets */; };
+		08A8E7432B69827D00575C9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08A8E7422B69827D00575C9B /* Preview Assets.xcassets */; };
+		08A8E74E2B69827E00575C9B /* CarteretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E74D2B69827E00575C9B /* CarteretTests.swift */; };
+		08A8E7582B69827E00575C9B /* CarteretUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E7572B69827E00575C9B /* CarteretUITests.swift */; };
+		08A8E75A2B69827E00575C9B /* CarteretUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A8E7592B69827E00575C9B /* CarteretUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08A8E74A2B69827E00575C9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08A8E72D2B69827800575C9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08A8E7342B69827800575C9B;
+			remoteInfo = Carteret;
+		};
+		08A8E7542B69827E00575C9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08A8E72D2B69827800575C9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08A8E7342B69827800575C9B;
+			remoteInfo = Carteret;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08A8E7352B69827800575C9B /* Carteret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carteret.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08A8E7382B69827800575C9B /* CarteretApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretApp.swift; sourceTree = "<group>"; };
+		08A8E73A2B69827800575C9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		08A8E73C2B69827800575C9B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		08A8E73E2B69827D00575C9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08A8E7402B69827D00575C9B /* Carteret.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carteret.entitlements; sourceTree = "<group>"; };
+		08A8E7422B69827D00575C9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		08A8E7442B69827D00575C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08A8E7492B69827E00575C9B /* CarteretTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarteretTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08A8E74D2B69827E00575C9B /* CarteretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretTests.swift; sourceTree = "<group>"; };
+		08A8E7532B69827E00575C9B /* CarteretUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarteretUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08A8E7572B69827E00575C9B /* CarteretUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretUITests.swift; sourceTree = "<group>"; };
+		08A8E7592B69827E00575C9B /* CarteretUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08A8E7322B69827800575C9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E7462B69827E00575C9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E7502B69827E00575C9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08A8E72C2B69827800575C9B = {
+			isa = PBXGroup;
+			children = (
+				08A8E7372B69827800575C9B /* Carteret */,
+				08A8E74C2B69827E00575C9B /* CarteretTests */,
+				08A8E7562B69827E00575C9B /* CarteretUITests */,
+				08A8E7362B69827800575C9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08A8E7362B69827800575C9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08A8E7352B69827800575C9B /* Carteret.app */,
+				08A8E7492B69827E00575C9B /* CarteretTests.xctest */,
+				08A8E7532B69827E00575C9B /* CarteretUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08A8E7372B69827800575C9B /* Carteret */ = {
+			isa = PBXGroup;
+			children = (
+				08A8E7382B69827800575C9B /* CarteretApp.swift */,
+				08A8E73A2B69827800575C9B /* ContentView.swift */,
+				08A8E73C2B69827800575C9B /* Item.swift */,
+				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
+				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
+				08A8E7442B69827D00575C9B /* Info.plist */,
+				08A8E7412B69827D00575C9B /* Preview Content */,
+			);
+			path = Carteret;
+			sourceTree = "<group>";
+		};
+		08A8E7412B69827D00575C9B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				08A8E7422B69827D00575C9B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		08A8E74C2B69827E00575C9B /* CarteretTests */ = {
+			isa = PBXGroup;
+			children = (
+				08A8E74D2B69827E00575C9B /* CarteretTests.swift */,
+			);
+			path = CarteretTests;
+			sourceTree = "<group>";
+		};
+		08A8E7562B69827E00575C9B /* CarteretUITests */ = {
+			isa = PBXGroup;
+			children = (
+				08A8E7572B69827E00575C9B /* CarteretUITests.swift */,
+				08A8E7592B69827E00575C9B /* CarteretUITestsLaunchTests.swift */,
+			);
+			path = CarteretUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08A8E7342B69827800575C9B /* Carteret */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08A8E75D2B69827E00575C9B /* Build configuration list for PBXNativeTarget "Carteret" */;
+			buildPhases = (
+				08A8E7312B69827800575C9B /* Sources */,
+				08A8E7322B69827800575C9B /* Frameworks */,
+				08A8E7332B69827800575C9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Carteret;
+			productName = Carteret;
+			productReference = 08A8E7352B69827800575C9B /* Carteret.app */;
+			productType = "com.apple.product-type.application";
+		};
+		08A8E7482B69827E00575C9B /* CarteretTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08A8E7602B69827E00575C9B /* Build configuration list for PBXNativeTarget "CarteretTests" */;
+			buildPhases = (
+				08A8E7452B69827E00575C9B /* Sources */,
+				08A8E7462B69827E00575C9B /* Frameworks */,
+				08A8E7472B69827E00575C9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08A8E74B2B69827E00575C9B /* PBXTargetDependency */,
+			);
+			name = CarteretTests;
+			productName = CarteretTests;
+			productReference = 08A8E7492B69827E00575C9B /* CarteretTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		08A8E7522B69827E00575C9B /* CarteretUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08A8E7632B69827E00575C9B /* Build configuration list for PBXNativeTarget "CarteretUITests" */;
+			buildPhases = (
+				08A8E74F2B69827E00575C9B /* Sources */,
+				08A8E7502B69827E00575C9B /* Frameworks */,
+				08A8E7512B69827E00575C9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08A8E7552B69827E00575C9B /* PBXTargetDependency */,
+			);
+			name = CarteretUITests;
+			productName = CarteretUITests;
+			productReference = 08A8E7532B69827E00575C9B /* CarteretUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08A8E72D2B69827800575C9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					08A8E7342B69827800575C9B = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					08A8E7482B69827E00575C9B = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 08A8E7342B69827800575C9B;
+					};
+					08A8E7522B69827E00575C9B = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 08A8E7342B69827800575C9B;
+					};
+				};
+			};
+			buildConfigurationList = 08A8E7302B69827800575C9B /* Build configuration list for PBXProject "Carteret" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08A8E72C2B69827800575C9B;
+			productRefGroup = 08A8E7362B69827800575C9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08A8E7342B69827800575C9B /* Carteret */,
+				08A8E7482B69827E00575C9B /* CarteretTests */,
+				08A8E7522B69827E00575C9B /* CarteretUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08A8E7332B69827800575C9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08A8E7432B69827D00575C9B /* Preview Assets.xcassets in Resources */,
+				08A8E73F2B69827D00575C9B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E7472B69827E00575C9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E7512B69827E00575C9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08A8E7312B69827800575C9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08A8E73B2B69827800575C9B /* ContentView.swift in Sources */,
+				08A8E73D2B69827800575C9B /* Item.swift in Sources */,
+				08A8E7392B69827800575C9B /* CarteretApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E7452B69827E00575C9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08A8E74E2B69827E00575C9B /* CarteretTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08A8E74F2B69827E00575C9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08A8E75A2B69827E00575C9B /* CarteretUITestsLaunchTests.swift in Sources */,
+				08A8E7582B69827E00575C9B /* CarteretUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08A8E74B2B69827E00575C9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08A8E7342B69827800575C9B /* Carteret */;
+			targetProxy = 08A8E74A2B69827E00575C9B /* PBXContainerItemProxy */;
+		};
+		08A8E7552B69827E00575C9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08A8E7342B69827800575C9B /* Carteret */;
+			targetProxy = 08A8E7542B69827E00575C9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08A8E75B2B69827E00575C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08A8E75C2B69827E00575C9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		08A8E75E2B69827E00575C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Carteret/Carteret.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Carteret/Preview Content\"";
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carteret/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.Carteret;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		08A8E75F2B69827E00575C9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Carteret/Carteret.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Carteret/Preview Content\"";
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carteret/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.Carteret;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		08A8E7612B69827E00575C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.CarteretTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carteret.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Carteret";
+			};
+			name = Debug;
+		};
+		08A8E7622B69827E00575C9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.CarteretTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carteret.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Carteret";
+			};
+			name = Release;
+		};
+		08A8E7642B69827E00575C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.CarteretUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Carteret;
+			};
+			name = Debug;
+		};
+		08A8E7652B69827E00575C9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3865YC2YEY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.CarteretUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Carteret;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08A8E7302B69827800575C9B /* Build configuration list for PBXProject "Carteret" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08A8E75B2B69827E00575C9B /* Debug */,
+				08A8E75C2B69827E00575C9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08A8E75D2B69827E00575C9B /* Build configuration list for PBXNativeTarget "Carteret" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08A8E75E2B69827E00575C9B /* Debug */,
+				08A8E75F2B69827E00575C9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08A8E7602B69827E00575C9B /* Build configuration list for PBXNativeTarget "CarteretTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08A8E7612B69827E00575C9B /* Debug */,
+				08A8E7622B69827E00575C9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08A8E7632B69827E00575C9B /* Build configuration list for PBXNativeTarget "CarteretUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08A8E7642B69827E00575C9B /* Debug */,
+				08A8E7652B69827E00575C9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08A8E72D2B69827800575C9B /* Project object */;
+}
