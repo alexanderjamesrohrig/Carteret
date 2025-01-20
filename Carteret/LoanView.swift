@@ -1,15 +1,33 @@
-//
-//  LoanView.swift
-//  Carteret
-//
-//  Created by Alexander Rohrig on 1/30/24.
-//
-
 import SwiftUI
+import OSLog
 
 struct LoanView: View {
+    fileprivate let logger = Logger(subsystem: Constant.carteretSubsystem, category: "LoanView")
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//        ProgressView(value: 0.08999832937)
+        List {
+            Section("Details") {
+                HStack {
+                    Text("$5,521.53 remaining")
+                    Spacer()
+                    Button {                        
+                        logger.log("button press")
+                    } label: {
+                        CarteretImage.information
+                    }
+
+                }
+                Text("$<PRINCIPLE> at 2.75%")
+            }
+            Section("Payments") {
+                HStack {
+                    Text("Jan 29")
+                    Spacer()
+                    Text("$92.99")
+                }
+            }
+        }
     }
 }
 

@@ -13,6 +13,9 @@ struct CarteretApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
+            Loan.self,
+            Payment.self,
+            Transaction.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +28,7 @@ struct CarteretApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbedView()
         }
         .modelContainer(sharedModelContainer)
     }
