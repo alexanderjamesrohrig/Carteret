@@ -46,8 +46,10 @@ struct SpendingLimitRow: View {
                     .foregroundStyle(Color.secondary)
             }
             
-            BarChart1D(data: chartData)
-                .frame(height: 50)
+            if income >= (spendingLimit + bills + savings) {
+                BarChart1D(data: chartData)
+                    .frame(height: 50)
+            }
         }
     }
 }

@@ -57,11 +57,12 @@ struct BudgetView: View {
     var body: some View {
         List {
             Section {
-//                SpendingLimitRow(income: <#T##Decimal#>,
-//                                 bills: <#T##Decimal#>,
-//                                 savings: <#T##Decimal#>,
-//                                 spendingLimit: <#T##Decimal#>)
-                LabeledContent("Spending limit", value: spendingLimit.display)
+                if spendingLimit > 0 {
+                    SpendingLimitRow(income: incomeTotal,
+                                     bills: billsTotal,
+                                     savings: savingsTotal,
+                                     spendingLimit: spendingLimit)
+                }
                 
                 LabeledContent("Income", value: incomeTotal.display)
                 

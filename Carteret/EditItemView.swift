@@ -24,7 +24,7 @@ struct EditItemView: View {
     @Environment(\.dismiss) private var dismiss
     @FocusState private var focusedField: Field?
     @State private var description: String = ""
-    @State private var amount: Currency = 0.00
+    @State private var amount: Currency? = nil
     @State private var type: TransactionType = .expense
     @State private var repeatSelection: Repeat = .everyWeek
     @State private var category: ItemCategory?
@@ -38,7 +38,11 @@ struct EditItemView: View {
     }
     
     var saveDisabled: Bool {
-        description.isEmpty || amount <= 0.00 || category == nil
+        if let amount {
+            return description.isEmpty || amount <= 0.00 || category == nil
+        } else {
+            return true
+        }
     }
     
     var body: some View {
@@ -97,7 +101,8 @@ struct EditItemView: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(confirmButtonTitle) {
-                        guard let category else {
+                        guard let category,
+                              let amount else {
                             return
                         }
                         if let item {

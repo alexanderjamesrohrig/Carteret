@@ -24,7 +24,7 @@ struct EditTransactionView: View {
     @State private var transactionCategory: TransactionCategory?
     @State private var recurringItem: Item?
     @State private var description: String = ""
-    @State private var inputAmount: Currency = 0.00
+    @State private var inputAmount: Currency? = nil
     @State private var type: TransactionType = .expense
     @State private var date = Date.now
     @State private var showDifferentAmountAlert: Bool = false
@@ -38,7 +38,11 @@ struct EditTransactionView: View {
     }
     
     var saveDisabled: Bool {
-        description.isEmpty || inputAmount <= 0.00 || noDestinationSelected
+        if let inputAmount {
+            return description.isEmpty || inputAmount <= 0.00 || noDestinationSelected
+        } else {
+            return true
+        }
     }
     
     var noDestinationSelected: Bool {
@@ -75,12 +79,6 @@ struct EditTransactionView: View {
         NavigationStack {
             Form {
                 Section {
-                    if destination == .safeToSpend {
-                        categoryPicker
-                    } else if destination == .recurringItem {
-                        recurringItemPicker
-                    }
-                } header: {
                     Picker("Destination", selection: $destination) {
                         Text("Safe to spend")
                             .tag(TransactionDestination.safeToSpend)
@@ -88,6 +86,15 @@ struct EditTransactionView: View {
                             .tag(TransactionDestination.recurringItem)
                     }
                     .pickerStyle(.segmented)
+                    .listRowBackground(Color.clear)
+                }
+                
+                Section {
+                    if destination == .safeToSpend {
+                        categoryPicker
+                    } else if destination == .recurringItem {
+                        recurringItemPicker
+                    }
                 }
                 
                 Section {
@@ -191,7 +198,8 @@ struct EditTransactionView: View {
     }
     
     func save(transaction: Transaction?) {
-        guard let destination else {
+        guard let destination,
+              let inputAmount else {
             logger.error("Transaction destination is nil")
             return
         }
