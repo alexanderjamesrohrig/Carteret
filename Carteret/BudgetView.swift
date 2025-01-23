@@ -24,30 +24,30 @@ struct BudgetView: View {
     @State private var showEditItem = false
     private var itemToEdit: Item?
     
-    var spendingLimit: Int {
+    var spendingLimit: Currency {
         // TODO: Income - bills - savings - funds
         let spendingLimit = incomeTotal - billsTotal
         return spendingLimit
     }
     
-    var incomeTotal: Int {
-        var total = 0
+    var incomeTotal: Currency {
+        var total = Currency.zero
         for item in items where item.isIncome {
             total += item.weeklyAmount
         }
         return total
     }
     
-    var billsTotal: Int {
-        var total = 0
+    var billsTotal: Currency {
+        var total = Currency.zero
         for item in items where item.isBill {
             total += item.weeklyAmount
         }
         return total
     }
     
-    var savingsTotal: Int {
-        var total = 0
+    var savingsTotal: Currency {
+        var total = Currency.zero
         for item in items where item.isSavings {
             total += item.weeklyAmount
         }
@@ -57,6 +57,10 @@ struct BudgetView: View {
     var body: some View {
         List {
             Section {
+//                SpendingLimitRow(income: <#T##Decimal#>,
+//                                 bills: <#T##Decimal#>,
+//                                 savings: <#T##Decimal#>,
+//                                 spendingLimit: <#T##Decimal#>)
                 LabeledContent("Spending limit", value: spendingLimit.display)
                 
                 LabeledContent("Income", value: incomeTotal.display)
@@ -92,9 +96,11 @@ struct BudgetView: View {
     func itemRow(_ item: Item) -> some View {
         HStack {
             Text(item.itemDescription)
+            
             Spacer()
+            
             VStack(alignment: .trailing) {
-                Text(item.amount.display)
+                Text(item.currencyAmount, format: .currency(code: Locale.currencyCode))
                     .foregroundStyle(color(for: item.type))
                 
                 Text(item.itemRepeat.displayName)
@@ -111,8 +117,4 @@ struct BudgetView: View {
             Color.red
         }
     }
-}
-
-#Preview {
-    BudgetView()
 }

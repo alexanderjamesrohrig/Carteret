@@ -8,13 +8,23 @@
 import Foundation
 
 class BudgetManager: ObservableObject {
-    init() {
-        self.spendingLimit = 0
-    }
     
-    @Published var spendingLimit: Int
+    @Published var spendingLimit: Currency = Currency.zero
+    @Published var runningBalance: Currency = Currency.zero
+    // TODO: Weekly savings $ or %
     
     var displaySpendingLimit: String {
         spendingLimit.display
+    }
+    
+    func calculateBalance(from transactions: [Transaction]) {
+        var total = Currency.zero
+        for transaction in transactions {
+            switch transaction.type {
+            case .expense: total -= transaction.currencyAmount
+            case .income: total += transaction.currencyAmount
+            }
+        }
+        runningBalance = total
     }
 }

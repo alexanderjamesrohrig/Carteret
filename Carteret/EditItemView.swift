@@ -24,7 +24,7 @@ struct EditItemView: View {
     @Environment(\.dismiss) private var dismiss
     @FocusState private var focusedField: Field?
     @State private var description: String = ""
-    @State private var amount: Double = 0.00
+    @State private var amount: Currency = 0.00
     @State private var type: TransactionType = .expense
     @State private var repeatSelection: Repeat = .everyWeek
     @State private var category: ItemCategory?
@@ -102,14 +102,14 @@ struct EditItemView: View {
                         }
                         if let item {
                             item.itemDescription = description
-                            item.amount = amount.removeDecimal
+                            item.currencyAmount = amount
                             item.type = type
                             item.itemRepeat = repeatSelection
                             item.category = category
                         } else {
                             let newItem = Item(
                                 itemDescription: description,
-                                amount: amount.removeDecimal,
+                                amount: amount,
                                 type: type,
                                 itemRepeat: repeatSelection,
                                 category: category

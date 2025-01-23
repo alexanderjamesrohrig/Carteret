@@ -25,23 +25,23 @@ struct WeekView: View {
         return weekOfYear
     }
     
-    var weekExpenses: Int {
-        var total: Int = 0
+    var weekExpenses: Currency {
+        var total = Currency.zero
         for transaction in transactions where transaction.safeToSpendExpense {
-            total += transaction.amount
+            total += transaction.currencyAmount
         }
         return total
     }
     
-    var weekIncome: Int {
-        var total: Int = 0
+    var weekIncome: Currency {
+        var total = Currency.zero
         for transaction in transactions where transaction.safeToSpendIncome {
-            total += transaction.amount
+            total += transaction.currencyAmount
         }
         return total
     }
     
-    var safeToSpend: Int {
+    var safeToSpend: Currency {
         return budgetManager.spendingLimit - weekExpenses + weekIncome
     }
     

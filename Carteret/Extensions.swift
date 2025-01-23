@@ -77,3 +77,29 @@ extension Date {
         return formatter.string(from: self)
     }
 }
+
+// MARK: - Locale
+extension Locale {
+    /// Auto updating current currency code, defaults to USD
+    static var currencyCode: String {
+        Self.autoupdatingCurrent.currency?.identifier ?? "USD"
+    }
+}
+
+// MARK: - Decimal
+extension Decimal {
+    static var zero: Decimal {
+        return Decimal(string: "0.00", locale: Locale.autoupdatingCurrent) ?? 0.00
+    }
+    
+    var display: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: NSDecimalNumber(decimal: self)) ?? ""
+    }
+    
+    var toDouble: Double {
+        let nsdn = NSDecimalNumber(decimal: self)
+        return Double(truncating: nsdn)
+    }
+}

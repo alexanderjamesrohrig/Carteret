@@ -32,14 +32,14 @@ final class Transaction {
     init(destination: TransactionDestination,
          category: TransactionCategory?,
          item: Item?,
-         amount: Int,
+         amount: Currency,
          type: TransactionType,
          transactionDescription: String,
          date: Date) {
         self.destination = destination
         self.category = category
         self.item = item
-        self.amount = amount
+        self.currencyAmount = amount
         self.type = type
         self.transactionDescription = transactionDescription
         self.date = date
@@ -49,7 +49,11 @@ final class Transaction {
     var category: TransactionCategory?
     @Relationship(deleteRule: .nullify)
     var item: Item?
-    var amount: Int
+    @available(*, deprecated,
+                renamed: "amountDecimal",
+                message: "Causes incorrect calculations.")
+    var amount: Int = 0
+    var currencyAmount: Currency
     var type: TransactionType
     var transactionDescription: String
     var date: Date

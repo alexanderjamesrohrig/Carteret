@@ -11,12 +11,12 @@ import SwiftData
 @Model
 final class Item {
     init(itemDescription: String,
-         amount: Int,
+         amount: Currency,
          type: TransactionType,
          itemRepeat: Repeat,
          category: ItemCategory) {
         self.itemDescription = itemDescription
-        self.amount = amount
+        self.currencyAmount = amount
         self.type = type
         self.itemRepeat = itemRepeat
         self.category = category
@@ -24,34 +24,38 @@ final class Item {
     
     init(category: ItemCategory) {
         self.itemDescription = ""
-        self.amount = 0
+        self.currencyAmount = Currency.zero
         self.type = .expense
         self.itemRepeat = .everyWeek
         self.category = category
     }
 
     var itemDescription: String
-    var amount: Int
+    @available(*, deprecated,
+                renamed: "amountDecimal",
+                message: "Causes incorrect calculations.")
+    var amount: Int = 0
+    var currencyAmount: Currency
+    // TODO: Add Decimal amount
     var type: TransactionType
     var itemRepeat: Repeat
     var category: ItemCategory
     
-    var weeklyAmount: Int {
-        let amountDouble = Double(amount)
-        var weekly: Double = 0.00
+    var weeklyAmount: Currency {
+        var weekly = Currency.zero
         switch itemRepeat {
         case .everyWeek:
-            return amount
+            return currencyAmount
         case .every2Weeks:
-            weekly = amountDouble / 2
+            weekly = currencyAmount / 2
         case .twiceAMonth:
-            weekly = (amountDouble * 24) / 52
+            weekly = (currencyAmount * 24) / 52
         case .everyMonth:
-            weekly = (amountDouble * 12) / 52
+            weekly = (currencyAmount * 12) / 52
         case .everyYear:
-            weekly = amountDouble / 52
+            weekly = currencyAmount / 52
         }
-        return Int(weekly)
+        return weekly
     }
     
     var isBill: Bool {

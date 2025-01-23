@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+public typealias Currency = Decimal
+
 @main
 struct CarteretApp: App {
     var sharedModelContainer: ModelContainer = {

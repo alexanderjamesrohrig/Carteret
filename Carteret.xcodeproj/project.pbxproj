@@ -22,6 +22,9 @@
 		0834A5D82B69902700A668EA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D72B69902700A668EA /* Loan.swift */; };
 		0834A5DD2B6992B700A668EA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DC2B6992B700A668EA /* ErrorMessage.swift */; };
 		0834A5DF2B6993C800A668EA /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DE2B6993C800A668EA /* Payment.swift */; };
+		0857E3192D42C56D0052904C /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3182D42C5680052904C /* PieChart.swift */; };
+		0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31A2D42C58D0052904C /* BarChart1D.swift */; };
+		0857E31D2D42CC150052904C /* SpendingLimitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */; };
 		088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA682D3DB123006B279F /* BudgetManager.swift */; };
 		088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6A2D3DB49B006B279F /* DebugSettings.swift */; };
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
@@ -76,6 +79,9 @@
 		0834A5D72B69902700A668EA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		0834A5DC2B6992B700A668EA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		0834A5DE2B6993C800A668EA /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		0857E3182D42C5680052904C /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		0857E31A2D42C58D0052904C /* BarChart1D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart1D.swift; sourceTree = "<group>"; };
+		0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingLimitRow.swift; sourceTree = "<group>"; };
 		088CEA682D3DB123006B279F /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		088CEA6A2D3DB49B006B279F /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
@@ -190,9 +196,12 @@
 				089EEFDD2D39AC6A000D6657 /* EditItemView.swift */,
 				080E275A2D3AB74000595DE8 /* EditTransactionView.swift */,
 				080E27642D3ADB3400595DE8 /* TransactionRowView.swift */,
+				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
 				080E275C2D3ABAD400595DE8 /* CurrencyField.swift */,
 				080E27562D3AB41E00595DE8 /* WeekView.swift */,
 				088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */,
+				0857E3182D42C5680052904C /* PieChart.swift */,
+				0857E31A2D42C58D0052904C /* BarChart1D.swift */,
 				0834A5D32B698B5F00A668EA /* LoanViewModel.swift */,
 				089EEFD12D39A022000D6657 /* TransactionType.swift */,
 				089EEFD32D39A0D5000D6657 /* Repeat.swift */,
@@ -366,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0857E31D2D42CC150052904C /* SpendingLimitRow.swift in Sources */,
 				080E27592D3AB4DA00595DE8 /* CircularProgressViewStyle.swift in Sources */,
 				089EEFDE2D39AC6F000D6657 /* EditItemView.swift in Sources */,
 				089EEFD02D399F3C000D6657 /* Transaction.swift in Sources */,
@@ -373,8 +383,10 @@
 				088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */,
 				080E275B2D3AB74500595DE8 /* EditTransactionView.swift in Sources */,
 				089EEFDA2D39A889000D6657 /* BudgetView.swift in Sources */,
+				0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */,
 				089EEFD82D39A4B1000D6657 /* TabbedView.swift in Sources */,
 				080E27692D3AF4FA00595DE8 /* Week.swift in Sources */,
+				0857E3192D42C56D0052904C /* PieChart.swift in Sources */,
 				08A8E73B2B69827800575C9B /* ContentView.swift in Sources */,
 				08A8E73D2B69827800575C9B /* Item.swift in Sources */,
 				080E27572D3AB42300595DE8 /* WeekView.swift in Sources */,

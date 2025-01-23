@@ -24,9 +24,10 @@ struct EditTransactionView: View {
     @State private var transactionCategory: TransactionCategory?
     @State private var recurringItem: Item?
     @State private var description: String = ""
-    @State private var amount: Double = 0.00
+    @State private var inputAmount: Currency = 0.00
     @State private var type: TransactionType = .expense
     @State private var date = Date.now
+    @State private var showDifferentAmountAlert: Bool = false
     
     var title: String {
         transaction == nil ? "Create transaction" : "Edit transaction"
@@ -37,7 +38,7 @@ struct EditTransactionView: View {
     }
     
     var saveDisabled: Bool {
-        description.isEmpty || amount <= 0.00 || noDestinationSelected
+        description.isEmpty || inputAmount <= 0.00 || noDestinationSelected
     }
     
     var noDestinationSelected: Bool {
@@ -64,6 +65,10 @@ struct EditTransactionView: View {
                     .tag(item as Item?)
             }
         }
+    }
+    
+    var differentRecurringAmount: Bool {
+        destination == .recurringItem && recurringItem?.currencyAmount != inputAmount
     }
     
     var body: some View {
@@ -94,7 +99,7 @@ struct EditTransactionView: View {
                         }
                     
                     TextField("Amount",
-                              value: $amount,
+                              value: $inputAmount,
                               format: .currency(code: currencyCode))
                     .keyboardType(.decimalPad)
                     .focused($focusedField, equals: .amount)
@@ -125,36 +130,14 @@ struct EditTransactionView: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(confirmButtonTitle) {
-                        guard let destination else {
+                        if destination == nil {
                             return
                         }
-                        if let transaction {
-                            transaction.destination = destination
-                            transaction.category = transactionCategory
-                            transaction.item = recurringItem
-                            transaction.amount = amount.removeDecimal
-                            transaction.type = type
-                            transaction.transactionDescription = description
-                            transaction.date = date
-                        } else {
-                            let newTransaction = Transaction(
-                                destination: destination,
-                                category: transactionCategory,
-                                item: recurringItem,
-                                amount: amount.removeDecimal,
-                                type: type,
-                                transactionDescription: description,
-                                date: date)
-                            modelContext.insert(newTransaction)
+                        if differentRecurringAmount {
+                            showDifferentAmountAlert = true
+                            return
                         }
-                        withAnimation {
-                            do {
-                                try modelContext.save()
-                                dismiss()
-                            } catch {
-                                logger.error("Cannot save transaction changes")
-                            }
-                        }
+                        save(transaction: transaction)
                     }
                     .disabled(saveDisabled)
                 }
@@ -167,7 +150,7 @@ struct EditTransactionView: View {
             }
             .onChange(of: recurringItem) { _, newItem in
                 if let newItem {
-                    amount = newItem.amount.toDecimal
+                    inputAmount = newItem.currencyAmount
                     description = newItem.itemDescription
                 }
             }
@@ -183,7 +166,61 @@ struct EditTransactionView: View {
                     date = transaction.date
                 }
             }
+            .alert("Recurring item has a different amount",
+                   isPresented: $showDifferentAmountAlert,
+                   actions: {
+                Button("Discard the difference") {
+                    save(transaction: transaction)
+                }
+                
+                Button("Save as transaction") {
+                    destination = .safeToSpend
+                    transactionCategory = .other
+                    recurringItem = nil
+                    save(transaction: transaction)
+                }
+                
+                Button("Cancel", role: .cancel) {
+                    showDifferentAmountAlert = false
+                }
+            }, message: {
+                Text("The recurring item you selected has a different amount. Recurring items are not used to calculate your safe to spend amount. Would you like to discard the difference or save this entry as a one time transaction?")
+            })
             .interactiveDismissDisabled()
+        }
+    }
+    
+    func save(transaction: Transaction?) {
+        guard let destination else {
+            logger.error("Transaction destination is nil")
+            return
+        }
+        if let transaction {
+            transaction.destination = destination
+            transaction.category = transactionCategory
+            transaction.item = recurringItem
+            transaction.currencyAmount = inputAmount
+            transaction.type = type
+            transaction.transactionDescription = description
+            transaction.date = date
+        } else {
+            let newTransaction = Transaction(
+                destination: destination,
+                category: transactionCategory,
+                item: recurringItem,
+                amount: inputAmount,
+                type: type,
+                transactionDescription: description,
+                date: date)
+            modelContext.insert(newTransaction)
+        }
+        withAnimation {
+            do {
+                try modelContext.save()
+                dismiss()
+            } catch {
+                logger.error("Cannot save transaction changes")
+            }
         }
     }
 }
