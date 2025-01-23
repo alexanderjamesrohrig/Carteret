@@ -84,7 +84,7 @@ struct WeekView: View {
             
             Section {
                 // TODO: Switch to navigation link
-                Button("View older transaction") {
+                Button("View older transactions") {
                     showOlderTransactions = true
                 }
             } footer: {

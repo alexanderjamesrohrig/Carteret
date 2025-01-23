@@ -1,0 +1,15 @@
+{
+  "originHash" : "d308de4017e42956fedc2f6fcea21bf4b118031d317e2bf6e2c5bfffb5044958",
+  "pins" : [
+    {
+      "identity" : "rohrigsoftwarecompanycore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alexanderjamesrohrig/RohrigSoftwareCompanyCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3029a1cda454eecb4972ef2abd6dffda7ce9d463"
+      }
+    }
+  ],
+  "version" : 3
+}

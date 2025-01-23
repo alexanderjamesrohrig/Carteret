@@ -82,7 +82,9 @@ struct BudgetView: View {
             }
             
             #if DEBUG
-            Section("DEBUG") {}
+            Section("DEBUG") {
+                
+            }
             #endif
         }
         .sheet(isPresented: $showEditItem) {
