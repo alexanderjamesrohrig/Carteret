@@ -49,7 +49,8 @@ final class Transaction {
     var category: TransactionCategory?
     @Relationship(deleteRule: .nullify)
     var item: Item?
-    @available(*, deprecated,
+    @available(*,
+                deprecated,
                 renamed: "amountDecimal",
                 message: "Causes incorrect calculations.")
     var amount: Int = 0
@@ -57,10 +58,6 @@ final class Transaction {
     var type: TransactionType
     var transactionDescription: String
     var date: Date
-    
-    var displayAmount: String {
-        amount.display
-    }
     
     var safeToSpendIncome: Bool {
         type == .income && category != nil

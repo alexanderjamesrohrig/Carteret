@@ -33,7 +33,7 @@ struct TransactionRowView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(transaction.amount.display)
+                CurrencyText(amount: transaction.currencyAmount)
                     .foregroundStyle(color(for: transaction.type))
                 
                 if let category = transaction.category {

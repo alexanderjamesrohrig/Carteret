@@ -31,7 +31,8 @@ final class Item {
     }
 
     var itemDescription: String
-    @available(*, deprecated,
+    @available(*,
+                deprecated,
                 renamed: "amountDecimal",
                 message: "Causes incorrect calculations.")
     var amount: Int = 0
