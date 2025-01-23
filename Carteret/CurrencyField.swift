@@ -9,15 +9,29 @@ import SwiftUI
 
 struct CurrencyField: View {
     
-    let currencyCode = Locale.current.currency?.identifier ?? ""
-    let title: String
+    @Binding var amount: Currency?
+    @FocusState.Binding var focusedField: InputField?
     
-    @Binding var amount: Double
-//    @Binding var focusedField: InputField?
+    var title: String {
+        var title = "Amount"
+        if let currencyName = Locale.autoupdatingCurrent.currencySymbol {
+            title += " (\(currencyName))"
+        }
+        return title
+    }
     
     var body: some View {
-        TextField(title, value: $amount, format: .currency(code: currencyCode))
-//            .keyboardType(.decimalPad)
-//            .focused($focusedField, equals: InputField.amount)
+        TextField(title, value: $amount, format: .currency(code: Locale.currencyCode))
+            .keyboardType(.decimalPad)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button("Done") {
+                        focusedField = nil
+                    }
+                }
+            }
+            .focused($focusedField, equals: InputField.amount)
     }
 }

@@ -11,18 +11,13 @@ import Foundation
 import OSLog
 
 struct EditItemView: View {
-    
-    enum Field: Hashable {
-        case description, amount
-    }
-    
     let logger = Logger(subsystem: Constant.carteretSubsystem, category: "EditItemView")
     let currencyCode = Locale.current.currency?.identifier ?? ""
     let item: Item?
     
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @FocusState private var focusedField: Field?
+    @FocusState private var focusedField: InputField?
     @State private var description: String = ""
     @State private var amount: Currency? = nil
     @State private var type: TransactionType = .expense
@@ -50,26 +45,13 @@ struct EditItemView: View {
             Form {
                 TextField("Description", text: $description)
                     .focused($focusedField, equals: .description)
+                    .textInputAutocapitalization(.sentences)
                     .onSubmit {
                         focusedField = .amount
                     }
                 
                 // TODO: If savings, allow to set % of income
-                TextField("Amount",
-                          value: $amount,
-                          format: .currency(code: currencyCode))
-                .keyboardType(.decimalPad)
-                .textInputAutocapitalization(.sentences)
-                .focused($focusedField, equals: .amount)
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        
-                        Button("Done") {
-                            focusedField = nil
-                        }
-                    }
-                }
+                CurrencyField(amount: $amount, focusedField: $focusedField)
                 
                 Picker("Type", selection: $type) {
                     ForEach(TransactionType.allCases, id: \.self) { transactionType in

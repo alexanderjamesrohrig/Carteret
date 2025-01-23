@@ -105,20 +105,7 @@ struct EditTransactionView: View {
                             focusedField = .amount
                         }
                     
-                    TextField("Amount",
-                              value: $inputAmount,
-                              format: .currency(code: currencyCode))
-                    .keyboardType(.decimalPad)
-                    .focused($focusedField, equals: .amount)
-                    .toolbar {
-                        ToolbarItemGroup(placement: .keyboard) {
-                            Spacer()
-                            
-                            Button("Done") {
-                                focusedField = nil
-                            }
-                        }
-                    }
+                    CurrencyField(amount: $inputAmount, focusedField: $focusedField)
                     
                     Picker("Type", selection: $type) {
                         ForEach(TransactionType.allCases, id: \.self) { transactionType in
