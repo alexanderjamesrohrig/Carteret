@@ -17,6 +17,7 @@ struct WeekView: View {
            order: .reverse) private var transactions: [Transaction]
     @State private var showEditTransaction = false
     @State private var showOlderTransactions = false
+    @State private var showImport = false
     private var transactionToEdit: Transaction?
     
     var currentWeek: Int {
@@ -68,7 +69,6 @@ struct WeekView: View {
             
             Section {
                 Button {
-                    // TODO: New transaction
                     showEditTransaction = true
                 } label: {
                     Label("New transaction",
@@ -90,12 +90,24 @@ struct WeekView: View {
             } footer: {
                 Text(olderTransactionsSectionFooter)
             }
+            
+            Section {
+                Button {
+                    showImport = true
+                } label: {
+                    Label("Import from Weekly", systemImage: CarteretImage.importName)
+                }
+            }
         }
         .sheet(isPresented: $showEditTransaction) {
             EditTransactionView(transaction: transactionToEdit)
         }
         .sheet(isPresented: $showOlderTransactions) {
             OlderTransactionsView()
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showImport) {
+            TransactionImport()
                 .presentationDragIndicator(.visible)
         }
     }

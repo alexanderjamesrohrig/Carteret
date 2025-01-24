@@ -27,6 +27,8 @@
 		0857E31D2D42CC150052904C /* SpendingLimitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */; };
 		0857E31F2D42DE880052904C /* CurrencyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31E2D42DE830052904C /* CurrencyText.swift */; };
 		0857E3222D42EB640052904C /* RohrigSoftwareCompanyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0857E3212D42EB640052904C /* RohrigSoftwareCompanyCore */; };
+		0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3232D42F7380052904C /* WeeklyTransaction.swift */; };
+		0857E3262D42F7BC0052904C /* TransactionImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3252D42F7BC0052904C /* TransactionImport.swift */; };
 		088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA682D3DB123006B279F /* BudgetManager.swift */; };
 		088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6A2D3DB49B006B279F /* DebugSettings.swift */; };
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
@@ -85,6 +87,8 @@
 		0857E31A2D42C58D0052904C /* BarChart1D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart1D.swift; sourceTree = "<group>"; };
 		0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingLimitRow.swift; sourceTree = "<group>"; };
 		0857E31E2D42DE830052904C /* CurrencyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyText.swift; sourceTree = "<group>"; };
+		0857E3232D42F7380052904C /* WeeklyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTransaction.swift; sourceTree = "<group>"; };
+		0857E3252D42F7BC0052904C /* TransactionImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionImport.swift; sourceTree = "<group>"; };
 		088CEA682D3DB123006B279F /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		088CEA6A2D3DB49B006B279F /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				0834A5CE2B6985CD00A668EA /* LoanView.swift */,
 				089EEFDD2D39AC6A000D6657 /* EditItemView.swift */,
 				080E275A2D3AB74000595DE8 /* EditTransactionView.swift */,
+				0857E3252D42F7BC0052904C /* TransactionImport.swift */,
 				080E27642D3ADB3400595DE8 /* TransactionRowView.swift */,
 				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
 				080E275C2D3ABAD400595DE8 /* CurrencyField.swift */,
@@ -211,6 +216,7 @@
 				089EEFD12D39A022000D6657 /* TransactionType.swift */,
 				089EEFD32D39A0D5000D6657 /* Repeat.swift */,
 				080E27682D3AF4F900595DE8 /* Week.swift */,
+				0857E3232D42F7380052904C /* WeeklyTransaction.swift */,
 				089EEFDB2D39A973000D6657 /* Extensions.swift */,
 				080E275E2D3ABB6800595DE8 /* InputField.swift */,
 				080E27582D3AB4D000595DE8 /* CircularProgressViewStyle.swift */,
@@ -390,6 +396,8 @@
 				080E275D2D3ABAD700595DE8 /* CurrencyField.swift in Sources */,
 				088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */,
 				080E275B2D3AB74500595DE8 /* EditTransactionView.swift in Sources */,
+				0857E3262D42F7BC0052904C /* TransactionImport.swift in Sources */,
+				0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */,
 				089EEFDA2D39A889000D6657 /* BudgetView.swift in Sources */,
 				0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */,
 				089EEFD82D39A4B1000D6657 /* TabbedView.swift in Sources */,

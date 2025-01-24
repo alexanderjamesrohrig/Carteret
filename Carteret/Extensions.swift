@@ -92,6 +92,10 @@ extension Decimal {
         return Decimal(string: "0.00", locale: Locale.autoupdatingCurrent) ?? 0.00
     }
     
+    static func from(string: String) -> Decimal {
+        return Decimal(string: string, locale: Locale.autoupdatingCurrent) ?? 0.00
+    }
+    
     var display: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency

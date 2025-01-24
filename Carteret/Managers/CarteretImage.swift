@@ -6,4 +6,5 @@ enum CarteretImage {
     static let budgetTabName = "1.square.fill"
     static let thisWeekTabName = "2.square.fill"
     static let newTransactionName = "plus.circle"
+    static let importName = "square.and.arrow.down"
 }

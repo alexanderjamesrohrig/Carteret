@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 import OSLog
 import Charts
+import RohrigSoftwareCompanyCore
 
 struct BudgetView: View {
     
@@ -54,6 +55,13 @@ struct BudgetView: View {
         return total
     }
     
+    /// App version
+    ///
+    /// https://semver.org
+    ///
+    /// major.minor.patch-prerelease+build
+    var appVersion: String { "\(RSCCore.shared.version)-Α+\(RSCCore.shared.build)" }
+    
     var body: some View {
         List {
             Section {
@@ -80,18 +88,20 @@ struct BudgetView: View {
                     showEditItem = true
                 }
             }
-            
-            #if DEBUG
-            Section("DEBUG") {
-                
-            }
-            #endif
         }
         .sheet(isPresented: $showEditItem) {
             EditItemView(item: itemToEdit)
         }
         .task {
             budgetManager.spendingLimit = spendingLimit
+        }
+        .safeAreaInset(edge: .bottom) {
+            Text("""
+                 You are using an alpha version (\(appVersion)) of Carteret.
+                 Be advised data could disappear at any time.
+                 This app is unstable and incomplete.
+                 """)
+            .background(Color(uiColor: .systemBackground))
         }
     }
     
