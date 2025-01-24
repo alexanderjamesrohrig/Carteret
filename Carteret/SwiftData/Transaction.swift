@@ -48,11 +48,6 @@ final class Transaction {
     var destination: TransactionDestination
     var category: TransactionCategory?
     var item: Item?
-    @available(*,
-                unavailable,
-                renamed: "currencyAmount",
-                message: "Causes incorrect calculations")
-    var amount: Int = 0
     var currencyAmount: Currency
     var type: TransactionType
     var transactionDescription: String
