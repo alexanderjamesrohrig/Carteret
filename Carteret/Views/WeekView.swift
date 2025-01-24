@@ -8,8 +8,10 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import OSLog
 
 struct WeekView: View {
+    let logger = Logger(subsystem: Constant.carteretSubsystem, category: "WeekView")
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Transaction.currentWeekPredicate(),
@@ -18,7 +20,7 @@ struct WeekView: View {
     @State private var showEditTransaction = false
     @State private var showOlderTransactions = false
     @State private var showImport = false
-    private var transactionToEdit: Transaction?
+    @State private var transactionToEdit: Transaction?
     
     var currentWeek: Int {
         let calendar = Calendar.autoupdatingCurrent
@@ -79,6 +81,22 @@ struct WeekView: View {
             Section("Transactions") {
                 ForEach(transactions) { transaction in
                     TransactionRowView(transaction: transaction)
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button("Details") {
+                                transactionToEdit = transaction
+                                showEditTransaction = true
+                            }
+                            
+                            Button("Delete", role: .destructive) {
+                                transactionToEdit = nil
+                                modelContext.delete(transaction)
+                                do {
+                                    try modelContext.save()
+                                } catch {
+                                    logger.error("\(error.localizedDescription)")
+                                }
+                            }
+                        }
                 }
             }
             

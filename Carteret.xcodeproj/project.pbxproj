@@ -17,7 +17,6 @@
 		080E27692D3AF4FA00595DE8 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27682D3AF4F900595DE8 /* Week.swift */; };
 		0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5CE2B6985CD00A668EA /* LoanView.swift */; };
 		0834A5D12B698AB000A668EA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D02B698AB000A668EA /* Constant.swift */; };
-		0834A5D42B698B5F00A668EA /* LoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D32B698B5F00A668EA /* LoanViewModel.swift */; };
 		0834A5D62B698EC100A668EA /* CarteretImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D52B698EC100A668EA /* CarteretImage.swift */; };
 		0834A5D82B69902700A668EA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D72B69902700A668EA /* Loan.swift */; };
 		0834A5DD2B6992B700A668EA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DC2B6992B700A668EA /* ErrorMessage.swift */; };
@@ -29,6 +28,7 @@
 		0857E3222D42EB640052904C /* RohrigSoftwareCompanyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0857E3212D42EB640052904C /* RohrigSoftwareCompanyCore */; };
 		0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3232D42F7380052904C /* WeeklyTransaction.swift */; };
 		0857E3262D42F7BC0052904C /* TransactionImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3252D42F7BC0052904C /* TransactionImport.swift */; };
+		0857E3292D431E4B0052904C /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3282D431E480052904C /* Fund.swift */; };
 		088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA682D3DB123006B279F /* BudgetManager.swift */; };
 		088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6A2D3DB49B006B279F /* DebugSettings.swift */; };
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
@@ -78,7 +78,6 @@
 		080E27682D3AF4F900595DE8 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		0834A5CE2B6985CD00A668EA /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		0834A5D02B698AB000A668EA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		0834A5D32B698B5F00A668EA /* LoanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewModel.swift; sourceTree = "<group>"; };
 		0834A5D52B698EC100A668EA /* CarteretImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretImage.swift; sourceTree = "<group>"; };
 		0834A5D72B69902700A668EA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		0834A5DC2B6992B700A668EA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		0857E31E2D42DE830052904C /* CurrencyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyText.swift; sourceTree = "<group>"; };
 		0857E3232D42F7380052904C /* WeeklyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTransaction.swift; sourceTree = "<group>"; };
 		0857E3252D42F7BC0052904C /* TransactionImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionImport.swift; sourceTree = "<group>"; };
+		0857E3282D431E480052904C /* Fund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fund.swift; sourceTree = "<group>"; };
 		088CEA682D3DB123006B279F /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		088CEA6A2D3DB49B006B279F /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
@@ -161,6 +161,7 @@
 				0834A5DE2B6993C800A668EA /* Payment.swift */,
 				089EEFCF2D399F39000D6657 /* Transaction.swift */,
 				089EEFD52D39A135000D6657 /* Category.swift */,
+				0857E3282D431E480052904C /* Fund.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -220,7 +221,6 @@
 			children = (
 				08A8E7382B69827800575C9B /* CarteretApp.swift */,
 				0857E3272D4318B20052904C /* Views */,
-				0834A5D32B698B5F00A668EA /* LoanViewModel.swift */,
 				089EEFD12D39A022000D6657 /* TransactionType.swift */,
 				089EEFD32D39A0D5000D6657 /* Repeat.swift */,
 				080E27682D3AF4F900595DE8 /* Week.swift */,
@@ -413,6 +413,7 @@
 				0857E3192D42C56D0052904C /* PieChart.swift in Sources */,
 				08A8E73B2B69827800575C9B /* ContentView.swift in Sources */,
 				0857E31F2D42DE880052904C /* CurrencyText.swift in Sources */,
+				0857E3292D431E4B0052904C /* Fund.swift in Sources */,
 				08A8E73D2B69827800575C9B /* Item.swift in Sources */,
 				080E27572D3AB42300595DE8 /* WeekView.swift in Sources */,
 				088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */,
@@ -424,7 +425,6 @@
 				089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */,
 				089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */,
 				080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */,
-				0834A5D42B698B5F00A668EA /* LoanViewModel.swift in Sources */,
 				0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */,
 				080E275F2D3ABB6D00595DE8 /* InputField.swift in Sources */,
 				08A8E7392B69827800575C9B /* CarteretApp.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftData
-import Charts
 
 @Model
 final class Category {

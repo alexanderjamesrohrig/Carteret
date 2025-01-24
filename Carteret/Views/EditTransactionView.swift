@@ -13,7 +13,6 @@ import OSLog
 struct EditTransactionView: View {
     let logger = Logger(subsystem: Constant.carteretSubsystem,
                         category: "EditTransactionView")
-    let currencyCode = Locale.current.currency?.identifier ?? ""
     let transaction: Transaction?
     
     @Environment(\.modelContext) private var modelContext
@@ -154,7 +153,7 @@ struct EditTransactionView: View {
                     destination = transaction.destination
                     transactionCategory = transaction.category
                     recurringItem = transaction.item
-                    // TODO: Set amount amount = transaction.amount.toDouble
+                    inputAmount = transaction.currencyAmount
                     type = transaction.type
                     description = transaction.transactionDescription
                     date = transaction.date

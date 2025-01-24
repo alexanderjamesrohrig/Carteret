@@ -11,19 +11,19 @@ import SwiftData
 @Model
 final class Loan {
     var name: String
-    var interest: Int
-    var principal: Int
-    var totalAmountDue: Int
-    var minimumPayment: Int
-    var nextPayment: Int
+    var interest: Decimal
+    var principal: Currency
+    var totalAmountDue: Currency
+    var minimumPayment: Currency
+    var nextPayment: Currency
     var nextPaymentDate: Date
     
     init(name: String,
-         interest: Int,
-         principal: Int,
-         totalAmountDue: Int,
-         minimumPayment: Int,
-         nextPayment: Int,
+         interest: Decimal,
+         principal: Currency,
+         totalAmountDue: Currency,
+         minimumPayment: Currency,
+         nextPayment: Currency,
          nextPaymentDate: Date) {
         self.name = name
         self.interest = interest
