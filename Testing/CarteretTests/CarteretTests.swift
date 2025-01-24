@@ -88,4 +88,32 @@ final class CarteretTests: XCTestCase {
         let today = Date.now
         XCTAssertFalse(today.medium.isEmpty)
     }
+    
+    // MARK: - Locale
+    
+    // MARK: - Decimal
+    func testDecimalZero() throws {
+        let expected: Decimal = 0.00
+        XCTAssertEqual(Decimal.zero, expected)
+    }
+    
+    func testDecimalFromString() throws {
+        let number = Decimal.from(string: "5.10")
+        let expected: Decimal = 5.10
+        XCTAssertEqual(number, expected)
+    }
+    
+    func testDecimalDisplay() throws {
+        let number: Decimal = 5.10
+        let expected = "$5.10"
+        XCTAssertEqual(number.display, expected)
+    }
+    
+    func testDecimalToDouble() throws {
+        let number: Decimal = 5.10
+        let expected: Double = 5.10
+        XCTAssertEqual(number.toDouble, expected)
+    }
+    
+    // MARK: - View
 }
