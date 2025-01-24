@@ -10,6 +10,10 @@ import SwiftData
 
 public typealias Currency = Decimal
 
+/*
+ TODO: New transaction control
+ */
+
 @main
 struct CarteretApp: App {
     var sharedModelContainer: ModelContainer = {

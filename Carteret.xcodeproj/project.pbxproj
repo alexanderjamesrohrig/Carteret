@@ -165,6 +165,28 @@
 			path = SwiftData;
 			sourceTree = "<group>";
 		};
+		0857E3272D4318B20052904C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				080E275A2D3AB74000595DE8 /* EditTransactionView.swift */,
+				0857E3252D42F7BC0052904C /* TransactionImport.swift */,
+				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
+				080E27642D3ADB3400595DE8 /* TransactionRowView.swift */,
+				080E275C2D3ABAD400595DE8 /* CurrencyField.swift */,
+				0857E31E2D42DE830052904C /* CurrencyText.swift */,
+				080E27562D3AB41E00595DE8 /* WeekView.swift */,
+				089EEFDD2D39AC6A000D6657 /* EditItemView.swift */,
+				0834A5CE2B6985CD00A668EA /* LoanView.swift */,
+				08A8E73A2B69827800575C9B /* ContentView.swift */,
+				089EEFD92D39A882000D6657 /* BudgetView.swift */,
+				088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */,
+				0857E3182D42C5680052904C /* PieChart.swift */,
+				0857E31A2D42C58D0052904C /* BarChart1D.swift */,
+				089EEFD72D39A4AE000D6657 /* TabbedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		089EEFCE2D399D0B000D6657 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,21 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				08A8E7382B69827800575C9B /* CarteretApp.swift */,
-				089EEFD72D39A4AE000D6657 /* TabbedView.swift */,
-				089EEFD92D39A882000D6657 /* BudgetView.swift */,
-				08A8E73A2B69827800575C9B /* ContentView.swift */,
-				0834A5CE2B6985CD00A668EA /* LoanView.swift */,
-				089EEFDD2D39AC6A000D6657 /* EditItemView.swift */,
-				080E275A2D3AB74000595DE8 /* EditTransactionView.swift */,
-				0857E3252D42F7BC0052904C /* TransactionImport.swift */,
-				080E27642D3ADB3400595DE8 /* TransactionRowView.swift */,
-				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
-				080E275C2D3ABAD400595DE8 /* CurrencyField.swift */,
-				0857E31E2D42DE830052904C /* CurrencyText.swift */,
-				080E27562D3AB41E00595DE8 /* WeekView.swift */,
-				088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */,
-				0857E3182D42C5680052904C /* PieChart.swift */,
-				0857E31A2D42C58D0052904C /* BarChart1D.swift */,
+				0857E3272D4318B20052904C /* Views */,
 				0834A5D32B698B5F00A668EA /* LoanViewModel.swift */,
 				089EEFD12D39A022000D6657 /* TransactionType.swift */,
 				089EEFD32D39A0D5000D6657 /* Repeat.swift */,
