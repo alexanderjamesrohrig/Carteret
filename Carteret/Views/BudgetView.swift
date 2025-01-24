@@ -23,6 +23,7 @@ struct BudgetView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     @State private var showEditItem = false
+    @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
     private var itemToEdit: Item?
     
     var spendingLimit: Currency {
@@ -92,6 +93,8 @@ struct BudgetView: View {
 #if DEBUG
             Section("DEBUG") {
                 LabeledContent("Version", value: appVersion)
+                
+                Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
             }
 #endif
         }
@@ -102,12 +105,14 @@ struct BudgetView: View {
             budgetManager.spendingLimit = spendingLimit
         }
         .safeAreaInset(edge: .bottom) {
-            Text("""
+            if !hidePrereleaseWarning {
+                Text("""
                  You are using an alpha version (\(appVersion)) of Carteret.
                  Be advised data could disappear at any time.
                  This app is unstable and incomplete.
                  """)
-            .background(Color(uiColor: .systemBackground))
+                .background(Color(uiColor: .systemBackground))
+            }
         }
     }
     

@@ -15,12 +15,24 @@ struct OlderTransactionsView: View {
            order: .reverse) private var transactions: [Transaction]
     
     var body: some View {
-        List {
-            ForEach(transactions) { transaction in
-                TransactionRowView(transaction: transaction)
+        if transactions.isEmpty {
+            VStack(alignment: .center) {
+                Spacer()
+                
+                Text("No transactions")
+                    .foregroundStyle(Color.secondary)
+                
+                Spacer()
             }
+            .presentationDragIndicator(.visible)
+        } else {
+            List {
+                ForEach(transactions) { transaction in
+                    TransactionRowView(transaction: transaction)
+                }
+            }
+            .presentationDragIndicator(.visible)
         }
-        .presentationDragIndicator(.visible)
     }
 }
 

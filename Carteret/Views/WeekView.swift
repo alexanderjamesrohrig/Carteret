@@ -79,32 +79,34 @@ struct WeekView: View {
                 }
             }
             
-            Section("Transactions") {
-                ForEach(transactions) { transaction in
-                    TransactionRowView(transaction: transaction)
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button("Delete", role: .destructive) {
-                                transactionToEdit = nil
-                                modelContext.delete(transaction)
-                                do {
-                                    try modelContext.save()
-                                } catch {
-                                    logger.error("\(error.localizedDescription)")
+            if !transactions.isEmpty {
+                Section("Transactions") {
+                    ForEach(transactions) { transaction in
+                        TransactionRowView(transaction: transaction)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                Button("Delete", role: .destructive) {
+                                    transactionToEdit = nil
+                                    modelContext.delete(transaction)
+                                    do {
+                                        try modelContext.save()
+                                    } catch {
+                                        logger.error("\(error.localizedDescription)")
+                                    }
+                                }
+                                
+                                Button("Details") {
+                                    transactionToEdit = transaction
                                 }
                             }
-                            
-                            Button("Details") {
-                                transactionToEdit = transaction
-                            }
-                        }
+                    }
                 }
-            }
-            
-            Section {
-                Button {
-                    showVisuals = true
-                } label: {
-                    Label("View visuals", systemImage: CarteretImage.visualsName)
+                
+                Section {
+                    Button {
+                        showVisuals = true
+                    } label: {
+                        Label("View visuals", systemImage: CarteretImage.visualsName)
+                    }
                 }
             }
             
