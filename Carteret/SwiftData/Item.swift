@@ -35,9 +35,9 @@ final class Item {
 
     var itemDescription: String
     @available(*,
-                deprecated,
-                renamed: "amountDecimal",
-                message: "Causes incorrect calculations.")
+                unavailable,
+                renamed: "currencyAmount",
+                message: "Causes incorrect calculations")
     var amount: Int = 0
     var currencyAmount: Currency
     // TODO: Add Decimal amount

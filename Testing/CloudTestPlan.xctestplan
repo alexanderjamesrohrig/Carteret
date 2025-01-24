@@ -6,18 +6,6 @@
       "options" : {
 
       }
-    },
-    {
-      "id" : "BA81DD18-3FEA-4E11-9884-B9612A57EC25",
-      "name" : "China",
-      "options" : {
-        "language" : "zh-Hans",
-        "locationScenario" : {
-          "identifier" : "Hong Kong, China",
-          "referenceType" : "built-in"
-        },
-        "region" : "CN"
-      }
     }
   ],
   "defaultOptions" : {

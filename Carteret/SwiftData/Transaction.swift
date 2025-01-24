@@ -49,9 +49,9 @@ final class Transaction {
     var category: TransactionCategory?
     var item: Item?
     @available(*,
-                deprecated,
-                renamed: "amountDecimal",
-                message: "Causes incorrect calculations.")
+                unavailable,
+                renamed: "currencyAmount",
+                message: "Causes incorrect calculations")
     var amount: Int = 0
     var currencyAmount: Currency
     var type: TransactionType
