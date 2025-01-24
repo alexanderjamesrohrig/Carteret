@@ -20,6 +20,7 @@ struct OlderTransactionsView: View {
                 TransactionRowView(transaction: transaction)
             }
         }
+        .presentationDragIndicator(.visible)
     }
 }
 

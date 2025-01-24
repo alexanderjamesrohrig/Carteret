@@ -6,4 +6,5 @@ enum Constant {
     static let incomeCategoryTitle = "Income"
     static let billsCategoryTitle = "Bills and utilities"
     static let savingsCategoryTitle = "Savings"
+    static let iPhone16CornerRadius: CGFloat = 55.0
 }

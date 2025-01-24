@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import SwiftUI
 
 // MARK: Int
 extension Int {
@@ -84,6 +85,66 @@ extension Locale {
     static var currencyCode: String {
         Self.autoupdatingCurrent.currency?.identifier ?? "USD"
     }
+    
+    /// https://gist.github.com/christianselig/09383de004bd878ba4a86663bc6d1b0b
+    private var currencySymbolName: String? {
+        guard let currencySymbol else {
+            return nil
+        }
+        let symbols: [String: String] = [
+            "$": "dollar",
+            "¢": "cent",
+            "¥": "yen",
+            "£": "sterling",
+            "₣": "franc",
+            "ƒ": "florin",
+            "₺": "turkishlira",
+            "₽": "ruble",
+            "€": "euro",
+            "₫": "dong",
+            "₹": "indianrupee",
+            "₸": "tenge",
+            "₧": "peseta",
+            "₱": "peso",
+            "₭": "kip",
+            "₩": "won",
+            "₤": "lira",
+            "₳": "austral",
+            "₴": "hryvnia",
+            "₦": "naira",
+            "₲": "guarani",
+            "₡": "coloncurrency",
+            "₵": "cedi",
+            "₢": "cruzeiro",
+            "₮": "tugrik",
+            "₥": "mill",
+            "₪": "shekel",
+            "₼": "manat",
+            "₨": "rupee",
+            "฿": "baht",
+            "₾": "lari",
+            "R$":" brazilianreal"
+        ]
+        guard let symbolName = symbols[currencySymbol] else {
+            return nil
+        }
+        return "\(symbolName)sign"
+    }
+    
+    /// https://gist.github.com/christianselig/09383de004bd878ba4a86663bc6d1b0b
+    func currencySymbol(systemName: String,
+                        filled: Bool = false,
+                        with configuration: UIImage.Configuration? = nil) -> UIImage {
+        let filled = filled ? ".fill" : ""
+        let defaultName = "dollarsign.\(systemName)\(filled)"
+        let defaultImage = UIImage(systemName: defaultName)!
+        guard let currencySymbolName = currencySymbolName else {
+            return defaultImage
+        }
+        let symbolName = "\(currencySymbolName)\(systemName)\(filled)"
+        return UIImage(systemName: symbolName,
+                       withConfiguration: configuration) ?? defaultImage
+    }
 }
 
 // MARK: - Decimal
@@ -105,5 +166,12 @@ extension Decimal {
     var toDouble: Double {
         let nsdn = NSDecimalNumber(decimal: self)
         return Double(truncating: nsdn)
+    }
+}
+
+// MARK: - View
+extension View {
+    func height(_ height: Binding<CGFloat>) -> some View {
+        self.modifier(Height(height: height))
     }
 }

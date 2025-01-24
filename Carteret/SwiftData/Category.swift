@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Charts
 
 @Model
 final class Category {
@@ -54,13 +55,34 @@ enum DefaultCategory: Codable {
 }
 
 // TODO: Custom transaction categories
-enum TransactionCategory: Codable, CaseIterable {
+enum TransactionCategory: Codable, CaseIterable, Comparable {
+    static func <(lhs: TransactionCategory, rhs: TransactionCategory) -> Bool {
+        return lhs.sortOrder < rhs.sortOrder
+    }
+    
     case eatingOut
     case entertainment
     case gas
     case groceries
     case other
     case shopping
+    
+    var sortOrder: Int {
+        switch self {
+        case .eatingOut:
+            0
+        case .entertainment:
+            1
+        case .gas:
+            2
+        case .groceries:
+            3
+        case .other:
+            4
+        case .shopping:
+            5
+        }
+    }
     
     var displayName: String {
         switch self {

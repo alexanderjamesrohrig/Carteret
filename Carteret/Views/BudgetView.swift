@@ -88,6 +88,12 @@ struct BudgetView: View {
                     showEditItem = true
                 }
             }
+            
+#if DEBUG
+            Section("DEBUG") {
+                LabeledContent("Version", value: appVersion)
+            }
+#endif
         }
         .sheet(isPresented: $showEditItem) {
             EditItemView(item: itemToEdit)

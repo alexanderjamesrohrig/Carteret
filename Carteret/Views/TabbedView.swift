@@ -23,8 +23,6 @@ struct TabbedView: View {
                 .tabItem {
                     Label("This week", systemImage: CarteretImage.thisWeekTabName)
                 }
-            
-            // TODO: History
         }
         .environmentObject(budgetManager)
     }

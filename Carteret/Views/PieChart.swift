@@ -27,7 +27,7 @@ struct PieChart: View {
     let data: [PieChartSegment]
     
     var body: some View {
-        Chart(PieChartSegment.previewData) { segment in
+        Chart(data) { segment in
             SectorMark(angle: .value("Amount", segment.amount))
                 .foregroundStyle(by: .value("Category", segment.name))
         }

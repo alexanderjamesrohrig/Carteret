@@ -148,7 +148,6 @@ struct EditTransactionView: View {
                 }
             }
             .onAppear {
-                focusedField = .description
                 if let transaction {
                     destination = transaction.destination
                     transactionCategory = transaction.category
@@ -157,6 +156,8 @@ struct EditTransactionView: View {
                     type = transaction.type
                     description = transaction.transactionDescription
                     date = transaction.date
+                } else {
+                    focusedField = .description
                 }
             }
             .alert("Recurring item has a different amount",

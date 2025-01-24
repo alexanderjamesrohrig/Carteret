@@ -19,6 +19,7 @@ struct WeekView: View {
            order: .reverse) private var transactions: [Transaction]
     @State private var showEditTransaction = false
     @State private var showOlderTransactions = false
+    @State private var showVisuals = false
     @State private var showImport = false
     @State private var transactionToEdit: Transaction?
     
@@ -82,11 +83,6 @@ struct WeekView: View {
                 ForEach(transactions) { transaction in
                     TransactionRowView(transaction: transaction)
                         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button("Details") {
-                                transactionToEdit = transaction
-                                showEditTransaction = true
-                            }
-                            
                             Button("Delete", role: .destructive) {
                                 transactionToEdit = nil
                                 modelContext.delete(transaction)
@@ -96,14 +92,29 @@ struct WeekView: View {
                                     logger.error("\(error.localizedDescription)")
                                 }
                             }
+                            
+                            Button("Details") {
+                                transactionToEdit = transaction
+                            }
                         }
                 }
             }
             
             Section {
+                Button {
+                    showVisuals = true
+                } label: {
+                    Label("View visuals", systemImage: CarteretImage.visualsName)
+                }
+            }
+            
+            Section {
                 // TODO: Switch to navigation link
-                Button("View older transactions") {
+                Button {
                     showOlderTransactions = true
+                } label: {
+                    Label("View older transactions",
+                          systemImage: CarteretImage.historyName)
                 }
             } footer: {
                 Text(olderTransactionsSectionFooter)
@@ -122,11 +133,15 @@ struct WeekView: View {
         }
         .sheet(isPresented: $showOlderTransactions) {
             OlderTransactionsView()
-                .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showImport) {
             TransactionImport()
-                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showVisuals) {
+            WeekVisuals(transactions: transactions)
+        }
+        .sheet(item: $transactionToEdit) { transaction in
+            EditTransactionView(transaction: transaction)
         }
     }
 }
