@@ -24,6 +24,7 @@ struct BudgetView: View {
     @Query private var items: [Item]
     @State private var showEditItem = false
     @State private var itemToEdit: Item?
+    @State private var itemToShow: Item?
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
     
     var spendingLimit: Currency {
@@ -105,6 +106,9 @@ struct BudgetView: View {
         .sheet(item: $itemToEdit) { item in
             EditItemView(item: item)
         }
+        .sheet(item: $itemToShow) { item in
+            ItemVisuals(item: item)
+        }
         .task {
             budgetManager.spendingLimit = spendingLimit
         }
@@ -140,10 +144,12 @@ struct BudgetView: View {
                 itemToEdit = item
             }
             
-            Button("Visuals") {
-                // TODO: Visuals view
+            if !item.transactions.isEmpty {
+                Button("Visuals") {
+                    itemToShow = item
+                }
+                .tint(Color.blue)
             }
-            .tint(Color.blue)
         }
     }
     

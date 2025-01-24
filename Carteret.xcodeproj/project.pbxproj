@@ -34,6 +34,8 @@
 		088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA682D3DB123006B279F /* BudgetManager.swift */; };
 		088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6A2D3DB49B006B279F /* DebugSettings.swift */; };
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
+		089A882C2D4424CD00990FF3 /* TransactionsBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A882B2D4424C900990FF3 /* TransactionsBarChart.swift */; };
+		089A882E2D44255500990FF3 /* ItemVisuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A882D2D44255100990FF3 /* ItemVisuals.swift */; };
 		089EEFD02D399F3C000D6657 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFCF2D399F39000D6657 /* Transaction.swift */; };
 		089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFD12D39A022000D6657 /* TransactionType.swift */; };
 		089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFD32D39A0D5000D6657 /* Repeat.swift */; };
@@ -98,6 +100,8 @@
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
 		089A88292D43F8D400990FF3 /* LocalTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = LocalTestPlan.xctestplan; path = Testing/LocalTestPlan.xctestplan; sourceTree = "<group>"; };
 		089A882A2D43F8F200990FF3 /* CloudTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CloudTestPlan.xctestplan; path = Testing/CloudTestPlan.xctestplan; sourceTree = "<group>"; };
+		089A882B2D4424C900990FF3 /* TransactionsBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsBarChart.swift; sourceTree = "<group>"; };
+		089A882D2D44255100990FF3 /* ItemVisuals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVisuals.swift; sourceTree = "<group>"; };
 		089EEFCF2D399F39000D6657 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		089EEFD12D39A022000D6657 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		089EEFD32D39A0D5000D6657 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
@@ -189,8 +193,10 @@
 				088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */,
 				0857E3182D42C5680052904C /* PieChart.swift */,
 				0857E31A2D42C58D0052904C /* BarChart1D.swift */,
+				089A882B2D4424C900990FF3 /* TransactionsBarChart.swift */,
 				089EEFD72D39A4AE000D6657 /* TabbedView.swift */,
 				0857E32A2D4325D10052904C /* WeekVisuals.swift */,
+				089A882D2D44255100990FF3 /* ItemVisuals.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				080E27692D3AF4FA00595DE8 /* Week.swift in Sources */,
 				0857E3192D42C56D0052904C /* PieChart.swift in Sources */,
 				08A8E73B2B69827800575C9B /* ContentView.swift in Sources */,
+				089A882E2D44255500990FF3 /* ItemVisuals.swift in Sources */,
 				0857E31F2D42DE880052904C /* CurrencyText.swift in Sources */,
 				0857E3292D431E4B0052904C /* Fund.swift in Sources */,
 				08A8E73D2B69827800575C9B /* Item.swift in Sources */,
@@ -437,6 +444,7 @@
 				089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */,
 				089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */,
 				080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */,
+				089A882C2D4424CD00990FF3 /* TransactionsBarChart.swift in Sources */,
 				0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */,
 				080E275F2D3ABB6D00595DE8 /* InputField.swift in Sources */,
 				08A8E7392B69827800575C9B /* CarteretApp.swift in Sources */,
