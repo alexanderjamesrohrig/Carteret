@@ -23,12 +23,12 @@ struct BudgetView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     @State private var showEditItem = false
+    @State private var itemToEdit: Item?
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
-    private var itemToEdit: Item?
     
     var spendingLimit: Currency {
         // TODO: Income - bills - savings - funds
-        let spendingLimit = incomeTotal - billsTotal
+        let spendingLimit = incomeTotal - billsTotal - savingsTotal
         return spendingLimit
     }
     
@@ -61,7 +61,7 @@ struct BudgetView: View {
     /// https://semver.org
     ///
     /// major.minor.patch-prerelease+build
-    var appVersion: String { "\(RSCCore.shared.version)-Α+\(RSCCore.shared.build)" }
+    var appVersion: String { "\(RSCCore.shared.version)-Α" }
     
     var body: some View {
         List {
@@ -77,7 +77,7 @@ struct BudgetView: View {
                 
                 LabeledContent("Bills", value: billsTotal.display)
                 
-                LabeledContent("Savings", value: zero)
+                LabeledContent("Savings", value: savingsTotal.display)
             }
             
             Section("Recurring items") {
@@ -86,6 +86,7 @@ struct BudgetView: View {
                 }
                 
                 Button("Create a new item") {
+                    itemToEdit = nil
                     showEditItem = true
                 }
             }
@@ -100,6 +101,9 @@ struct BudgetView: View {
         }
         .sheet(isPresented: $showEditItem) {
             EditItemView(item: itemToEdit)
+        }
+        .sheet(item: $itemToEdit) { item in
+            EditItemView(item: item)
         }
         .task {
             budgetManager.spendingLimit = spendingLimit
@@ -130,6 +134,16 @@ struct BudgetView: View {
                 Text(item.itemRepeat.displayName)
                     .font(.caption)
             }
+        }
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button("Details") {
+                itemToEdit = item
+            }
+            
+            Button("Visuals") {
+                // TODO: Visuals view
+            }
+            .tint(Color.blue)
         }
     }
     

@@ -96,6 +96,8 @@
 		088CEA682D3DB123006B279F /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		088CEA6A2D3DB49B006B279F /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
+		089A88292D43F8D400990FF3 /* LocalTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = LocalTestPlan.xctestplan; path = Testing/LocalTestPlan.xctestplan; sourceTree = "<group>"; };
+		089A882A2D43F8F200990FF3 /* CloudTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CloudTestPlan.xctestplan; path = Testing/CloudTestPlan.xctestplan; sourceTree = "<group>"; };
 		089EEFCF2D399F39000D6657 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		089EEFD12D39A022000D6657 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		089EEFD32D39A0D5000D6657 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
@@ -205,6 +207,8 @@
 		08A8E72C2B69827800575C9B = {
 			isa = PBXGroup;
 			children = (
+				089A882A2D43F8F200990FF3 /* CloudTestPlan.xctestplan */,
+				089A88292D43F8D400990FF3 /* LocalTestPlan.xctestplan */,
 				08A8E7372B69827800575C9B /* Carteret */,
 				089EEFCE2D399D0B000D6657 /* Testing */,
 				08A8E7362B69827800575C9B /* Products */,

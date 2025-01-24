@@ -6,30 +6,86 @@
 //
 
 import XCTest
+@testable import Carteret
 
 final class CarteretTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let transactions: [Transaction] = [
+        Transaction(
+            destination: .safeToSpend,
+            category: .other,
+            item: nil,
+            amount: 50.00,
+            type: .expense,
+            transactionDescription: "Test 1",
+            date: Date.now
+        ),
+        Transaction(
+            destination: .safeToSpend,
+            category: .other,
+            item: nil,
+            amount: 50.00,
+            type: .expense,
+            transactionDescription: "Test 2",
+            date: Date.now
+        ),
+        Transaction(
+            destination: .safeToSpend,
+            category: .other,
+            item: nil,
+            amount: 100.00,
+            type: .income,
+            transactionDescription: "Test 3",
+            date: Date.now
+        )
+    ]
+    
+    // MARK: - BudgetManager
+    func testBudgetManagerCalculateBalance() throws {
+        let budgetManager = BudgetManager()
+        budgetManager.calculateBalance(from: transactions)
+        let balance = budgetManager.runningBalance
+        let expected: Currency = 0.00
+        XCTAssertEqual(balance, expected)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testBudgetManagerDisplaySpendingLimit() throws {
+        let budgetManager = BudgetManager()
+        budgetManager.spendingLimit = 1234.56
+        // TODO: Localize
+        let expected = "$1,234.56"
+        XCTAssertEqual(budgetManager.displaySpendingLimit, expected)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    // MARK: - Int+
+    func testIntDisplay() throws {
+        let number: Int = 510
+        let expected = "$5.10"
+        XCTAssertEqual(number.display, expected)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testIntToDecimal() throws {
+        let number: Int = 510
+        let expected: Double = 5.10
+        XCTAssertEqual(number.toDecimal, expected)
     }
-
+    
+    // MARK: - Double+
+    func testDoubleRemoveDecimal() throws {
+        throw XCTSkip("Function no longer available")
+    }
+    
+    // MARK: - String+
+    func testStringToInt() throws {
+        throw XCTSkip("Function no longer available")
+    }
+    
+    // MARK: - Calendar
+    // TODO: currentWeek
+    // TODO: week()
+    
+    // MARK: - Date
+    func testDateMedium() throws {
+        let today = Date.now
+        XCTAssertFalse(today.medium.isEmpty)
+    }
 }

@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "D78D5359-923E-43CB-8AF2-0DD81DA5022C",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "BA81DD18-3FEA-4E11-9884-B9612A57EC25",
+      "name" : "China",
+      "options" : {
+        "language" : "zh-Hans",
+        "locationScenario" : {
+          "identifier" : "Hong Kong, China",
+          "referenceType" : "built-in"
+        },
+        "region" : "CN"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Carteret.xcodeproj",
+        "identifier" : "08A8E7482B69827E00575C9B",
+        "name" : "CarteretTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Carteret.xcodeproj",
+        "identifier" : "08A8E7522B69827E00575C9B",
+        "name" : "CarteretUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

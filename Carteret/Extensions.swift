@@ -29,6 +29,7 @@ extension Int {
 
 // MARK: - Double
 extension Double {
+    @available(*, unavailable, message: "Results in incorrect value")
     var removeDecimal: Int {
         let noDecimal = self * 100
         return Int(noDecimal)
@@ -37,6 +38,7 @@ extension Double {
 
 // MARK: - String
 extension String {
+    @available(*, unavailable, message: "Results in incorrect value")
     var toInt: Int {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency

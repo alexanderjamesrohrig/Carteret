@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "4E53C1D3-207E-4ED5-AFF0-CEA34B6FD24F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Carteret.xcodeproj",
+        "identifier" : "08A8E7482B69827E00575C9B",
+        "name" : "CarteretTests"
+      }
+    }
+  ],
+  "version" : 1
+}

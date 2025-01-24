@@ -14,12 +14,14 @@ final class Item {
          amount: Currency,
          type: TransactionType,
          itemRepeat: Repeat,
-         category: ItemCategory) {
+         category: ItemCategory,
+         transactions: [Transaction] = []) {
         self.itemDescription = itemDescription
         self.currencyAmount = amount
         self.type = type
         self.itemRepeat = itemRepeat
         self.category = category
+        self.transactions = transactions
     }
     
     init(category: ItemCategory) {
@@ -28,6 +30,7 @@ final class Item {
         self.type = .expense
         self.itemRepeat = .everyWeek
         self.category = category
+        self.transactions = []
     }
 
     var itemDescription: String
@@ -41,6 +44,8 @@ final class Item {
     var type: TransactionType
     var itemRepeat: Repeat
     var category: ItemCategory
+    @Relationship(deleteRule: .deny, inverse: \Transaction.item)
+    var transactions: [Transaction]
     
     var weeklyAmount: Currency {
         var weekly = Currency.zero

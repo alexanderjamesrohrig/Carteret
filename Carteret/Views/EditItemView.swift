@@ -75,6 +75,16 @@ struct EditItemView: View {
                             .tag(categoryItem as ItemCategory?)
                     }
                 }
+                
+                if item != nil {
+                    Section {
+                        Button("Archive", role: .destructive) {
+                            // TODO: Archive item
+                        }
+                    } footer: {
+                        Text("Item will be removed from list and weekly budget calculations, but prevvious transactions will remain and labeled with this recurring item.")
+                    }
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -122,11 +132,14 @@ struct EditItemView: View {
                 }
             }
             .onAppear {
-                focusedField = .description
                 if let item {
                     description = item.itemDescription
+                    amount = item.currencyAmount
+                    type = item.type
+                    repeatSelection = item.itemRepeat
+                    category = item.category
                 } else {
-                    
+                    focusedField = .description
                 }
             }
             .interactiveDismissDisabled()

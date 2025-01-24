@@ -47,7 +47,6 @@ final class Transaction {
     
     var destination: TransactionDestination
     var category: TransactionCategory?
-    @Relationship(deleteRule: .nullify)
     var item: Item?
     @available(*,
                 deprecated,
