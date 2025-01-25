@@ -36,6 +36,7 @@
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
 		089A882C2D4424CD00990FF3 /* TransactionsBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A882B2D4424C900990FF3 /* TransactionsBarChart.swift */; };
 		089A882E2D44255500990FF3 /* ItemVisuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A882D2D44255100990FF3 /* ItemVisuals.swift */; };
+		089A88302D44659600990FF3 /* StorageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A882F2D44659100990FF3 /* StorageState.swift */; };
 		089EEFD02D399F3C000D6657 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFCF2D399F39000D6657 /* Transaction.swift */; };
 		089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFD12D39A022000D6657 /* TransactionType.swift */; };
 		089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEFD32D39A0D5000D6657 /* Repeat.swift */; };
@@ -102,6 +103,7 @@
 		089A882A2D43F8F200990FF3 /* CloudTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CloudTestPlan.xctestplan; path = Testing/CloudTestPlan.xctestplan; sourceTree = "<group>"; };
 		089A882B2D4424C900990FF3 /* TransactionsBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsBarChart.swift; sourceTree = "<group>"; };
 		089A882D2D44255100990FF3 /* ItemVisuals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVisuals.swift; sourceTree = "<group>"; };
+		089A882F2D44659100990FF3 /* StorageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageState.swift; sourceTree = "<group>"; };
 		089EEFCF2D399F39000D6657 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		089EEFD12D39A022000D6657 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		089EEFD32D39A0D5000D6657 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				0857E3232D42F7380052904C /* WeeklyTransaction.swift */,
 				089EEFDB2D39A973000D6657 /* Extensions.swift */,
 				080E275E2D3ABB6800595DE8 /* InputField.swift */,
+				089A882F2D44659100990FF3 /* StorageState.swift */,
 				080E27582D3AB4D000595DE8 /* CircularProgressViewStyle.swift */,
 				080E27622D3AC2A100595DE8 /* TransactionDestination.swift */,
 				0857E32C2D432B130052904C /* ViewModifier.swift */,
@@ -424,6 +427,7 @@
 				0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */,
 				089EEFDA2D39A889000D6657 /* BudgetView.swift in Sources */,
 				0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */,
+				089A88302D44659600990FF3 /* StorageState.swift in Sources */,
 				0857E32D2D432B170052904C /* ViewModifier.swift in Sources */,
 				0857E32B2D4325D60052904C /* WeekVisuals.swift in Sources */,
 				089EEFD82D39A4B1000D6657 /* TabbedView.swift in Sources */,

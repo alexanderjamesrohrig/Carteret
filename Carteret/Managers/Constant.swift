@@ -8,4 +8,5 @@ enum Constant {
     static let savingsCategoryTitle = "Savings"
     static let prereleaseWarning = "debug.prereleaseWarning"
     static let iPhone16CornerRadius: CGFloat = 55.0
+    static let `nil` = "nil"
 }

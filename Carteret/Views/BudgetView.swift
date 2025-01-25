@@ -21,7 +21,7 @@ struct BudgetView: View {
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query(filter: Item.activeItemsPredicate()) private var items: [Item]
     @State private var showEditItem = false
     @State private var itemToEdit: Item?
     @State private var itemToShow: Item?

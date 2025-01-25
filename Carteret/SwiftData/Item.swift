@@ -10,18 +10,34 @@ import SwiftData
 
 @Model
 final class Item {
+    static func activeItemsPredicate() -> Predicate<Item> {
+        let active = StorageState.saved
+        return #Predicate<Item> { item in
+            item.state == active
+        }
+    }
+    
+    static func archivedItemsPredicate() -> Predicate<Item> {
+        let archived = StorageState.archived
+        return #Predicate<Item> { item in
+            item.state == archived
+        }
+    }
+    
     init(itemDescription: String,
          amount: Currency,
          type: TransactionType,
          itemRepeat: Repeat,
          category: ItemCategory,
-         transactions: [Transaction] = []) {
+         transactions: [Transaction] = [],
+         state: StorageState = .saved) {
         self.itemDescription = itemDescription
         self.currencyAmount = amount
         self.type = type
         self.itemRepeat = itemRepeat
         self.category = category
         self.transactions = transactions
+        self.state = state
     }
     
     init(category: ItemCategory) {
@@ -31,16 +47,17 @@ final class Item {
         self.itemRepeat = .everyWeek
         self.category = category
         self.transactions = []
+        self.state = .saved
     }
 
     var itemDescription: String
     var currencyAmount: Currency
-    // TODO: Add Decimal amount
     var type: TransactionType
     var itemRepeat: Repeat
     var category: ItemCategory
     @Relationship(deleteRule: .deny, inverse: \Transaction.item)
     var transactions: [Transaction]
+    var state: StorageState = StorageState.saved
     
     var weeklyAmount: Currency {
         var weekly = Currency.zero

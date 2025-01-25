@@ -23,6 +23,7 @@ struct EditItemView: View {
     @State private var type: TransactionType = .expense
     @State private var repeatSelection: Repeat = .everyWeek
     @State private var category: ItemCategory?
+    @State private var showArchiveAlert = false
     
     var title: String {
         item == nil ? "Create item" : "Edit item"
@@ -37,6 +38,14 @@ struct EditItemView: View {
             return description.isEmpty || amount <= 0.00 || category == nil
         } else {
             return true
+        }
+    }
+    
+    var archiveAlertTitle: String {
+        if let item {
+            "Archive \"\(item.itemDescription)\"?"
+        } else {
+            Constant.nil
         }
     }
     
@@ -79,10 +88,10 @@ struct EditItemView: View {
                 if item != nil {
                     Section {
                         Button("Archive", role: .destructive) {
-                            // TODO: Archive item
+                            showArchiveAlert = true
                         }
                     } footer: {
-                        Text("Item will be removed from list and weekly budget calculations, but prevvious transactions will remain and labeled with this recurring item.")
+                        Text("Item will be removed from list and weekly budget calculations, but prevvious transactions will remain labeled with this recurring item.")
                     }
                 }
             }
@@ -129,6 +138,26 @@ struct EditItemView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                }
+            }
+            .alert(archiveAlertTitle, isPresented: $showArchiveAlert) {
+                Button("Archive", role: .destructive) {
+                    guard let item else {
+                        return
+                    }
+                    item.state = .archived
+                    withAnimation {
+                        do {
+                            try modelContext.save()
+                            dismiss()
+                        } catch {
+                            logger.error("Cannot archive item")
+                        }
+                    }
+                }
+                
+                Button("Cancel", role: .cancel) {
+                    showArchiveAlert = false
                 }
             }
             .onAppear {
