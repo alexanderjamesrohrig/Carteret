@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import StoreKit
+import OSLog
 
 struct UpgradeView: View {
+    
+    let logger = Logger(subsystem: Constant.carteretSubsystem, category: "UpgradeView")
     
     @Environment(\.dismiss) private var dismiss
     
