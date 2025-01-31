@@ -23,7 +23,12 @@ struct WeekView: View {
     @State private var showImport = false
     @State private var transactionToEdit: Transaction?
     
-    var currentWeek: Int {
+    
+    var currentWeek: Week? {
+        Calendar.autoupdatingCurrent.currentWeek
+    }
+    
+    var currentWeekOfYear: Int {
         let calendar = Calendar.autoupdatingCurrent
         let weekOfYear = calendar.component(.weekOfYear, from: Date.now)
         return weekOfYear
@@ -68,6 +73,11 @@ struct WeekView: View {
         List {
             Section {
                 LabeledContent(safeToSpendTitle, value: safeToSpend.display)
+            } header: {
+                if let value = currentWeek?.weekProgress,
+                   let total = currentWeek?.weekProgressTotal {
+                    ProgressView(value: value, total: total)
+                }
             }
             
             Section {
