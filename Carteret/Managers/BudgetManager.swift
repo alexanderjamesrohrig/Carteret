@@ -8,10 +8,16 @@
 import Foundation
 
 class BudgetManager: ObservableObject {
+    enum BudgetBreakdownStyle {
+        case currency, percentage
+    }
     
     @Published var spendingLimit: Currency = Currency.zero
     @Published var runningBalance: Currency = Currency.zero
+    // TODO: Toggle to see spending limit, bills, savings as %
+    @Published var breakdownStyle: BudgetBreakdownStyle = .currency
     // TODO: Weekly savings $ or %
+    @Published var weeklySavings: Currency = .zero
     
     var displaySpendingLimit: String {
         spendingLimit.display

@@ -52,36 +52,42 @@ struct EditItemView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Description", text: $description)
-                    .focused($focusedField, equals: .description)
-                    .textInputAutocapitalization(.sentences)
-                    .onSubmit {
-                        focusedField = .amount
+                Section {
+                    TextField("Description", text: $description)
+                        .focused($focusedField, equals: .description)
+                        .textInputAutocapitalization(.sentences)
+                        .onSubmit {
+                            focusedField = .amount
+                        }
+                    
+                    // TODO: If savings, allow to set % of income
+                    CurrencyField(amount: $amount, focusedField: $focusedField)
+                    
+                    Picker("Type", selection: $type) {
+                        ForEach(TransactionType.allCases, id: \.self) { transactionType in
+                            Text(transactionType.displayName)
+                                .tag(transactionType)
+                        }
                     }
-                
-                // TODO: If savings, allow to set % of income
-                CurrencyField(amount: $amount, focusedField: $focusedField)
-                
-                Picker("Type", selection: $type) {
-                    ForEach(TransactionType.allCases, id: \.self) { transactionType in
-                        Text(transactionType.displayName)
-                            .tag(transactionType)
+                    
+                    Picker("How often?", selection: $repeatSelection) {
+                        ForEach(Repeat.allCases, id: \.self) { repeatItem in
+                            Text(repeatItem.displayName)
+                                .tag(repeatItem)
+                        }
                     }
-                }
-                
-                Picker("How often?", selection: $repeatSelection) {
-                    ForEach(Repeat.allCases, id: \.self) { repeatItem in
-                        Text(repeatItem.displayName)
-                            .tag(repeatItem)
+                    
+                    Picker("Category", selection: $category) {
+                        Text("Select category")
+                            .tag(nil as ItemCategory?)
+                        ForEach(ItemCategory.allCases, id: \.self) { categoryItem in
+                            Text(categoryItem.displayName)
+                                .tag(categoryItem as ItemCategory?)
+                        }
                     }
-                }
-                
-                Picker("Category", selection: $category) {
-                    Text("Select category")
-                        .tag(nil as ItemCategory?)
-                    ForEach(ItemCategory.allCases, id: \.self) { categoryItem in
-                        Text(categoryItem.displayName)
-                            .tag(categoryItem as ItemCategory?)
+                } footer: {
+                    if let item {
+                        Text("\(item.weeklyAmount.display) every week.")
                     }
                 }
                 
