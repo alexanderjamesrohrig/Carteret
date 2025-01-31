@@ -91,7 +91,7 @@ struct EditItemView: View {
                             showArchiveAlert = true
                         }
                     } footer: {
-                        Text("Item will be removed from list and weekly budget calculations, but prevvious transactions will remain labeled with this recurring item.")
+                        Text("Item will be removed from list and weekly budget calculations, but previous transactions will remain labeled with this recurring item.")
                     }
                 }
             }
