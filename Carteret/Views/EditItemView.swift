@@ -145,7 +145,7 @@ struct EditItemView: View {
                     guard let item else {
                         return
                     }
-                    item.state = .archived
+                    item.set(state: .archived)
                     withAnimation {
                         do {
                             try modelContext.save()

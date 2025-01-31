@@ -11,16 +11,14 @@ import SwiftData
 @Model
 final class Item {
     static func activeItemsPredicate() -> Predicate<Item> {
-        let active = StorageState.saved
         return #Predicate<Item> { item in
-            item.state == active
+            item.rawState == 0
         }
     }
     
     static func archivedItemsPredicate() -> Predicate<Item> {
-        let archived = StorageState.archived
         return #Predicate<Item> { item in
-            item.state == archived
+            item.rawState == 1
         }
     }
     
@@ -37,7 +35,7 @@ final class Item {
         self.itemRepeat = itemRepeat
         self.category = category
         self.transactions = transactions
-        self.state = state
+        self.rawState = state.rawValue
     }
     
     init(category: ItemCategory) {
@@ -47,7 +45,7 @@ final class Item {
         self.itemRepeat = .everyWeek
         self.category = category
         self.transactions = []
-        self.state = .saved
+        self.rawState = StorageState.saved.rawValue
     }
 
     var itemDescription: String
@@ -57,7 +55,7 @@ final class Item {
     var category: ItemCategory
     @Relationship(deleteRule: .deny, inverse: \Transaction.item)
     var transactions: [Transaction]
-    var state: StorageState = StorageState.saved
+    private var rawState: Int = 0
     
     var weeklyAmount: Currency {
         var weekly = Currency.zero
@@ -86,5 +84,13 @@ final class Item {
     
     var isSavings: Bool {
         type == .expense && category == .savings
+    }
+    
+    var state: StorageState {
+        StorageState(rawValue: rawState) ?? .saved
+    }
+    
+    func set(state: StorageState) {
+        rawState = state.rawValue
     }
 }

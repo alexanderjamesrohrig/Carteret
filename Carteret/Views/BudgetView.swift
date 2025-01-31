@@ -17,12 +17,12 @@ struct BudgetView: View {
     private let logger = Logger(subsystem: Constant.carteretSubsystem,
                                 category: "BudgetView")
     private let debugCategory = Category(name: "Debug")
-    let zero = "$0.00"
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Item.activeItemsPredicate()) private var items: [Item]
     @State private var showEditItem = false
+    @State private var showUpgrade = false
     @State private var itemToEdit: Item?
     @State private var itemToShow: Item?
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
@@ -62,7 +62,7 @@ struct BudgetView: View {
     /// https://semver.org
     ///
     /// major.minor.patch-prerelease+build
-    var appVersion: String { "\(RSCCore.shared.version)-Α" }
+    var appVersion: String { "\(RSCCore.shared.version)-A" }
     
     var body: some View {
         List {
@@ -97,8 +97,15 @@ struct BudgetView: View {
                 LabeledContent("Version", value: appVersion)
                 
                 Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
+                
+                Toggle("Show upgrade", isOn: $showUpgrade)
             }
 #endif
+        }
+        .onChange(of: incomeTotal) { oldValue, newValue in
+            if newValue > Constant.maxFreeWeeklyIncome {
+                // TODO: Show force subscription sheet
+            }
         }
         .sheet(isPresented: $showEditItem) {
             EditItemView(item: itemToEdit)
@@ -108,6 +115,9 @@ struct BudgetView: View {
         }
         .sheet(item: $itemToShow) { item in
             ItemVisuals(item: item)
+        }
+        .sheet(isPresented: $showUpgrade) {
+            UpgradeView()
         }
         .task {
             budgetManager.spendingLimit = spendingLimit
