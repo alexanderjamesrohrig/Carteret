@@ -22,6 +22,7 @@
 		0834A5DD2B6992B700A668EA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DC2B6992B700A668EA /* ErrorMessage.swift */; };
 		0834A5DF2B6993C800A668EA /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DE2B6993C800A668EA /* Payment.swift */; };
 		0846F4E12D4C525700222419 /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0846F4E02D4C525100222419 /* UpgradeView.swift */; };
+		084E0B712D4DB00000D955AC /* FormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084E0B702D4DAFFC00D955AC /* FormatStyle.swift */; };
 		0857E3192D42C56D0052904C /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3182D42C5680052904C /* PieChart.swift */; };
 		0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31A2D42C58D0052904C /* BarChart1D.swift */; };
 		0857E31D2D42CC150052904C /* SpendingLimitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */; };
@@ -89,6 +90,7 @@
 		0834A5DC2B6992B700A668EA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		0834A5DE2B6993C800A668EA /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		0846F4E02D4C525100222419 /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
+		084E0B702D4DAFFC00D955AC /* FormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatStyle.swift; sourceTree = "<group>"; };
 		0857E3182D42C5680052904C /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		0857E31A2D42C58D0052904C /* BarChart1D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart1D.swift; sourceTree = "<group>"; };
 		0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingLimitRow.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				080E27582D3AB4D000595DE8 /* CircularProgressViewStyle.swift */,
 				080E27622D3AC2A100595DE8 /* TransactionDestination.swift */,
 				0857E32C2D432B130052904C /* ViewModifier.swift */,
+				084E0B702D4DAFFC00D955AC /* FormatStyle.swift */,
 				0834A5D92B69910000A668EA /* SwiftData */,
 				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
 				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
@@ -457,6 +460,7 @@
 				080E275F2D3ABB6D00595DE8 /* InputField.swift in Sources */,
 				08A8E7392B69827800575C9B /* CarteretApp.swift in Sources */,
 				0834A5D12B698AB000A668EA /* Constant.swift in Sources */,
+				084E0B712D4DB00000D955AC /* FormatStyle.swift in Sources */,
 				089EEFDC2D39A977000D6657 /* Extensions.swift in Sources */,
 				0834A5D82B69902700A668EA /* Loan.swift in Sources */,
 				089EEFD62D39A138000D6657 /* Category.swift in Sources */,

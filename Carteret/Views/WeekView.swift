@@ -74,9 +74,21 @@ struct WeekView: View {
             Section {
                 LabeledContent(safeToSpendTitle, value: safeToSpend.display)
             } header: {
-                if let value = currentWeek?.weekProgress,
-                   let total = currentWeek?.weekProgressTotal {
-                    ProgressView(value: value, total: total)
+                if let currentWeek {
+                    VStack {
+                        HStack {
+                            Text(currentWeek.start, format: MonthDayFormat())
+                            
+                            Spacer()
+                            
+                            Text(currentWeek.end, format: MonthDayFormat())
+                        }
+                        
+                        ProgressView(
+                            value: currentWeek.weekProgress,
+                            total: currentWeek.weekProgressTotal
+                        )
+                    }
                 }
             }
             
