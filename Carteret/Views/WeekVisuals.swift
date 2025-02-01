@@ -49,6 +49,12 @@ struct WeekVisuals: View {
                             y: .value("Amount", plot.amount))
                     .foregroundStyle(by: .value("Category", plot.category.displayName))
                 }
+                .chartXAxis {
+                    AxisMarks(format: MonthDayFormat())
+                }
+                .chartYAxis {
+                    AxisMarks(format: .currency(code: Locale.currencyCode))
+                }
                 .scaledToFit()
             }
         }
