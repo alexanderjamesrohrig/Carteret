@@ -113,7 +113,7 @@ struct EditTransactionView: View {
                     case .safeToSpend: categoryPicker
                     case .recurringItem: recurringItemPicker
                     case .fund: fundPicker
-                    case nil: Text("nil")
+                    case nil: EmptyView()
                     }
                 }
                 
