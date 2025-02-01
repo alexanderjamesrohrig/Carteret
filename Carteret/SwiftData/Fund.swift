@@ -22,6 +22,7 @@ final class Fund {
 
     var fundDescription: String
     var goalAmount: Currency
+    @Relationship(deleteRule: .deny, inverse: \Transaction.fund)
     var transactions: [Transaction]
     var fundRepeat: Repeat
 }

@@ -151,6 +151,7 @@ Transactions without a corresponding category will be set to Other.
                 destination: transaction.target.destination,
                 category: .other,
                 item: nil,
+                fund: nil,
                 amount: abs(transaction.amount),
                 type: sign,
                 transactionDescription: transaction.title,

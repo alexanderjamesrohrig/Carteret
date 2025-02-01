@@ -18,10 +18,12 @@ struct EditTransactionView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     @Query private var items: [Item]
+    @Query private var funds: [Fund]
     @FocusState private var focusedField: InputField?
     @State private var destination: TransactionDestination?
     @State private var transactionCategory: TransactionCategory?
     @State private var recurringItem: Item?
+    @State private var selectedFund: Fund?
     @State private var description: String = ""
     @State private var inputAmount: Currency? = nil
     @State private var type: TransactionType = .expense
@@ -52,6 +54,7 @@ struct EditTransactionView: View {
         Picker("Category", selection: $transactionCategory) {
             Text("Select category")
                 .tag(nil as TransactionCategory?)
+            
             ForEach(TransactionCategory.allCases, id: \.self) { category in
                 Text(category.displayName)
                     .tag(category as TransactionCategory?)
@@ -63,9 +66,22 @@ struct EditTransactionView: View {
         Picker("Recurring item", selection: $recurringItem) {
             Text("Select an item")
                 .tag(nil as Item?)
+            
             ForEach(items, id: \.self) { item in
                 Text(item.itemDescription)
                     .tag(item as Item?)
+            }
+        }
+    }
+    
+    var fundPicker: some View {
+        Picker("Fund", selection: $selectedFund) {
+            Text("Select a fund")
+                .tag(nil as Fund?)
+            
+            ForEach(funds, id: \.self) { fund in
+                Text(fund.fundDescription)
+                    .tag(fund as Fund?)
             }
         }
     }
@@ -81,18 +97,23 @@ struct EditTransactionView: View {
                     Picker("Destination", selection: $destination) {
                         Text("Safe to spend")
                             .tag(TransactionDestination.safeToSpend)
+                        
                         Text("Recurring item")
                             .tag(TransactionDestination.recurringItem)
+                        
+                        Text("Fund")
+                            .tag(TransactionDestination.fund)
                     }
                     .pickerStyle(.segmented)
                     .listRowBackground(Color.clear)
                 }
                 
                 Section {
-                    if destination == .safeToSpend {
-                        categoryPicker
-                    } else if destination == .recurringItem {
-                        recurringItemPicker
+                    switch destination {
+                    case .safeToSpend: categoryPicker
+                    case .recurringItem: recurringItemPicker
+                    case .fund: fundPicker
+                    case nil: Text("nil")
                     }
                 }
                 
@@ -152,6 +173,7 @@ struct EditTransactionView: View {
                     destination = transaction.destination
                     transactionCategory = transaction.category
                     recurringItem = transaction.item
+                    selectedFund = transaction.fund
                     inputAmount = transaction.currencyAmount
                     type = transaction.type
                     description = transaction.transactionDescription
@@ -194,6 +216,7 @@ struct EditTransactionView: View {
             transaction.destination = destination
             transaction.category = transactionCategory
             transaction.item = recurringItem
+            transaction.fund = selectedFund
             transaction.currencyAmount = inputAmount
             transaction.type = type
             transaction.transactionDescription = description
@@ -203,6 +226,7 @@ struct EditTransactionView: View {
                 destination: destination,
                 category: transactionCategory,
                 item: recurringItem,
+                fund: selectedFund,
                 amount: inputAmount,
                 type: type,
                 transactionDescription: description,
@@ -218,4 +242,10 @@ struct EditTransactionView: View {
             }
         }
     }
+}
+
+#Preview {
+    let helper = PreviewHelper()
+    return EditTransactionView(transaction: nil)
+        .modelContainer(helper.container)
 }

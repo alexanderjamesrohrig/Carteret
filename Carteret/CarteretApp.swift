@@ -22,6 +22,7 @@ struct CarteretApp: App {
             Loan.self,
             Payment.self,
             Transaction.self,
+            Fund.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

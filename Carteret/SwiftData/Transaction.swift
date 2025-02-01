@@ -32,6 +32,7 @@ final class Transaction {
     init(destination: TransactionDestination,
          category: TransactionCategory?,
          item: Item?,
+         fund: Fund?,
          amount: Currency,
          type: TransactionType,
          transactionDescription: String,
@@ -39,6 +40,7 @@ final class Transaction {
         self.destination = destination
         self.category = category
         self.item = item
+        self.fund = fund
         self.currencyAmount = amount
         self.type = type
         self.transactionDescription = transactionDescription
@@ -48,6 +50,7 @@ final class Transaction {
     var destination: TransactionDestination
     var category: TransactionCategory?
     var item: Item?
+    var fund: Fund?
     var currencyAmount: Currency
     var type: TransactionType
     var transactionDescription: String

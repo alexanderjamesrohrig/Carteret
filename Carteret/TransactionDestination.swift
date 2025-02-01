@@ -8,5 +8,5 @@
 import Foundation
 
 enum TransactionDestination: Codable {
-    case safeToSpend, recurringItem
+    case safeToSpend, recurringItem, fund
 }

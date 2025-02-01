@@ -15,6 +15,7 @@ struct TransactionRowView: View {
         switch transaction.destination {
         case .recurringItem: "dollarsign.arrow.circlepath"
         case .safeToSpend: "dollarsign.circle"
+        case .fund: "dollarsign.square"
         }
     }
     
