@@ -52,7 +52,7 @@ struct EditTransactionView: View {
     
     var categoryPicker: some View {
         Picker("Category", selection: $transactionCategory) {
-            Text("Select category")
+            Text("Select a category")
                 .tag(nil as TransactionCategory?)
             
             ForEach(TransactionCategory.allCases, id: \.self) { category in
