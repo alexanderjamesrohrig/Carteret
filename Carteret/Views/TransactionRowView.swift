@@ -46,6 +46,11 @@ struct TransactionRowView: View {
                     Text(recurringItem.itemDescription)
                         .font(.caption)
                 }
+                
+                if let fund = transaction.fund {
+                    Text(fund.fundDescription)
+                        .font(.caption)
+                }
             }
         }
     }

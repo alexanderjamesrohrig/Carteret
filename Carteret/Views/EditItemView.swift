@@ -71,7 +71,7 @@ struct EditItemView: View {
                     }
                     
                     Picker("How often?", selection: $repeatSelection) {
-                        ForEach(Repeat.allCases, id: \.self) { repeatItem in
+                        ForEach(Repeat.itemRepeats, id: \.self) { repeatItem in
                             Text(repeatItem.displayName)
                                 .tag(repeatItem)
                         }

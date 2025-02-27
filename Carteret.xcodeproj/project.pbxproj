@@ -15,6 +15,9 @@
 		080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27622D3AC2A100595DE8 /* TransactionDestination.swift */; };
 		080E27652D3ADB3800595DE8 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27642D3ADB3400595DE8 /* TransactionRowView.swift */; };
 		080E27692D3AF4FA00595DE8 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27682D3AF4F900595DE8 /* Week.swift */; };
+		0822ACD92D70F700008E709F /* EditFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACD82D70F6FC008E709F /* EditFundView.swift */; };
+		0822ACDB2D70FB60008E709F /* FundDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDA2D70FB5C008E709F /* FundDetailView.swift */; };
+		0822ACDD2D71089F008E709F /* MailComposeViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDC2D71089C008E709F /* MailComposeViewControllerRepresentable.swift */; };
 		0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5CE2B6985CD00A668EA /* LoanView.swift */; };
 		0834A5D12B698AB000A668EA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D02B698AB000A668EA /* Constant.swift */; };
 		0834A5D62B698EC100A668EA /* CarteretImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D52B698EC100A668EA /* CarteretImage.swift */; };
@@ -84,6 +87,9 @@
 		080E27622D3AC2A100595DE8 /* TransactionDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDestination.swift; sourceTree = "<group>"; };
 		080E27642D3ADB3400595DE8 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		080E27682D3AF4F900595DE8 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		0822ACD82D70F6FC008E709F /* EditFundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFundView.swift; sourceTree = "<group>"; };
+		0822ACDA2D70FB5C008E709F /* FundDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundDetailView.swift; sourceTree = "<group>"; };
+		0822ACDC2D71089C008E709F /* MailComposeViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		0834A5CE2B6985CD00A668EA /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		0834A5D02B698AB000A668EA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0834A5D52B698EC100A668EA /* CarteretImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretImage.swift; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 		0857E3272D4318B20052904C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0822ACDA2D70FB5C008E709F /* FundDetailView.swift */,
+				0822ACDC2D71089C008E709F /* MailComposeViewControllerRepresentable.swift */,
+				0822ACD82D70F6FC008E709F /* EditFundView.swift */,
 				080E275A2D3AB74000595DE8 /* EditTransactionView.swift */,
 				0857E3252D42F7BC0052904C /* TransactionImport.swift */,
 				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
@@ -425,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0822ACDB2D70FB60008E709F /* FundDetailView.swift in Sources */,
 				0857E31D2D42CC150052904C /* SpendingLimitRow.swift in Sources */,
 				080E27592D3AB4DA00595DE8 /* CircularProgressViewStyle.swift in Sources */,
 				089EEFDE2D39AC6F000D6657 /* EditItemView.swift in Sources */,
@@ -444,6 +454,7 @@
 				080E27692D3AF4FA00595DE8 /* Week.swift in Sources */,
 				0857E3192D42C56D0052904C /* PieChart.swift in Sources */,
 				0846F4E12D4C525700222419 /* UpgradeView.swift in Sources */,
+				0822ACD92D70F700008E709F /* EditFundView.swift in Sources */,
 				08A8E73B2B69827800575C9B /* ContentView.swift in Sources */,
 				089A882E2D44255500990FF3 /* ItemVisuals.swift in Sources */,
 				0857E31F2D42DE880052904C /* CurrencyText.swift in Sources */,
@@ -459,6 +470,7 @@
 				089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */,
 				089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */,
 				080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */,
+				0822ACDD2D71089F008E709F /* MailComposeViewControllerRepresentable.swift in Sources */,
 				089A882C2D4424CD00990FF3 /* TransactionsBarChart.swift in Sources */,
 				0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */,
 				080E275F2D3ABB6D00595DE8 /* InputField.swift in Sources */,

@@ -47,7 +47,7 @@ struct EditTransactionView: View {
     }
     
     var noDestinationSelected: Bool {
-        recurringItem == nil && transactionCategory  == nil
+        recurringItem == nil && transactionCategory  == nil && selectedFund == nil
     }
     
     var categoryPicker: some View {

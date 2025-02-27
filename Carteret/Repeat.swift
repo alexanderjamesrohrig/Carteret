@@ -11,6 +11,15 @@ enum Repeat: Int, Codable, CaseIterable {
     case twiceAMonth
     case everyMonth
     case everyYear
+    case none
+    
+    static let itemRepeats: [Repeat] = [
+        .everyWeek,
+        .every2Weeks,
+        .twiceAMonth,
+        .everyMonth,
+        .everyYear
+    ]
     
     var displayName: String {
         switch self {
@@ -24,6 +33,8 @@ enum Repeat: Int, Codable, CaseIterable {
             "Every month"
         case .everyYear:
             "Every year"
+        case .none:
+            "None"
         }
     }
     
@@ -39,6 +50,8 @@ enum Repeat: Int, Codable, CaseIterable {
             52 / 12
         case .everyYear:
             52
+        case .none:
+            0
         }
     }
 }

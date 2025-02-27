@@ -70,6 +70,8 @@ final class Item {
             weekly = (currencyAmount * 12) / 52
         case .everyYear:
             weekly = currencyAmount / 52
+        case .none:
+            return weekly
         }
         return weekly
     }

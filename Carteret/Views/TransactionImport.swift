@@ -86,7 +86,7 @@ Transactions without a corresponding category will be set to Other.
                     }
             }
         }
-        .presentationDetents([.height(height), .medium])
+        .presentationDetents([.medium])
         .presentationDragIndicator(.visible)
         .fileImporter(isPresented: $showFiles,
                       allowedContentTypes: [.commaSeparatedText]) { result in
