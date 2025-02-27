@@ -19,8 +19,7 @@ struct OlderTransactionsView: View {
             VStack(alignment: .center) {
                 Spacer()
                 
-                Text("No transactions")
-                    .foregroundStyle(Color.secondary)
+                ContentUnavailableView("No transactions", systemImage: "bag")
                 
                 Spacer()
             }

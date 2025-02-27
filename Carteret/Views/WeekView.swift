@@ -64,6 +64,7 @@ struct WeekView: View {
     
     var olderTransactionsSectionFooter: String {
         guard let start = Calendar.autoupdatingCurrent.currentWeek?.start.medium else {
+            assertionFailure("Date error")
             return "Date error"
         }
         return "Transactions made before \(start)."

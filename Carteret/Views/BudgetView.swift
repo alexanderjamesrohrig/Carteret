@@ -98,7 +98,7 @@ struct BudgetView: View {
                 
                 Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
                 
-                Toggle("Show upgrade", isOn: $showUpgrade)
+                Toggle("Show upgrade sheet", isOn: $showUpgrade)
             }
 #endif
         }
