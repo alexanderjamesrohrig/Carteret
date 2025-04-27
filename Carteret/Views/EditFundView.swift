@@ -21,9 +21,9 @@ struct EditFundView: View {
     
     var title: String {
         if fund.fundDescription.isEmpty {
-            return "Create Fund"
+            return "Create fund"
         } else {
-            return "Edit Fund"
+            return "Edit fund"
         }
     }
     
