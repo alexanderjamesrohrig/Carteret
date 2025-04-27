@@ -1,6 +1,15 @@
 {
-  "originHash" : "d308de4017e42956fedc2f6fcea21bf4b118031d317e2bf6e2c5bfffb5044958",
+  "originHash" : "2d138e6fb271cc7f6c2d2104a0698336a2cad2a2ffe2403f71e485a53e3fe0b1",
   "pins" : [
+    {
+      "identity" : "plaid-link-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/plaid/plaid-link-ios-spm",
+      "state" : {
+        "revision" : "335bacb4f9028c91156f8235829b6291d559ffb1",
+        "version" : "6.1.0"
+      }
+    },
     {
       "identity" : "rohrigsoftwarecompanycore",
       "kind" : "remoteSourceControl",
