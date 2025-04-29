@@ -47,6 +47,7 @@
 		0858AD602DC13E7600BEA6E0 /* PlaidStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858AD5F2DC13E7000BEA6E0 /* PlaidStatusResponse.swift */; };
 		0858AD622DC142F400BEA6E0 /* PlaidCreateLinkTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858AD612DC142E000BEA6E0 /* PlaidCreateLinkTokenRequest.swift */; };
 		0858AD642DC144FE00BEA6E0 /* PlaidCreateLinkTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858AD632DC144F800BEA6E0 /* PlaidCreateLinkTokenResponse.swift */; };
+		0858AD662DC169DD00BEA6E0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858AD652DC169D900BEA6E0 /* TestView.swift */; };
 		0870CE582D4EDC4E005A7E27 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */; };
 		0871FDF42DBD3B56000BFB18 /* PlaidActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */; };
 		0871FDF92DBD4F93000BFB18 /* PlaidLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871FDF82DBD4F90000BFB18 /* PlaidLinkView.swift */; };
@@ -131,6 +132,7 @@
 		0858AD5F2DC13E7000BEA6E0 /* PlaidStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidStatusResponse.swift; sourceTree = "<group>"; };
 		0858AD612DC142E000BEA6E0 /* PlaidCreateLinkTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidCreateLinkTokenRequest.swift; sourceTree = "<group>"; };
 		0858AD632DC144F800BEA6E0 /* PlaidCreateLinkTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidCreateLinkTokenResponse.swift; sourceTree = "<group>"; };
+		0858AD652DC169D900BEA6E0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidActor.swift; sourceTree = "<group>"; };
 		0871FDF82DBD4F90000BFB18 /* PlaidLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidLinkView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		0857E3272D4318B20052904C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0858AD652DC169D900BEA6E0 /* TestView.swift */,
 				0871FDF82DBD4F90000BFB18 /* PlaidLinkView.swift */,
 				0822ACDA2D70FB5C008E709F /* FundDetailView.swift */,
 				0822ACDC2D71089C008E709F /* MailComposeView.swift */,
@@ -520,6 +523,7 @@
 				088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */,
 				0834A5DF2B6993C800A668EA /* Payment.swift in Sources */,
 				0858AD642DC144FE00BEA6E0 /* PlaidCreateLinkTokenResponse.swift in Sources */,
+				0858AD662DC169DD00BEA6E0 /* TestView.swift in Sources */,
 				0835E5A42DBE8A4E005D6207 /* AuthHelper.swift in Sources */,
 				0834A5D62B698EC100A668EA /* CarteretImage.swift in Sources */,
 				088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */,

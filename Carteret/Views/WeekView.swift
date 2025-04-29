@@ -173,13 +173,6 @@ struct WeekView: View {
             } label: {
                 Label("Import from Weekly", systemImage: CarteretImage.importName)
             }
-            
-            if #available(iOS 17.4, *) {
-                Button("Connect to Akoya") {
-                    let authHelper = AuthHelper()
-                    authHelper.authenticate(service: .akoya)
-                }
-            }
         }
     }
 }
