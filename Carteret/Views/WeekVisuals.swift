@@ -20,8 +20,15 @@ struct WeekVisuals: View {
     init(transactions: [Transaction]) {
         self.transactions = transactions
         let safeToSpendOnly = transactions.filter { $0.category != nil }
-        // FIXME: Force unwrap
-        let sorted = safeToSpendOnly.sorted { $0.category! < $1.category! }
+        let sorted = safeToSpendOnly.sorted {
+            assert($0.category != nil)
+            assert($1.category != nil)
+            if let firstCategory = $0.category,
+               let secondCategory = $1.category {
+                return firstCategory < secondCategory
+            }
+            return false
+        }
         self.pieData = sorted.map { transaction in
                 .init(name: transaction.category?.displayName ?? "nil",
                       amount: transaction.currencyAmount)
