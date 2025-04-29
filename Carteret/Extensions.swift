@@ -177,3 +177,10 @@ extension View {
         self.modifier(Height(height: height))
     }
 }
+
+// MARK: - Data
+extension Data {
+    var toString: String {
+        String(data: self, encoding: .utf8) ?? "nil"
+    }
+}

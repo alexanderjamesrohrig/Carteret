@@ -18,6 +18,7 @@ struct BudgetView: View {
                                 category: "BudgetView")
     private let debugCategory = Category(name: "Debug")
     private let email = "me+carteret@alexanderrohrig.com"
+    private let plaid = PlaidActor()
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext

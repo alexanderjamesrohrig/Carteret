@@ -21,22 +21,54 @@ actor PlaidActor {
     private let sandboxUsername = "user_good"
     private let sandboxTransactionUsername = "user_transactions_dynamic"
     private let sandboxPassword = "pass_good"
+    private let sandboxHost = "https://sandbox.plaid.com"
+    private let productionHost = "https://production.plaid.com"
+    private let createLinkTokenPath = "/link/token/create"
+    private let statusURL = "https://status.plaid.com/api/v2/status.json"
     
-    private var linkToken = ""
-    var publicToken = ""
+    private(set) var publicToken = ""
     
-    private var linkTokenConfiguration: LinkTokenConfiguration {
-        var configuration = LinkTokenConfiguration(token: linkToken) { linkSuccess in
-            self.linkSuccess(linkSuccess: linkSuccess)
+    var linkToken: String? {
+        get async {
+            guard let url = URL(string: "\(sandboxHost)\(createLinkTokenPath)") else {
+                return nil
+            }
+            let decoder = JSONDecoder()
+            let encoder = JSONEncoder()
+            let id = UUID().uuidString
+            let user = PlaidCreateLinkTokenRequest.User(client_user_id: id)
+            let requestBody = PlaidCreateLinkTokenRequest(
+                client_id: "680d02c8adebe6002487673b",
+                secret: "b5dd0a35b996263e4724c3c0f854e2", // FIXME: Do not hardcode
+                client_name: "Carteret",
+                language: PlaidCreateLinkTokenRequest.english,
+                country_codes: PlaidCreateLinkTokenRequest.unitedStates,
+                user: user,
+                redirect_uri: "https://www.alexanderrohrig.com/plaid",
+                products: PlaidCreateLinkTokenRequest.transactions
+            )
+            do {
+                let requestBodyJSON = try encoder.encode(requestBody)
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.httpBody = requestBodyJSON
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                let (data, _) = try await URLSession.shared.data(for: request)
+                let decoded = try decoder.decode(PlaidCreateLinkTokenResponse.self,
+                                                 from: data)
+                return decoded.request_id
+            } catch {
+                logger.error("Link :- \(error.localizedDescription)")
+                return nil
+            }
         }
-        configuration.onExit = linkExit
-        configuration.onEvent = linkEvent
-        return configuration
     }
     
     var handler: Handler {
-        get throws {
-            let configuration = linkTokenConfiguration
+        get async throws {
+            guard let configuration = await linkTokenConfiguration else {
+                throw PlaidError.linkConfigurationFailure
+            }
             let result = Plaid.create(configuration)
             switch result {
             case .failure(let error):
@@ -45,6 +77,30 @@ actor PlaidActor {
             case .success(let handler):
                 return handler
             }
+        }
+    }
+    
+    var apiStatus: String {
+        get async {
+            let decoder = JSONDecoder()
+            guard let url = URL(string: statusURL),
+                  let (data, _) = try? await URLSession.shared.data(from: url),
+                  let decoded = try? decoder.decode(PlaidStatusResponse.self, from: data) else {
+                return "nil"
+            }
+            return decoded.status.description
+        }
+    }
+    
+    private var linkTokenConfiguration: LinkTokenConfiguration? {
+        get async {
+            guard let linkToken = await linkToken else { return nil }
+            var configuration = LinkTokenConfiguration(token: linkToken) { linkSuccess in
+                self.linkSuccess(linkSuccess: linkSuccess)
+            }
+            configuration.onExit = linkExit
+            configuration.onEvent = linkEvent
+            return configuration
         }
     }
     

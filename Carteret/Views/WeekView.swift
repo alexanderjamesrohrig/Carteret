@@ -147,13 +147,7 @@ struct WeekView: View {
                 Text(olderTransactionsSectionFooter)
             }
             
-            Section {
-                Button {
-                    showImport = true
-                } label: {
-                    Label("Import from Weekly", systemImage: CarteretImage.importName)
-                }
-            }
+            importSection
         }
         .sheet(isPresented: $showEditTransaction) {
             EditTransactionView(transaction: transactionToEdit)
@@ -169,6 +163,23 @@ struct WeekView: View {
         }
         .sheet(item: $transactionToEdit) { transaction in
             EditTransactionView(transaction: transaction)
+        }
+    }
+    
+    @ViewBuilder private var importSection: some View {
+        Section {
+            Button {
+                showImport = true
+            } label: {
+                Label("Import from Weekly", systemImage: CarteretImage.importName)
+            }
+            
+            if #available(iOS 17.4, *) {
+                Button("Connect to Akoya") {
+                    let authHelper = AuthHelper()
+                    authHelper.authenticate(service: .akoya)
+                }
+            }
         }
     }
 }
