@@ -12,7 +12,7 @@
 				<key>term</key>
 				<dict>
 					<key>text</key>
-					<string>TODO</string>
+					<string>FIXME</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -21,12 +21,32 @@
 		<dict>
 			<key>query-specification</key>
 			<dict>
+				<key>match-case</key>
+				<integer>1</integer>
 				<key>query</key>
 				<string>text</string>
+				<key>scope</key>
+				<dict>
+					<key>named-scopes</key>
+					<array/>
+					<key>type</key>
+					<string>scope-chooser-compound-scope</string>
+					<key>workspace-location-predicates</key>
+					<array>
+						<dict>
+							<key>path-components</key>
+							<array>
+								<string>Carteret.xcodeproj</string>
+							</array>
+							<key>rule</key>
+							<string>workspace-location</string>
+						</dict>
+					</array>
+				</dict>
 				<key>term</key>
 				<dict>
 					<key>text</key>
-					<string>FIXME</string>
+					<string>TODO</string>
 				</dict>
 			</dict>
 			<key>type</key>
