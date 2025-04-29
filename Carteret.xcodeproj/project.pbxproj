@@ -43,6 +43,7 @@
 		0857E3292D431E4B0052904C /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3282D431E480052904C /* Fund.swift */; };
 		0857E32B2D4325D60052904C /* WeekVisuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E32A2D4325D10052904C /* WeekVisuals.swift */; };
 		0857E32D2D432B170052904C /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E32C2D432B130052904C /* ViewModifier.swift */; };
+		0858AD5E2DC11E2100BEA6E0 /* WalletActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858AD5D2DC11E1C00BEA6E0 /* WalletActor.swift */; };
 		0870CE582D4EDC4E005A7E27 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */; };
 		0871FDF42DBD3B56000BFB18 /* PlaidActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */; };
 		0871FDF92DBD4F93000BFB18 /* PlaidLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871FDF82DBD4F90000BFB18 /* PlaidLinkView.swift */; };
@@ -123,6 +124,7 @@
 		0857E3282D431E480052904C /* Fund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fund.swift; sourceTree = "<group>"; };
 		0857E32A2D4325D10052904C /* WeekVisuals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekVisuals.swift; sourceTree = "<group>"; };
 		0857E32C2D432B130052904C /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		0858AD5D2DC11E1C00BEA6E0 /* WalletActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletActor.swift; sourceTree = "<group>"; };
 		0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidActor.swift; sourceTree = "<group>"; };
 		0871FDF82DBD4F90000BFB18 /* PlaidLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidLinkView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */,
 				0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */,
 				0835E5A12DBE8518005D6207 /* AkoyaActor.swift */,
+				0858AD5D2DC11E1C00BEA6E0 /* WalletActor.swift */,
 				0835E5A32DBE8A46005D6207 /* AuthHelper.swift */,
 				0835E5A52DBE913E005D6207 /* AkoyaTransactionResponse.swift */,
 				0835E5AB2DBE9B27005D6207 /* OpenFinancialExchangeParser.swift */,
@@ -510,6 +513,7 @@
 				088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */,
 				080E27652D3ADB3800595DE8 /* TransactionRowView.swift in Sources */,
 				0834A5DD2B6992B700A668EA /* ErrorMessage.swift in Sources */,
+				0858AD5E2DC11E2100BEA6E0 /* WalletActor.swift in Sources */,
 				089EEFD22D39A02F000D6657 /* TransactionType.swift in Sources */,
 				089EEFD42D39A0E5000D6657 /* Repeat.swift in Sources */,
 				080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */,
