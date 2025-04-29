@@ -69,6 +69,8 @@ struct BudgetView: View {
     /// major.minor.patch-prerelease+build
     var appVersion: String { "\(RSCCore.shared.version)-A" }
     
+        // MARK: Views
+    
     var body: some View {
         NavigationStack {
             List {
@@ -110,15 +112,7 @@ struct BudgetView: View {
                     }
                 }
                 
-#if DEBUG
-                Section("DEBUG") {
-                    LabeledContent("Version", value: appVersion)
-                    
-                    Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
-                    
-                    Toggle("Show upgrade sheet", isOn: $showUpgrade)
-                }
-#endif
+                debugSection
                 
                 Section {
                     Button("Send report") {
@@ -149,9 +143,9 @@ struct BudgetView: View {
             }
             .sheet(isPresented: $showMailMessage) {
                 // TODO: Add version and other to body
-                MailComposeViewControllerRepresentable(toRecipients: [email],
-                                                       subject: "Carteret report",
-                                                       body: "TODO")
+                MailComposeView(toRecipients: [email],
+                                subject: "Carteret report",
+                                body: "")
             }
             .navigationDestination(for: Fund.self) { fund in
                 FundDetailView(fund: fund)
@@ -172,8 +166,19 @@ struct BudgetView: View {
         }
     }
     
-    @ViewBuilder
-    func itemRow(_ item: Item) -> some View {
+    @ViewBuilder private var debugSection: some View {
+        #if DEBUG
+            Section("DEBUG") {
+                LabeledContent("Version", value: appVersion)
+                
+                Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
+                
+                Toggle("Show upgrade sheet", isOn: $showUpgrade)
+            }
+        #endif
+    }
+    
+    @ViewBuilder func itemRow(_ item: Item) -> some View {
         HStack {
             Text(item.itemDescription)
             
@@ -200,6 +205,8 @@ struct BudgetView: View {
             }
         }
     }
+    
+    // MARK: Helpers
     
     func color(for transactionType: TransactionType) -> Color {
         switch transactionType {

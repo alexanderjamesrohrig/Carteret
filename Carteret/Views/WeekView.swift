@@ -11,7 +11,9 @@ import SwiftData
 import OSLog
 
 struct WeekView: View {
-    let logger = Logger(subsystem: Constant.carteretSubsystem, category: "WeekView")
+    private let logger = Logger(subsystem: Constant.carteretSubsystem,
+                                category: "WeekView")
+    
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Transaction.currentWeekPredicate(),

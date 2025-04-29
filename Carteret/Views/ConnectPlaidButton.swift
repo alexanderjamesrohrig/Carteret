@@ -18,7 +18,7 @@ struct ConnectPlaidButton: View {
     @State private var showPlaid = false
     
     var body: some View {
-        Button("Connect Plaid") {
+        Button("Connect to Plaid") {
             showPlaid = true
         }
         .fullScreenCover(isPresented: $showPlaid) {
@@ -26,8 +26,15 @@ struct ConnectPlaidButton: View {
                 PlaidLinkView(handler: handler)
                     .ignoresSafeArea()
             } else {
-                ContentUnavailableView("Plaid is unavailable",
-                                       systemImage: "network.slash")
+                VStack {
+                    ContentUnavailableView("Plaid is unavailable",
+                                           systemImage: "network.slash")
+                    
+                    Button("Close") {
+                        showPlaid = false
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
             }
         }
     }
