@@ -22,8 +22,10 @@ struct BudgetView: View {
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
-    @Query(filter: Item.activeItemsPredicate()) private var items: [Item]
-    @Query private var funds: [Fund]
+    @Query(filter: Item.activeItemsPredicate(),
+           sort: \.currencyAmount,
+           order: .reverse) private var items: [Item]
+    @Query(filter: Fund.activeFundsPredicate) private var funds: [Fund]
     @State private var showEditItem = false
     @State private var showUpgrade = false
     @State private var showMailMessage = false
@@ -31,6 +33,7 @@ struct BudgetView: View {
     @State private var itemToShow: Item?
     @State private var fundToEdit: Fund?
     @State private var fundToShow: Fund?
+    @State private var showTestView = false
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
     
     var spendingLimit: Currency {
@@ -175,6 +178,15 @@ struct BudgetView: View {
                 Toggle("Hide pre-release warning", isOn: $hidePrereleaseWarning)
                 
                 Toggle("Show upgrade sheet", isOn: $showUpgrade)
+                
+                if #available(iOS 17.4, *) {
+                    Button("Test view") {
+                        showTestView = true
+                    }
+                    .sheet(isPresented: $showTestView) {
+                        TestView()
+                    }
+                }
             }
         #endif
     }

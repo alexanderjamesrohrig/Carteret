@@ -10,6 +10,18 @@ import SwiftData
 
 @Model
 final class Fund {
+    static var activeFundsPredicate: Predicate<Fund> {
+        return #Predicate<Fund> { fund in
+            fund.rawState == 0
+        }
+    }
+    
+    static var archivedFundsPredicate: Predicate<Fund> {
+        return #Predicate<Fund> { fund in
+            fund.rawState == 1
+        }
+    }
+    
     init(description: String,
          goalAmount: Currency,
          transactions: [Transaction],
@@ -32,6 +44,7 @@ final class Fund {
     @Relationship(deleteRule: .deny, inverse: \Transaction.fund)
     var transactions: [Transaction]
     var fundRepeat: Repeat
+    private var rawState: Int = 0
     
     var currentBalance: Currency {
         return transactions.reduce(Currency.zero) {
@@ -46,5 +59,13 @@ final class Fund {
     
     var progress: Double {
         (currentBalance / goalAmount).toDouble
+    }
+    
+    var state: StorageState {
+        StorageState(rawValue: rawState) ?? .saved
+    }
+    
+    func set(state: StorageState) {
+        rawState = state.rawValue
     }
 }

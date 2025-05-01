@@ -14,6 +14,8 @@ struct UpgradeView: View {
     let logger = Logger(subsystem: Constant.carteretSubsystem, category: "UpgradeView")
     
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var storeroom: Storeroom
+    @State private var subscription: Product?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -23,13 +25,20 @@ struct UpgradeView: View {
             Text("You can afford to pay for a subscription.")
                 .foregroundStyle(.secondary)
             
-            Text("One month free, then only $1 a year.")
-                .foregroundStyle(.secondary)
+            if let subscription {
+                Text("One month free, then only \(subscription.displayPrice) a year.")
+                    .foregroundStyle(.secondary)
+            }
             
             Spacer()
             
             Button("Try One Month Free") {
-                // TODO: Buy subscription
+                assert(subscription != nil)
+                Task {
+                    if let subscription {
+                        try await storeroom.purchase(product: subscription)
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
             .buttonStyle(.borderedProminent)
@@ -44,6 +53,13 @@ struct UpgradeView: View {
         .padding()
         .presentationDetents([.medium])
         .interactiveDismissDisabled()
+        .task {
+            if await storeroom.inventory.isEmpty {
+                dismiss()
+            } else {
+                subscription = await storeroom.inventory.first
+            }
+        }
     }
 }
 

@@ -16,6 +16,9 @@ public typealias Currency = Decimal
 
 @main
 struct CarteretApp: App {
+    @StateObject private var storeroom = Storeroom()
+    @Environment(\.scenePhase) private var scenePhase
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -36,6 +39,10 @@ struct CarteretApp: App {
     var body: some Scene {
         WindowGroup {
             TabbedView()
+                .environmentObject(storeroom)
+                .task(id: scenePhase) {
+                    await storeroom.setActiveTransactions()
+                }
         }
         .modelContainer(sharedModelContainer)
     }

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import OSLog
 
 struct FundDetailView: View {
     
     let fund: Fund
+    private let logger = Logger(subsystem: Constant.carteretSubsystem, category: "FundDetailView")
     
     @State private var showArchiveAlert = false
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     
     var progress: String {
         let formatter = NumberFormatter()
@@ -23,6 +27,10 @@ struct FundDetailView: View {
             return ""
         }
         return formatted
+    }
+    
+    var alertTitle: String {
+        "Archive \(fund.fundDescription)?"
     }
     
     var body: some View {
@@ -62,24 +70,23 @@ struct FundDetailView: View {
                 Button("Archive", role: .destructive) {
                     showArchiveAlert = true
                 }
-                // TODO: Add alert
-//                .alert(archiveAlertTitle, isPresented: $showArchiveAlert) {
-//                    Button("Archive", role: .destructive) {
-//                        item.set(state: .archived)
-//                        withAnimation {
-//                            do {
-//                                try modelContext.save()
-//                                dismiss()
-//                            } catch {
-//                                logger.error("Cannot archive fund")
-//                            }
-//                        }
-//                    }
-//
-//                    Button("Cancel", role: .cancel) {
-//                        showArchiveAlert = false
-//                    }
-//                }
+                .alert(alertTitle, isPresented: $showArchiveAlert) {
+                    Button("Archive", role: .destructive) {
+                        fund.set(state: .archived)
+                        withAnimation {
+                            do {
+                                try modelContext.save()
+                                dismiss()
+                            } catch {
+                                logger.error("Cannot archive fund")
+                            }
+                        }
+                    }
+
+                    Button("Cancel", role: .cancel) {
+                        showArchiveAlert = false
+                    }
+                }
             } footer: {
                 Text("Fund will be removed from list, but previous transactions will remain labeled with this fund.")
             }

@@ -16,8 +16,7 @@ actor WalletActor {
         
     }
     
-    private let logger = Logger(subsystem: Constant.carteretSubsystem,
-                                category: "WalletActor")
+    private let logger = Logger(subsystem: Constant.subsystem, category: "WalletActor")
     
     private var store: FinanceStore { FinanceStore.shared }
     
