@@ -11,18 +11,21 @@ import SwiftUI
 struct TabbedView: View {
     
     @StateObject private var budgetManager = BudgetManager()
+    @State private var selectedTab: Tab = .budget
     
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             BudgetView()
                 .tabItem {
                     Label("Budget", systemImage: CarteretImage.budgetTabName)
                 }
+                .tag(Tab.budget)
             
             WeekView()
                 .tabItem {
                     Label("This week", systemImage: CarteretImage.thisWeekTabName)
                 }
+                .tag(Tab.week)
         }
         .environmentObject(budgetManager)
     }

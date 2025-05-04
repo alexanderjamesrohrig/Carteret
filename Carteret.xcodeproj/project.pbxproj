@@ -18,6 +18,7 @@
 		0822ACD92D70F700008E709F /* EditFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACD82D70F6FC008E709F /* EditFundView.swift */; };
 		0822ACDB2D70FB60008E709F /* FundDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDA2D70FB5C008E709F /* FundDetailView.swift */; };
 		0822ACDD2D71089F008E709F /* MailComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDC2D71089C008E709F /* MailComposeView.swift */; };
+		08265F7E2DC7F20600D6A3A0 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08265F7D2DC7F20300D6A3A0 /* Tab.swift */; };
 		0834A5CF2B6985CD00A668EA /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5CE2B6985CD00A668EA /* LoanView.swift */; };
 		0834A5D12B698AB000A668EA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D02B698AB000A668EA /* Constant.swift */; };
 		0834A5D62B698EC100A668EA /* CarteretImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D52B698EC100A668EA /* CarteretImage.swift */; };
@@ -108,6 +109,7 @@
 		0822ACD82D70F6FC008E709F /* EditFundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFundView.swift; sourceTree = "<group>"; };
 		0822ACDA2D70FB5C008E709F /* FundDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundDetailView.swift; sourceTree = "<group>"; };
 		0822ACDC2D71089C008E709F /* MailComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeView.swift; sourceTree = "<group>"; };
+		08265F7D2DC7F20300D6A3A0 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		0834A5CE2B6985CD00A668EA /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		0834A5D02B698AB000A668EA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0834A5D52B698EC100A668EA /* CarteretImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteretImage.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				08A8E7382B69827800575C9B /* CarteretApp.swift */,
+				08265F7D2DC7F20300D6A3A0 /* Tab.swift */,
 				0857E3272D4318B20052904C /* Views */,
 				089EEFD12D39A022000D6657 /* TransactionType.swift */,
 				089EEFD32D39A0D5000D6657 /* Repeat.swift */,
@@ -512,6 +515,7 @@
 				080E27592D3AB4DA00595DE8 /* CircularProgressViewStyle.swift in Sources */,
 				089EEFDE2D39AC6F000D6657 /* EditItemView.swift in Sources */,
 				0835E5AA2DBE9843005D6207 /* CitiTransaction.swift in Sources */,
+				08265F7E2DC7F20600D6A3A0 /* Tab.swift in Sources */,
 				089EEFD02D399F3C000D6657 /* Transaction.swift in Sources */,
 				080E275D2D3ABAD700595DE8 /* CurrencyField.swift in Sources */,
 				088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */,
