@@ -5,6 +5,7 @@
 //  Created by Alexander Rohrig on 4/26/25.
 //
 
+#if canImport(LinkKit)
 import SwiftUI
 @preconcurrency import LinkKit
 
@@ -43,3 +44,4 @@ struct ConnectPlaidButton: View {
         return nil
     }
 }
+#endif

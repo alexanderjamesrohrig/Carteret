@@ -25,7 +25,7 @@
 		0834A5D82B69902700A668EA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5D72B69902700A668EA /* Loan.swift */; };
 		0834A5DD2B6992B700A668EA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DC2B6992B700A668EA /* ErrorMessage.swift */; };
 		0834A5DF2B6993C800A668EA /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834A5DE2B6993C800A668EA /* Payment.swift */; };
-		0835E5A02DBE7E17005D6207 /* LinkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0835E59F2DBE7E17005D6207 /* LinkKit */; };
+		0835E5A02DBE7E17005D6207 /* LinkKit in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 0835E59F2DBE7E17005D6207 /* LinkKit */; };
 		0835E5A22DBE851C005D6207 /* AkoyaActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5A12DBE8518005D6207 /* AkoyaActor.swift */; };
 		0835E5A42DBE8A4E005D6207 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5A32DBE8A46005D6207 /* AuthHelper.swift */; };
 		0835E5A62DBE914A005D6207 /* AkoyaTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5A52DBE913E005D6207 /* AkoyaTransactionResponse.swift */; };
@@ -78,6 +78,7 @@
 		08C31B942DC19C5C00A59A26 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C31B932DC19C5C00A59A26 /* StoreKit.framework */; };
 		08C31B972DC19CBC00A59A26 /* Carteret.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 08C31B962DC19CBC00A59A26 /* Carteret.storekit */; };
 		08C31B992DC19D4C00A59A26 /* Storeroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B982DC19D3500A59A26 /* Storeroom.swift */; };
+		08C31B9B2DC3D8CA00A59A26 /* UniversalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,7 @@
 		08C31B932DC19C5C00A59A26 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		08C31B962DC19CBC00A59A26 /* Carteret.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Carteret.storekit; sourceTree = "<group>"; };
 		08C31B982DC19D3500A59A26 /* Storeroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storeroom.swift; sourceTree = "<group>"; };
+		08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 				0858AD5F2DC13E7000BEA6E0 /* PlaidStatusResponse.swift */,
 				0858AD612DC142E000BEA6E0 /* PlaidCreateLinkTokenRequest.swift */,
 				0858AD632DC144F800BEA6E0 /* PlaidCreateLinkTokenResponse.swift */,
+				08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */,
 				0834A5D92B69910000A668EA /* SwiftData */,
 				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
 				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
@@ -531,6 +534,7 @@
 				0857E32B2D4325D60052904C /* WeekVisuals.swift in Sources */,
 				089EEFD82D39A4B1000D6657 /* TabbedView.swift in Sources */,
 				080E27692D3AF4FA00595DE8 /* Week.swift in Sources */,
+				08C31B9B2DC3D8CA00A59A26 /* UniversalImage.swift in Sources */,
 				0857E3192D42C56D0052904C /* PieChart.swift in Sources */,
 				0846F4E12D4C525700222419 /* UpgradeView.swift in Sources */,
 				0822ACD92D70F700008E709F /* EditFundView.swift in Sources */,

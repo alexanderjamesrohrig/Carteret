@@ -34,6 +34,8 @@ struct BudgetView: View {
     @State private var fundToEdit: Fund?
     @State private var fundToShow: Fund?
     @State private var showTestView = false
+    @State private var osVersion = "Unknown"
+    @StateObject private var debugSettings = DebugSettings()
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
     
     var spendingLimit: Currency {
@@ -187,6 +189,8 @@ struct BudgetView: View {
                         TestView()
                     }
                 }
+                
+                LabeledContent("iOS", value: debugSettings.osVersion)
             }
         #endif
     }

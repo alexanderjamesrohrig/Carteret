@@ -5,9 +5,12 @@
 //  Created by Alexander Rohrig on 4/26/25.
 //
 
+#if canImport(LinkKit)
 import SwiftUI
 @preconcurrency import LinkKit
+#endif
 
+@available(iOS 17.2, *)
 struct PlaidLinkView: UIViewControllerRepresentable {
     private let handler: Handler
     

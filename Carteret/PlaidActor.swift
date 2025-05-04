@@ -5,6 +5,7 @@
 //  Created by Alexander Rohrig on 4/26/25.
 //
 
+#if canImport(LinkKit)
 import Foundation
 import LinkKit
 import LinkKitSub
@@ -122,3 +123,4 @@ actor PlaidActor {
         logger.info("\(linkEvent.eventName.description)")
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Alexander Rohrig on 2/27/25.
 //
 
+#if canImport(MessageUI)
 import MessageUI
 import SwiftUI
 import OSLog
@@ -66,3 +67,4 @@ struct MailComposeView: UIViewControllerRepresentable {
         Coordinator(viewController)
     }
 }
+#endif

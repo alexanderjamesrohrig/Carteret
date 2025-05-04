@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(LinkKit)
 @preconcurrency import LinkKit
+#endif
 
 @available(iOS 17.4, *)
 struct TestView: View {
