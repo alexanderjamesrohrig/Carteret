@@ -133,6 +133,7 @@ extension Locale {
         return "\(symbolName)sign"
     }
     
+    #if canImport(UIKit)
     /// https://gist.github.com/christianselig/09383de004bd878ba4a86663bc6d1b0b
     func currencySymbol(systemName: String,
                         filled: Bool = false,
@@ -147,6 +148,7 @@ extension Locale {
         return UIImage(systemName: symbolName,
                        withConfiguration: configuration) ?? defaultImage
     }
+    #endif
 }
 
 // MARK: - Decimal

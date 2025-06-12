@@ -5,10 +5,11 @@
 //  Created by Alexander Rohrig on 2/27/25.
 //
 
-#if canImport(MessageUI)
-import MessageUI
 import SwiftUI
 import OSLog
+
+#if canImport(MessageUI)
+import MessageUI
 
 struct MailComposeView: UIViewControllerRepresentable {
     class Coordinator: NSObject, @preconcurrency MFMailComposeViewControllerDelegate {
@@ -65,6 +66,12 @@ struct MailComposeView: UIViewControllerRepresentable {
     
     func makeCoordinator() -> Coordinator {
         Coordinator(viewController)
+    }
+}
+#else
+struct MailComposeView: View {
+    var body: some View {
+        ContentUnavailableView("Only available on iOS.", systemImage: "iphone.gen3")
     }
 }
 #endif

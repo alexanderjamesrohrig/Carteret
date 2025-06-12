@@ -8,7 +8,6 @@
 import SwiftUI
 #if canImport(LinkKit)
 @preconcurrency import LinkKit
-#endif
 
 @available(iOS 17.4, *)
 struct TestView: View {
@@ -43,3 +42,12 @@ struct TestView: View {
         }
     }
 }
+#else
+struct TestView: View {
+    var body: some View {
+        Form {
+            Text("macOS")
+        }
+    }
+}
+#endif

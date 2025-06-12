@@ -67,6 +67,8 @@ enum TransactionCategory: Codable, CaseIterable, Comparable {
     case other
     case shopping
     
+    // TODO: Assign ISO 18245
+    
     var sortOrder: Int {
         switch self {
         case .eatingOut:

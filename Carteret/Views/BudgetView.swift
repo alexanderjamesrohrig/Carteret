@@ -18,9 +18,9 @@ struct BudgetView: View {
                                 category: "BudgetView")
     private let debugCategory = Category(name: "Debug")
     private let email = "me+carteret@alexanderrohrig.com"
-    private let plaid = PlaidActor()
     
     @EnvironmentObject private var budgetManager: BudgetManager
+    @EnvironmentObject private var debugSettings: DebugSettings
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Item.activeItemsPredicate(),
            sort: \.currencyAmount,
@@ -35,7 +35,6 @@ struct BudgetView: View {
     @State private var fundToShow: Fund?
     @State private var showTestView = false
     @State private var osVersion = "Unknown"
-    @StateObject private var debugSettings = DebugSettings()
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
     
     var spendingLimit: Currency {

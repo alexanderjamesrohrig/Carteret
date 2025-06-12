@@ -13,6 +13,7 @@ import OSLog
 struct WeekView: View {
     private let logger = Logger(subsystem: Constant.carteretSubsystem,
                                 category: "WeekView")
+    let wallet = FinanceKitManager()
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
@@ -172,6 +173,16 @@ struct WeekView: View {
                 showImport = true
             } label: {
                 Label("Import from Weekly", systemImage: CarteretImage.importName)
+            }
+            
+            if wallet.isAvailable {
+                Button {
+                    Task {
+                        await wallet.authorizedAndRequest()
+                    }
+                } label: {
+                    Label("Connect to Wallet", systemImage: "wallet.bifold")
+                }
             }
         }
     }

@@ -5,10 +5,10 @@
 //  Created by Alexander Rohrig on 4/26/25.
 //
 
-#if canImport(LinkKit)
 import SwiftUI
+
+#if canImport(LinkKit)
 @preconcurrency import LinkKit
-#endif
 
 @available(iOS 17.2, *)
 struct PlaidLinkView: UIViewControllerRepresentable {
@@ -57,3 +57,10 @@ struct PlaidLinkView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
+#else
+struct PlaidLinkView: View {
+    var body: some View {
+        ContentUnavailableView("Only available on iOS.", systemImage: "iphone.gen3")
+    }
+}
+#endif

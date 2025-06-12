@@ -11,6 +11,7 @@ import SwiftUI
 struct TabbedView: View {
     
     @StateObject private var budgetManager = BudgetManager()
+    @StateObject private var debugSettings = DebugSettings()
     @State private var selectedTab: Tab = .budget
     
     var body: some View {

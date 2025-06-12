@@ -79,6 +79,7 @@
 		08C31B972DC19CBC00A59A26 /* Carteret.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 08C31B962DC19CBC00A59A26 /* Carteret.storekit */; };
 		08C31B992DC19D4C00A59A26 /* Storeroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B982DC19D3500A59A26 /* Storeroom.swift */; };
 		08C31B9B2DC3D8CA00A59A26 /* UniversalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */; };
+		08DC30232DFB464800630AF7 /* ConnectWalletButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DC30222DFB464400630AF7 /* ConnectWalletButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		08C31B962DC19CBC00A59A26 /* Carteret.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Carteret.storekit; sourceTree = "<group>"; };
 		08C31B982DC19D3500A59A26 /* Storeroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storeroom.swift; sourceTree = "<group>"; };
 		08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalImage.swift; sourceTree = "<group>"; };
+		08DC30222DFB464400630AF7 /* ConnectWalletButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWalletButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				089A882D2D44255100990FF3 /* ItemVisuals.swift */,
 				0846F4E02D4C525100222419 /* UpgradeView.swift */,
 				0871FDFA2DBD550A000BFB18 /* ConnectPlaidButton.swift */,
+				08DC30222DFB464400630AF7 /* ConnectWalletButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				0858AD622DC142F400BEA6E0 /* PlaidCreateLinkTokenRequest.swift in Sources */,
 				0858AD602DC13E7600BEA6E0 /* PlaidStatusResponse.swift in Sources */,
 				080E27572D3AB42300595DE8 /* WeekView.swift in Sources */,
+				08DC30232DFB464800630AF7 /* ConnectWalletButton.swift in Sources */,
 				088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */,
 				0834A5DF2B6993C800A668EA /* Payment.swift in Sources */,
 				0858AD642DC144FE00BEA6E0 /* PlaidCreateLinkTokenResponse.swift in Sources */,
@@ -752,7 +756,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -792,7 +796,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
