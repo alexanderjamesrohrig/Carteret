@@ -40,7 +40,7 @@ actor PlaidActor {
             let user = PlaidCreateLinkTokenRequest.User(client_user_id: id)
             let requestBody = PlaidCreateLinkTokenRequest(
                 client_id: "680d02c8adebe6002487673b",
-                secret: "b5dd0a35b996263e4724c3c0f854e2", // FIXME: Do not hardcode
+                secret: "", // FIXME: Do not hardcode
                 client_name: "Carteret",
                 language: PlaidCreateLinkTokenRequest.english,
                 country_codes: PlaidCreateLinkTokenRequest.unitedStates,

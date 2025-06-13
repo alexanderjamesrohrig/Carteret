@@ -19,7 +19,7 @@ actor AkoyaActor {
                                 category: "AkoyaActor")
     private let callbackURL = "https://recipient.ddp.akoya.com/flow/callback"
     private let clientID = "03acc008-a4fb-4a11-9234-952f9ba38d9c"
-    private let secret = "guoixJlqHFhRyVCNoaz~sDYFB3" // FIXME: Do not hardcode
+    private let secret = "" // FIXME: Do not hardcode
     private let authURL = "https://sandbox-idp.ddp.akoya.com/auth"
     private let authHost = "recipient.ddp.akoya.com"
     private let authPath = "/flow/callback"
