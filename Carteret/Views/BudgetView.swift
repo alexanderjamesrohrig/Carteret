@@ -34,8 +34,10 @@ struct BudgetView: View {
     @State private var fundToEdit: Fund?
     @State private var fundToShow: Fund?
     @State private var showTestView = false
+    @State private var showEditSavings = false
     @State private var osVersion = "Unknown"
     @AppStorage(Constant.prereleaseWarning) private var hidePrereleaseWarning = false
+    @AppStorage(Constant.savingsRate) private var savingsRate: Data = Data()
     
     var spendingLimit: Currency {
         // TODO: Income - bills - savings - funds
@@ -72,7 +74,7 @@ struct BudgetView: View {
     /// https://semver.org
     ///
     /// major.minor.patch-prerelease+build
-    var appVersion: String { "\(RSCCore.shared.version)-A" }
+    var appVersion: String { "\(RSCCore.shared.version)" }
     
         // MARK: Views
     
@@ -92,6 +94,10 @@ struct BudgetView: View {
                     LabeledContent("Bills", value: billsTotal.display)
                     
                     LabeledContent("Savings", value: savingsTotal.display)
+                } footer: {
+                    Button("Edit savings") {
+                        showEditSavings = true
+                    }
                 }
                 
                 Section("Recurring items") {
@@ -130,6 +136,9 @@ struct BudgetView: View {
                     // TODO: Show force subscription sheet
                     showUpgrade = true
                 }
+            }
+            .sheet(isPresented: $showEditSavings) {
+                EditSavingsView(savingsData: $savingsRate)
             }
             .sheet(isPresented: $showEditItem) {
                 EditItemView(item: itemToEdit)
@@ -181,7 +190,7 @@ struct BudgetView: View {
                 Toggle("Show upgrade sheet", isOn: $showUpgrade)
                 
                 if #available(iOS 17.4, *) {
-                    Button("Test view") {
+                    Button("Connections") {
                         showTestView = true
                     }
                     .sheet(isPresented: $showTestView) {

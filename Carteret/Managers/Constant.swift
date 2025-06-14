@@ -11,6 +11,7 @@ enum Constant {
     static let zero = "$0.00"
     static let iPhone16CornerRadius: CGFloat = 55.0
     static let maxFreeWeeklyIncome: Currency = 1923.07
+    static let savingsRate: String = "storage.savingRate"
     
     static var subsystem: String { carteretSubsystem }
 }

@@ -11,97 +11,97 @@ import OSLog
 import FinanceKit
 import FinanceKitUI
 
-struct FinanceKitManager {
-    let store = FinanceStore.shared
-    private let logger = Logger(
-        subsystem: Constant.subsystem,
-        category: "FinanceKitManager")
-    
-    var isAvailable: Bool {
-        FinanceStore.isDataAvailable(.financialData)
-    }
-    
-    func accounts() async -> [FinanceKit.Account] {
-        guard isAvailable,
-              await authorized() else {
-            return []
-        }
-        do {
-            let sortDescriptor = SortDescriptor(\FinanceKit.Account.displayName)
-//            let predicate = #Predicate<FinanceKit.Account> { account in
+//struct FinanceKitManager {
+//    let store = FinanceStore.shared
+//    private let logger = Logger(
+//        subsystem: Constant.subsystem,
+//        category: "FinanceKitManager")
+//    
+//    var isAvailable: Bool {
+//        FinanceStore.isDataAvailable(.financialData)
+//    }
+//    
+//    func accounts() async -> [FinanceKit.Account] {
+//        guard isAvailable,
+//              await authorized() else {
+//            return []
+//        }
+//        do {
+//            let sortDescriptor = SortDescriptor(\FinanceKit.Account.displayName)
+////            let predicate = #Predicate<FinanceKit.Account> { account in
+////                return true
+////            }
+//            let query = AccountQuery(sortDescriptors: [sortDescriptor])
+//            let accounts = try await store.accounts(query: query)
+//            return accounts
+//        } catch {
+//            logger.error("Account query error")
+//            return []
+//        }
+//    }
+//    
+//    func authorized() async -> Bool {
+//        do {
+//            let authorized = try await store.authorizationStatus()
+//            switch authorized {
+//            case .notDetermined:
+//                return false
+//            case .denied:
+//                return false
+//            case .authorized:
 //                return true
+//            @unknown default:
+//                logger.error("Found unknown status")
+//                return false
 //            }
-            let query = AccountQuery(sortDescriptors: [sortDescriptor])
-            let accounts = try await store.accounts(query: query)
-            return accounts
-        } catch {
-            logger.error("Account query error")
-            return []
-        }
-    }
-    
-    func authorized() async -> Bool {
-        do {
-            let authorized = try await store.authorizationStatus()
-            switch authorized {
-            case .notDetermined:
-                return false
-            case .denied:
-                return false
-            case .authorized:
-                return true
-            @unknown default:
-                logger.error("Found unknown status")
-                return false
-            }
-        } catch {
-            logger.error("Authorization error")
-            return false
-        }
-    }
-    
-    func authorizedAndRequest() async -> Bool {
-        do {
-            let authorized = try await store.requestAuthorization()
-            switch authorized {
-            case .notDetermined:
-                return false
-            case .denied:
-                return false
-            case .authorized:
-                return true
-            @unknown default:
-                logger.error("Found unknown status")
-                return false
-            }
-        } catch {
-            logger.error("Request authorization error")
-            return false
-        }
-    }
-    
-    func transactions() async -> [Transaction] {
-        guard #available(iOS 18, *) else {
-            return []
-        }
-        do {
-            let sortByTransactionDate = SortDescriptor(\FinanceKit.Transaction.transactionDate)
-            let query = TransactionQuery(
-                sortDescriptors: [sortByTransactionDate])
-            let transactions = try await store.transactions(query: query)
-            var mapped: [Transaction] = []
-            for transaction in transactions {
-                if let mappedTransaction = transaction.toCarteretTransaction {
-                    mapped.append(mappedTransaction)
-                }
-            }
-            return mapped
-        } catch {
-            logger.error("Transaction query error")
-            return []
-        }
-    }
-    
+//        } catch {
+//            logger.error("Authorization error")
+//            return false
+//        }
+//    }
+//    
+//    func authorizedAndRequest() async -> Bool {
+//        do {
+//            let authorized = try await store.requestAuthorization()
+//            switch authorized {
+//            case .notDetermined:
+//                return false
+//            case .denied:
+//                return false
+//            case .authorized:
+//                return true
+//            @unknown default:
+//                logger.error("Found unknown status")
+//                return false
+//            }
+//        } catch {
+//            logger.error("Request authorization error")
+//            return false
+//        }
+//    }
+//    
+//    func transactions() async -> [Transaction] {
+//        guard #available(iOS 18, *) else {
+//            return []
+//        }
+//        do {
+//            let sortByTransactionDate = SortDescriptor(\FinanceKit.Transaction.transactionDate)
+//            let query = TransactionQuery(
+//                sortDescriptors: [sortByTransactionDate])
+//            let transactions = try await store.transactions(query: query)
+//            var mapped: [Transaction] = []
+//            for transaction in transactions {
+//                if let mappedTransaction = transaction.toCarteretTransaction {
+//                    mapped.append(mappedTransaction)
+//                }
+//            }
+//            return mapped
+//        } catch {
+//            logger.error("Transaction query error")
+//            return []
+//        }
+//    }
+//    
     // TODO: All transactions
 //    func allTransaction() async -> [Transaction] {
 //        let accounts = await accounts()
@@ -112,7 +112,7 @@ struct FinanceKitManager {
 //            store.
 //        }
 //    }
-}
+//}
 
 extension FinanceKit.Transaction {
     @available(iOS 18, *)
@@ -153,6 +153,7 @@ extension FinanceKit.Transaction {
 
 actor WalletActor {
     typealias FKTransaction = FinanceKit.Transaction
+    
     enum WalletError: Error {
         
     }
@@ -183,7 +184,7 @@ actor WalletActor {
         }
     }
     
-    var isAvailable: Bool { FinanceStore.isDataAvailable(.financialData) }
+    @MainActor var isAvailable: Bool { FinanceStore.isDataAvailable(.financialData) }
     
     func requestAuthorizationSuccess() async -> Bool {
         do {

@@ -18,7 +18,8 @@ struct TestView: View {
     private let wallet = WalletActor()
     
     @State private var plaidAPIStatus = "Unknown"
-    @State private var walletAuthorization = "false"
+    @State private var walletAvailable = "Unknown"
+    @State private var walletAuthorization = "Unknown"
     @State private var showLinkView = false
     
     var body: some View {
@@ -28,17 +29,20 @@ struct TestView: View {
             }
             
             Section("Akoya") {
-                
+                LabeledContent("API status", value: "TBD")
             }
             
             Section("FinanceKit") {
-                LabeledContent("Authorization", value: walletAuthorization)
+                LabeledContent("Available", value: walletAvailable)
+                
+                LabeledContent("Authorized", value: walletAuthorization)
             }
         }
         .fullScreenCover(isPresented: $showLinkView) {}
         .task {
             plaidAPIStatus = await plaid.apiStatus
-            // TODO: Uncomment after entitled :- walletAuthorization = await wallet.authorized.description
+            walletAvailable = wallet.isAvailable ? "Yes" : "No"
+            walletAuthorization = await wallet.authorized ? "Yes" : "No"
         }
     }
 }

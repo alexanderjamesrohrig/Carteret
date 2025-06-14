@@ -87,7 +87,13 @@ struct EditItemView: View {
                     }
                 } footer: {
                     if let item {
-                        Text("\(item.weeklyAmount.display) every week.")
+                        VStack(alignment: .leading) {
+                            Text("\(item.weeklyAmount.display) every week.")
+                            
+                            Spacer()
+                            
+                            Text("\((item.weeklyAmount * 52.0).display) every year.")
+                        }
                     }
                 }
                 

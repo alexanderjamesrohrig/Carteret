@@ -13,7 +13,7 @@ import OSLog
 struct WeekView: View {
     private let logger = Logger(subsystem: Constant.carteretSubsystem,
                                 category: "WeekView")
-    let wallet = FinanceKitManager()
+    let wallet = WalletActor()
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @Environment(\.modelContext) private var modelContext
@@ -58,7 +58,10 @@ struct WeekView: View {
     }
     
     var safeToSpendTitle: String {
-        if safeToSpend > 0 {
+        if safeToSpend == 0 && budgetManager.spendingLimit == 0 && budgetManager.runningBalance == 0 {
+            "No budet set up"
+        }
+        else if safeToSpend > 0 {
             "Safe to spend"
         } else {
             "Over budget"
@@ -178,7 +181,7 @@ struct WeekView: View {
             if wallet.isAvailable {
                 Button {
                     Task {
-                        await wallet.authorizedAndRequest()
+                        await wallet.requestAuthorizationSuccess()
                     }
                 } label: {
                     Label("Connect to Wallet", systemImage: "wallet.bifold")

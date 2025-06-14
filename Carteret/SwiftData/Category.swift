@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import Charts
+import SwiftUICore
 
 @Model
 final class Category {
@@ -102,6 +103,23 @@ enum TransactionCategory: Codable, CaseIterable, Comparable {
             "Shopping"
         }
     }
+    
+    var displayColor: Color {
+        switch self {
+        case .eatingOut:
+            Color.green
+        case .entertainment:
+            Color.purple
+        case .gas:
+            Color.brown
+        case .groceries:
+            Color.teal
+        case .other:
+            Color.gray
+        case .shopping:
+            Color.red
+        }
+    }
 }
 
 // TODO: Custom item categories
@@ -148,6 +166,37 @@ enum ItemCategory: String, Codable, CaseIterable, Plottable {
             "Taxes"
         case .transportation:
             "Transportation"
+        }
+    }
+    
+    var displayColor: Color {
+        switch self {
+        case .income:
+            Color.green
+        case .savings:
+            Color.yellow
+        case .billsAndUtilities:
+            Color.red
+        case .donations:
+            Color.orange
+        case .healthAndBeauty:
+            Color.mint
+        case .housing:
+            Color.teal
+        case .kids:
+            Color.cyan
+        case .loanPayments:
+            Color.blue
+        case .medical:
+            Color.indigo
+        case .other:
+            Color.gray
+        case .subscriptions:
+            Color.purple
+        case .taxes:
+            Color.pink
+        case .transportation:
+            Color.brown
         }
     }
 }

@@ -29,5 +29,6 @@ struct TabbedView: View {
                 .tag(Tab.week)
         }
         .environmentObject(budgetManager)
+        .environmentObject(debugSettings)
     }
 }
