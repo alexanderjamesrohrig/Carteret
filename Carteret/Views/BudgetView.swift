@@ -62,11 +62,22 @@ struct BudgetView: View {
     }
     
     var savingsTotal: Currency {
-        var total = Currency.zero
+        // Savings items
+        var itemTotal = Currency.zero
         for item in items where item.isSavings {
-            total += item.weeklyAmount
+            itemTotal += item.weeklyAmount
         }
-        return total
+        // Savings rate
+        let preSavingsSafeToSpend = incomeTotal - billsTotal
+        var savingsRateTotal = Currency.zero
+        let savings = Savings.from(data: savingsRate)
+        switch savings.type {
+        case .percentage:
+            savingsRateTotal = preSavingsSafeToSpend * (savings.amount / 100)
+        case .currencyAmount:
+            savingsRateTotal = savings.amount
+        }
+        return itemTotal + savingsRateTotal
     }
     
     /// App version
@@ -101,6 +112,7 @@ struct BudgetView: View {
                         Button("Edit savings") {
                             showEditSavings = true
                         }
+                        .buttonStyle(.bordered)
                     }
                 }
                 

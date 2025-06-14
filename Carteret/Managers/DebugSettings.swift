@@ -26,7 +26,7 @@ import Foundation
         .connectToWallet
     ]
     
-    @Published var showSavingsRow = false
+    @Published var showSavingsRow = true
     @Published var connectToWalletEnabled = false
     @Published var connectToAkoyaEnabled = false
     @Published var connectToPlaidEnabled = false

@@ -39,7 +39,7 @@ struct Savings: Codable {
 }
 
 extension Savings {
-    var logger: Logger {
+    fileprivate var logger: Logger {
         Logger(subsystem: Constant.subsystem, category: "Savings")
     }
 }
