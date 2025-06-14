@@ -93,10 +93,14 @@ struct BudgetView: View {
                     
                     LabeledContent("Bills", value: billsTotal.display)
                     
-                    LabeledContent("Savings", value: savingsTotal.display)
+                    if debugSettings.showSavingsRow {
+                        LabeledContent("Savings", value: savingsTotal.display)
+                    }
                 } footer: {
-                    Button("Edit savings") {
-                        showEditSavings = true
+                    if debugSettings.showSavingsRow {
+                        Button("Edit savings") {
+                            showEditSavings = true
+                        }
                     }
                 }
                 
