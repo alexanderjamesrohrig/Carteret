@@ -25,6 +25,7 @@ struct WeekView: View {
     @State private var showVisuals = false
     @State private var showImport = false
     @State private var transactionToEdit: Transaction?
+    @State private var walletAuthorized: Bool = false
     
     
     var currentWeek: Week? {
@@ -154,6 +155,9 @@ struct WeekView: View {
             
             importSection
         }
+        .task {
+            walletAuthorized = await wallet.authorized
+        }
         .sheet(isPresented: $showEditTransaction) {
             EditTransactionView(transaction: transactionToEdit)
         }
@@ -180,12 +184,16 @@ struct WeekView: View {
             }
             
             if wallet.isAvailable {
-                Button {
-                    Task {
-                        await wallet.requestAuthorizationSuccess()
+                if walletAuthorized {
+                    Label("Connected to Wallet", systemImage: "checkmark.circle.fill")
+                } else {
+                    Button {
+                        Task {
+                            await wallet.requestAuthorizationSuccess()
+                        }
+                    } label: {
+                        Label("Connect to Wallet", systemImage: "wallet.bifold")
                     }
-                } label: {
-                    Label("Connect to Wallet", systemImage: "wallet.bifold")
                 }
             }
         }
