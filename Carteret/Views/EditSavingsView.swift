@@ -15,6 +15,7 @@ struct EditSavingsView: View {
     @State private var selectedType: Savings.SavingsType = .percentage
     @State private var selectedAmount: String = "0"
     @State private var animateSelectedAmount: CGFloat = 0
+    @State private var animatePercentSelected: Bool = true
     
     var selectedAmountNumber: Double {
         let fromFormatter = NumberFormatter()
@@ -57,6 +58,16 @@ struct EditSavingsView: View {
                             .tag(Savings.SavingsType.currencyAmount)
                     }
                     .pickerStyle(.segmented)
+                    .onChange(of: selectedType) { (oldType, newType) in
+                        withAnimation {
+                            switch newType {
+                            case .percentage:
+                                animatePercentSelected = true
+                            case .currencyAmount:
+                                animatePercentSelected = false
+                            }
+                        }
+                    }
                     
                     Text("of spending limit")
                         .font(.footnote)
@@ -70,7 +81,10 @@ struct EditSavingsView: View {
         }
         .presentationDragIndicator(.visible)
         .onAppear {
-            selectedAmount = "\(Savings.from(data: savingsData).amount)"
+            let savings = Savings.from(data: savingsData)
+            selectedAmount = "\(savings.amount)"
+            selectedType = savings.type
+            animatePercentSelected = selectedType == .percentage
         }
     }
     
@@ -80,6 +94,7 @@ struct EditSavingsView: View {
                 if selectedType == .currencyAmount {
                     Text("$")
                         .font(.system(.largeTitle, design: .monospaced, weight: .regular))
+                        .opacity(animatePercentSelected ? 0 : 1)
                         .padding()
                 }
                 
@@ -88,6 +103,7 @@ struct EditSavingsView: View {
                 if selectedType == .percentage {
                     Text("%")
                         .font(.system(.largeTitle, design: .monospaced, weight: .regular))
+                        .opacity(animatePercentSelected ? 1 : 0)
                         .padding()
                 }
             }
