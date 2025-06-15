@@ -31,7 +31,8 @@ struct WeekVisuals: View {
         }
         self.pieData = sorted.map { transaction in
                 .init(name: transaction.category?.displayName ?? "nil",
-                      amount: transaction.currencyAmount)
+                      amount: transaction.currencyAmount,
+                      color: transaction.category?.displayColor ?? .blue)
         }
         self.barData = safeToSpendOnly.map { transaction in
                 .init(date: transaction.date,
@@ -47,25 +48,64 @@ struct WeekVisuals: View {
     var body: some View {
         Form {
             Section("Safe-to-spend") {
-                PieChart(data: pieData)
+                VStack {
+                    PieChart(data: pieData)
+                    
+                    legend
+                }
             }
             
             Section("Daily") {
-                Chart(barData) { plot in
-                    BarMark(x: .value("Date", plot.date, unit: .day),
-                            y: .value("Amount", plot.amount))
-                    .foregroundStyle(by: .value("Category", plot.category.displayName))
+                VStack {
+                    Chart(barData) { plot in
+                        BarMark(x: .value("Date", plot.date, unit: .day),
+                                y: .value("Amount", plot.amount))
+                        .foregroundStyle(plot.category.displayColor)
+                    }
+                    .chartXAxis {
+                        AxisMarks(format: MonthDayFormat())
+                    }
+                    .chartYAxis {
+                        AxisMarks(format: .currency(code: Locale.currencyCode))
+                    }
+                    .scaledToFit()
+                    
+                    legend
                 }
-                .chartXAxis {
-                    AxisMarks(format: MonthDayFormat())
-                }
-                .chartYAxis {
-                    AxisMarks(format: .currency(code: Locale.currencyCode))
-                }
-                .scaledToFit()
             }
         }
         .presentationDragIndicator(.visible)
+    }
+    
+    @ViewBuilder var legend: some View {
+        Grid {
+            GridRow {
+                transactionLegendItem(category: .eatingOut)
+                
+                transactionLegendItem(category: .entertainment)
+                
+                transactionLegendItem(category: .gas)
+            }
+            
+            GridRow {
+                transactionLegendItem(category: .groceries)
+                
+                transactionLegendItem(category: .shopping)
+                
+                transactionLegendItem(category: .other)
+            }
+        }
+    }
+    
+    @ViewBuilder func transactionLegendItem(category: TransactionCategory) -> some View {
+        HStack {
+            Circle()
+                .foregroundStyle(category.displayColor)
+                .frame(width: 5, height: 5)
+            
+            Text(category.displayName)
+                .font(.caption)
+        }
     }
 }
 

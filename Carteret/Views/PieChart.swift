@@ -11,17 +11,18 @@ import Charts
 struct PieChart: View {
     struct PieChartSegment: Identifiable {
         static let previewData: [PieChartSegment] = [
-            .init(name: "Eating out", amount: 6.69),
-            .init(name: "Entertainment", amount: 185.00),
-            .init(name: "Gas", amount: 24.13),
-            .init(name: "Groceries", amount: 0.00),
-            .init(name: "Other", amount: 185.00),
-            .init(name: "Shopping", amount: 0.00),
+            .init(name: "Eating out", amount: 6.69, color: .black),
+            .init(name: "Entertainment", amount: 185.00, color: .blue),
+            .init(name: "Gas", amount: 24.13, color: .gray),
+            .init(name: "Groceries", amount: 0.00, color: .green),
+            .init(name: "Other", amount: 185.00, color: .brown),
+            .init(name: "Shopping", amount: 0.00, color: .cyan),
         ]
         
         let id = UUID()
         let name: String
         let amount: Decimal
+        let color: Color
     }
     
     let data: [PieChartSegment]
