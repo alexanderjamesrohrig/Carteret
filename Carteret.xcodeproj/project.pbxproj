@@ -32,6 +32,8 @@
 		0835E5A82DBE95DD005D6207 /* AmericanExpressTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5A72DBE95D7005D6207 /* AmericanExpressTransaction.swift */; };
 		0835E5AA2DBE9843005D6207 /* CitiTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5A92DBE983E005D6207 /* CitiTransaction.swift */; };
 		0835E5AC2DBE9B33005D6207 /* OpenFinancialExchangeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835E5AB2DBE9B27005D6207 /* OpenFinancialExchangeParser.swift */; };
+		083BA39C2DFF3305008A896C /* SendableTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BA39B2DFF3301008A896C /* SendableTransaction.swift */; };
+		083BA39E2DFF39E7008A896C /* ImportedTransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BA39D2DFF39DE008A896C /* ImportedTransactionRowView.swift */; };
 		0846F4E12D4C525700222419 /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0846F4E02D4C525100222419 /* UpgradeView.swift */; };
 		084E0B712D4DB00000D955AC /* FormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084E0B702D4DAFFC00D955AC /* FormatStyle.swift */; };
 		0857E3192D42C56D0052904C /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857E3182D42C5680052904C /* PieChart.swift */; };
@@ -127,6 +129,8 @@
 		0835E5A72DBE95D7005D6207 /* AmericanExpressTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmericanExpressTransaction.swift; sourceTree = "<group>"; };
 		0835E5A92DBE983E005D6207 /* CitiTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiTransaction.swift; sourceTree = "<group>"; };
 		0835E5AB2DBE9B27005D6207 /* OpenFinancialExchangeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFinancialExchangeParser.swift; sourceTree = "<group>"; };
+		083BA39B2DFF3301008A896C /* SendableTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendableTransaction.swift; sourceTree = "<group>"; };
+		083BA39D2DFF39DE008A896C /* ImportedTransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedTransactionRowView.swift; sourceTree = "<group>"; };
 		0846F4E02D4C525100222419 /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
 		084E0B702D4DAFFC00D955AC /* FormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatStyle.swift; sourceTree = "<group>"; };
 		0857E3182D42C5680052904C /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				0857E3252D42F7BC0052904C /* TransactionImport.swift */,
 				0857E31C2D42CC0A0052904C /* SpendingLimitRow.swift */,
 				080E27642D3ADB3400595DE8 /* TransactionRowView.swift */,
+				083BA39D2DFF39DE008A896C /* ImportedTransactionRowView.swift */,
 				080E275C2D3ABAD400595DE8 /* CurrencyField.swift */,
 				0857E31E2D42DE830052904C /* CurrencyText.swift */,
 				080E27562D3AB41E00595DE8 /* WeekView.swift */,
@@ -344,6 +349,7 @@
 				08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */,
 				0885FD232DFCEA6300BFC54C /* Savings.swift */,
 				0885FD272DFE491000BFC54C /* CarTip.swift */,
+				083BA39B2DFF3301008A896C /* SendableTransaction.swift */,
 				0834A5D92B69910000A668EA /* SwiftData */,
 				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
 				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
@@ -536,6 +542,7 @@
 				088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */,
 				080E275B2D3AB74500595DE8 /* EditTransactionView.swift in Sources */,
 				0857E3262D42F7BC0052904C /* TransactionImport.swift in Sources */,
+				083BA39C2DFF3305008A896C /* SendableTransaction.swift in Sources */,
 				0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */,
 				0835E5A22DBE851C005D6207 /* AkoyaActor.swift in Sources */,
 				0885FD282DFE491200BFC54C /* CarTip.swift in Sources */,
@@ -590,6 +597,7 @@
 				0871FDFB2DBD5513000BFB18 /* ConnectPlaidButton.swift in Sources */,
 				0834A5D82B69902700A668EA /* Loan.swift in Sources */,
 				089EEFD62D39A138000D6657 /* Category.swift in Sources */,
+				083BA39E2DFF39E7008A896C /* ImportedTransactionRowView.swift in Sources */,
 				0835E5A62DBE914A005D6207 /* AkoyaTransactionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

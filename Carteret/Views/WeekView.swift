@@ -16,6 +16,7 @@ struct WeekView: View {
     let wallet = WalletActor()
     
     @EnvironmentObject private var budgetManager: BudgetManager
+    @EnvironmentObject private var debugSettings: DebugSettings
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Transaction.currentWeekPredicate(),
            sort: \.date,
@@ -26,6 +27,7 @@ struct WeekView: View {
     @State private var showImport = false
     @State private var transactionToEdit: Transaction?
     @State private var walletAuthorized: Bool = false
+    @State private var walletTransactions: [SendableTransaction] = []
     
     
     var currentWeek: Week? {
@@ -130,6 +132,10 @@ struct WeekView: View {
                                 }
                             }
                     }
+                    
+                    ForEach(walletTransactions) { transaction in
+                        ImportedTransactionRowView(transaction: transaction)
+                    }
                 }
                 
                 Section {
@@ -157,6 +163,11 @@ struct WeekView: View {
         }
         .task {
             walletAuthorized = await wallet.authorized
+            if #available(iOS 18, *),
+               let week = currentWeek,
+               let foundWalletTransactions = try? await wallet.transactions(for: week) {
+                walletTransactions = foundWalletTransactions
+            }
         }
         .sheet(isPresented: $showEditTransaction) {
             EditTransactionView(transaction: transactionToEdit)
@@ -183,16 +194,18 @@ struct WeekView: View {
                 Label("Import from Weekly", systemImage: CarteretImage.importName)
             }
             
-            if wallet.isAvailable {
-                if walletAuthorized {
-                    Label("Connected to Wallet", systemImage: "checkmark.circle.fill")
-                } else {
-                    Button {
-                        Task {
-                            await wallet.requestAuthorizationSuccess()
+            if #available(iOS 18.0, *) {
+                if wallet.isAvailable && debugSettings.connectToWalletEnabled {
+                    if walletAuthorized {
+                        Label("Connected to Wallet", systemImage: "checkmark.circle.fill")
+                    } else {
+                        Button {
+                            Task {
+                                await wallet.requestAuthorizationSuccess()
+                            }
+                        } label: {
+                            Label("Connect to Wallet", systemImage: "wallet.bifold")
                         }
-                    } label: {
-                        Label("Connect to Wallet", systemImage: "wallet.bifold")
                     }
                 }
             }

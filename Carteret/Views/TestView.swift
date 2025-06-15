@@ -21,6 +21,7 @@ struct TestView: View {
     @State private var walletAvailable = "Unknown"
     @State private var walletAuthorization = "Unknown"
     @State private var showLinkView = false
+    @State private var walletAccountsCount = 0
     
     var body: some View {
         Form {
@@ -36,6 +37,8 @@ struct TestView: View {
                 LabeledContent("Available", value: walletAvailable)
                 
                 LabeledContent("Authorized", value: walletAuthorization)
+                
+                LabeledContent("Accounts", value: "\(walletAccountsCount)")
             }
         }
         .fullScreenCover(isPresented: $showLinkView) {}
@@ -43,6 +46,7 @@ struct TestView: View {
             plaidAPIStatus = await plaid.apiStatus
             walletAvailable = wallet.isAvailable ? "Yes" : "No"
             walletAuthorization = await wallet.authorized ? "Yes" : "No"
+            walletAccountsCount = await wallet.accounts().count
         }
     }
 }

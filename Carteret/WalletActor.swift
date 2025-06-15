@@ -11,151 +11,11 @@ import OSLog
 import FinanceKit
 import FinanceKitUI
 
-//struct FinanceKitManager {
-//    let store = FinanceStore.shared
-//    private let logger = Logger(
-//        subsystem: Constant.subsystem,
-//        category: "FinanceKitManager")
-//    
-//    var isAvailable: Bool {
-//        FinanceStore.isDataAvailable(.financialData)
-//    }
-//    
-//    func accounts() async -> [FinanceKit.Account] {
-//        guard isAvailable,
-//              await authorized() else {
-//            return []
-//        }
-//        do {
-//            let sortDescriptor = SortDescriptor(\FinanceKit.Account.displayName)
-////            let predicate = #Predicate<FinanceKit.Account> { account in
-////                return true
-////            }
-//            let query = AccountQuery(sortDescriptors: [sortDescriptor])
-//            let accounts = try await store.accounts(query: query)
-//            return accounts
-//        } catch {
-//            logger.error("Account query error")
-//            return []
-//        }
-//    }
-//    
-//    func authorized() async -> Bool {
-//        do {
-//            let authorized = try await store.authorizationStatus()
-//            switch authorized {
-//            case .notDetermined:
-//                return false
-//            case .denied:
-//                return false
-//            case .authorized:
-//                return true
-//            @unknown default:
-//                logger.error("Found unknown status")
-//                return false
-//            }
-//        } catch {
-//            logger.error("Authorization error")
-//            return false
-//        }
-//    }
-//    
-//    func authorizedAndRequest() async -> Bool {
-//        do {
-//            let authorized = try await store.requestAuthorization()
-//            switch authorized {
-//            case .notDetermined:
-//                return false
-//            case .denied:
-//                return false
-//            case .authorized:
-//                return true
-//            @unknown default:
-//                logger.error("Found unknown status")
-//                return false
-//            }
-//        } catch {
-//            logger.error("Request authorization error")
-//            return false
-//        }
-//    }
-//    
-//    func transactions() async -> [Transaction] {
-//        guard #available(iOS 18, *) else {
-//            return []
-//        }
-//        do {
-//            let sortByTransactionDate = SortDescriptor(\FinanceKit.Transaction.transactionDate)
-//            let query = TransactionQuery(
-//                sortDescriptors: [sortByTransactionDate])
-//            let transactions = try await store.transactions(query: query)
-//            var mapped: [Transaction] = []
-//            for transaction in transactions {
-//                if let mappedTransaction = transaction.toCarteretTransaction {
-//                    mapped.append(mappedTransaction)
-//                }
-//            }
-//            return mapped
-//        } catch {
-//            logger.error("Transaction query error")
-//            return []
-//        }
-//    }
-//    
-    // TODO: All transactions
-//    func allTransaction() async -> [Transaction] {
-//        let accounts = await accounts()
-//        guard !accounts.isEmpty else {
-//            return []
-//        }
-//        for account in accounts {
-//            store.
-//        }
-//    }
-//}
-
-extension FinanceKit.Transaction {
-    @available(iOS 18, *)
-    var toCarteretTransaction: Transaction? {
-        guard let currentCurrencyCode = Locale.autoupdatingCurrent.currency?.identifier else {
-            print("Error - Found foreign transaction with no current locale")
-            return nil
-        }
-        let amount: Decimal
-        if currentCurrencyCode != self.transactionAmount.currencyCode,
-           let foreignAmount = self.foreignCurrencyAmount?.amount,
-           let foreignExchangeRate = self.foreignCurrencyExchangeRate {
-            amount = foreignAmount * foreignExchangeRate
-        } else {
-            amount = self.transactionAmount.amount
-        }
-        let type: TransactionType
-        switch self.creditDebitIndicator {
-        case .credit:
-            type = .income
-        case .debit:
-            type = .expense
-        @unknown default:
-            print("Error - Unknown transaction type")
-            fatalError()
-        }
-        return Transaction(
-            destination: .safeToSpend, // FIXME: Let user assign Item something to take recurring item from Wallet
-            category: .other, // FIXME: Convert from ISO 18245
-            item: nil,
-            fund: nil,
-            amount: amount,
-            type: type,
-            transactionDescription: self.originalTransactionDescription,
-            date: self.transactionDate)
-    }
-}
-
 actor WalletActor {
     typealias FKTransaction = FinanceKit.Transaction
     
     enum WalletError: Error {
-        
+        case walletNotAvailable
     }
     
     private let logger = Logger(subsystem: Constant.subsystem, category: "WalletActor")
@@ -194,21 +54,113 @@ actor WalletActor {
         }
     }
     
-    func historyToken(from week: Week) {}
-    
-    func accounts() async {
-        let accounts = store.accountHistory()
+    func accounts() async -> [FinanceKit.Account] {
+        do {
+            let sortDescriptor = SortDescriptor(\FinanceKit.Account.displayName)
+//            let predicate = #Predicate<FinanceKit.Account> { account in
+//                return true
+//            }
+            let query = AccountQuery(sortDescriptors: [sortDescriptor])
+            let accounts = try await store.accounts(query: query)
+            return accounts
+        } catch {
+            logger.error("Account query error")
+            return []
+        }
     }
     
-    func transactions(for week: Week) async throws -> [FKTransaction] {
-        let sortDescriptors: [SortDescriptor<FKTransaction>] = []
+    func transactions(
+        for account: FinanceKit.Account
+    ) async -> [FinanceKit.Transaction] {
+        do {
+            let sort = SortDescriptor(\FinanceKit.Transaction.transactionDate)
+            let query = TransactionQuery(sortDescriptors: [sort])
+            let transactions = try await store.transactions(query: query)
+            return transactions
+        } catch {
+            logger.error("Transaction query error")
+            return []
+        }
+    }
+    
+    @available(iOS 18, *)
+    func allTransactionsFromAllAccounts() async throws -> [SendableTransaction] {
+        guard await isAvailable,
+              await authorized else {
+            throw WalletError.walletNotAvailable
+        }
+        var fkTransactions: [FinanceKit.Transaction] = []
+        let fkAccounts = await accounts()
+        for account in fkAccounts {
+            let transactions = await transactions(for: account)
+            fkTransactions.append(contentsOf: transactions)
+        }
+        let sTransactions: [SendableTransaction] = fkTransactions.map {
+            $0.toSendableTransaction
+        }
+        return sTransactions
+    }
+    
+    @available(iOS 18, *)
+    func transactions(
+        for week: Week
+    ) async throws -> [SendableTransaction] {
+        guard await isAvailable,
+              await authorized else {
+            throw WalletError.walletNotAvailable
+        }
+        let startDate = Date.distantPast //week.start
+        var fkTransactions: [FinanceKit.Transaction] = []
+        let sort = SortDescriptor(\FinanceKit.Transaction.transactionDate)
+        let predicate = #Predicate<FinanceKit.Transaction> { transaction in
+            transaction.transactionDate >= startDate
+        }
         let query = TransactionQuery(
-            sortDescriptors: sortDescriptors,
-            predicate: nil,
-            limit: nil,
-            offset: nil
-        )
-        return []
+            sortDescriptors: [sort],
+            predicate: predicate)
+        let transactions = try await store.transactions(query: query)
+        fkTransactions.append(contentsOf: transactions)
+        let sTransactions: [SendableTransaction] = fkTransactions.map {
+            $0.toSendableTransaction
+        }
+        return sTransactions
+    }
+}
+
+extension FinanceKit.Transaction {
+    @available(iOS 18, *)
+    var toCarTransaction: Transaction {
+        let isExpense: Bool = self.creditDebitIndicator == .debit
+        var currency = self.transactionAmount.amount
+        if let foreignAmount = self.foreignCurrencyAmount,
+           let foreignExchangeRate = self.foreignCurrencyExchangeRate {
+            currency = foreignAmount.amount * foreignExchangeRate
+        }
+        return Transaction(
+            destination: .safeToSpend,
+            category: .other,
+            item: nil,
+            fund: nil,
+            amount: currency,
+            type: isExpense ? .expense : .income,
+            transactionDescription: self.transactionDescription,
+            date: self.transactionDate)
+    }
+    
+    @available(iOS 18, *)
+    var toSendableTransaction: SendableTransaction {
+        let isExpense: Bool = self.creditDebitIndicator == .debit
+        var currency = self.transactionAmount.amount
+        if let foreignAmount = self.foreignCurrencyAmount,
+           let foreignExchangeRate = self.foreignCurrencyExchangeRate {
+            currency = foreignAmount.amount * foreignExchangeRate
+        }
+        return SendableTransaction(
+            date: self.transactionDate,
+            description: self.transactionDescription,
+            type: isExpense ? .expense : .income,
+            amount: currency,
+            category: self.merchantCategoryCode?.description)
     }
 }
 #endif
