@@ -18,6 +18,36 @@ struct UpgradeView: View {
     @State private var subscription: Product?
     
     var body: some View {
+        VStack {
+            if storeroom.hasSubscription(.yearSubscription) {
+                thankYou
+            } else {
+                purchaseProduct
+            }
+        }
+        .padding()
+        .presentationDetents([.medium])
+        .task {
+            if await storeroom.inventory.isEmpty {
+                dismiss()
+            } else {
+                subscription = await storeroom.inventory.first
+            }
+        }
+    }
+    
+    @ViewBuilder var thankYou: some View {
+        VStack {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundStyle(Color.green)
+                .font(.system(.largeTitle, design: .default, weight: .heavy))
+            
+            Text("Thank you for being a subscriber.")
+        }
+        .presentationDragIndicator(.visible)
+    }
+    
+    @ViewBuilder var purchaseProduct: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Making over $100,000 a year?")
                 .font(.title)
@@ -32,34 +62,28 @@ struct UpgradeView: View {
             
             Spacer()
             
-            Button("Try One Month Free") {
+            Button("Try one month free") {
                 assert(subscription != nil)
                 Task {
                     if let subscription {
-                        try await storeroom.purchase(product: subscription)
+                        let purchased = try await storeroom.purchase(product: subscription)
+                        if purchased {
+                            dismiss()
+                        }
                     }
                 }
             }
             .frame(maxWidth: .infinity)
             .buttonStyle(.borderedProminent)
             
-            Button("No, I'm Poor") {
+            Button("No, I'm poor") {
                 dismiss()
             }
             .foregroundStyle(.secondary)
             .frame(maxWidth: .infinity)
             .buttonStyle(.bordered)
         }
-        .padding()
-        .presentationDetents([.medium])
         .interactiveDismissDisabled()
-        .task {
-            if await storeroom.inventory.isEmpty {
-                dismiss()
-            } else {
-                subscription = await storeroom.inventory.first
-            }
-        }
     }
 }
 

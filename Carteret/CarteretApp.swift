@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
+import OSLog
 
 public typealias Currency = Decimal
 
@@ -16,6 +18,8 @@ public typealias Currency = Decimal
 
 @main
 struct CarteretApp: App {
+    private let logger = Logger(subsystem: Constant.subsystem, category: "CarteretApp")
+    
     @StateObject private var storeroom = Storeroom()
     @Environment(\.scenePhase) private var scenePhase
     
@@ -42,6 +46,11 @@ struct CarteretApp: App {
                 .environmentObject(storeroom)
                 .task(id: scenePhase) {
                     await storeroom.setActiveTransactions()
+                    do {
+                        try Tips.configure()
+                    } catch {
+                        logger.error("Tips config error")
+                    }
                 }
         }
         .modelContainer(sharedModelContainer)

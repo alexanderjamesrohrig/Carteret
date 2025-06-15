@@ -14,7 +14,7 @@ import OSLog
     
     enum Item {
         static let allItemIDs: [String] = [
-            Item.yearSubscription.appleID,
+            Item.yearSubscription.productID,
         ]
         
         case yearSubscription
@@ -75,6 +75,7 @@ import OSLog
     private let logger = Logger(subsystem: Constant.subsystem, category: "Storeroom")
     
     @Published private(set) var activeTransactions: Set<SKTransaction> = []
+    @Published private(set) var activeSubscriptions: Set<String> = []
     private var updates: Task<Void, Never>?
     
     var inventory: [Product] {
@@ -88,7 +89,7 @@ import OSLog
         }
     }
     
-    func purchase(product: Product) async throws {
+    func purchase(product: Product) async throws -> Bool {
         let result = try await product.purchase()
         switch result {
         case .success(let verificationResult):
@@ -96,12 +97,16 @@ import OSLog
                 activeTransactions.insert(transaction)
                 await transaction.finish()
             }
+            logger.info("Purchased")
+            return true
         case .userCancelled:
-            break
+            logger.info("Canceled purchase")
+            return false
         case .pending:
-            break
+            return false
         @unknown default:
             assertionFailure("Unknown purchase result")
+            return false
         }
     }
     
@@ -111,7 +116,17 @@ import OSLog
             if let transaction = try? entitlement.payloadValue {
                 activeTransactions.insert(transaction)
             }
+            switch entitlement {
+            case .verified(let transaction):
+                activeSubscriptions.insert(transaction.productID)
+            default:
+                logger.warning("Unverified subscription exists")
+            }
         }
         self.activeTransactions = activeTransactions
+    }
+    
+    func hasSubscription(_ item: Item) -> Bool {
+        return activeSubscriptions.contains(item.productID)
     }
 }

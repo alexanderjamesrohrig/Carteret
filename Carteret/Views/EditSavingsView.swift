@@ -41,13 +41,10 @@ struct EditSavingsView: View {
         VStack {
             Text("Update savings rate")
                 .font(.system(.largeTitle, design: .rounded, weight: .heavy))
-                .padding(25)
+                .padding()
             
             VStack(alignment: .center) {
-                Text(selectedAmount)
-                    .font(.system(.largeTitle, design: .monospaced, weight: .regular))
-                    .padding(.vertical)
-                    .modifier(HorizontalShakeAnimation(animatableData: animateSelectedAmount))
+                amountText
                 
                 Spacer()
                 
@@ -64,15 +61,40 @@ struct EditSavingsView: View {
                     Text("of spending limit")
                         .font(.footnote)
                 }
-                .padding(25)
+                .padding()
                 
                 inViewNumberPad
                 
                 bottomButtons
             }
         }
+        .presentationDragIndicator(.visible)
         .onAppear {
             selectedAmount = "\(Savings.from(data: savingsData).amount)"
+        }
+    }
+    
+    @ViewBuilder var amountText: some View {
+        ZStack {
+            HStack {
+                if selectedType == .currencyAmount {
+                    Text("$")
+                        .font(.system(.largeTitle, design: .monospaced, weight: .regular))
+                        .padding()
+                }
+                
+                Spacer()
+                
+                if selectedType == .percentage {
+                    Text("%")
+                        .font(.system(.largeTitle, design: .monospaced, weight: .regular))
+                        .padding()
+                }
+            }
+            Text(selectedAmount)
+                .font(.system(.largeTitle, design: .monospaced, weight: .regular))
+                .padding(.vertical)
+                .modifier(HorizontalShakeAnimation(animatableData: animateSelectedAmount))
         }
     }
     
@@ -94,7 +116,7 @@ struct EditSavingsView: View {
             }
             .buttonStyle(.borderedProminent)
         }
-        .padding(25)
+        .padding()
     }
     
     @ViewBuilder var inViewNumberPad: some View {
@@ -162,7 +184,7 @@ struct EditSavingsView: View {
     func addNumber(_ string: String) {
         if selectedAmount == "0" {
             selectedAmount = string
-        } else if selectedAmount.count > 8 && selectedType == .currencyAmount {
+        } else if selectedAmount.count > 8 {
             withAnimation {
                 animateSelectedAmount += 1
             }

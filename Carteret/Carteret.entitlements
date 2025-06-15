@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>com.apple.developer.financekit</key>
-	<array>
-		<string>financial-data</string>
-	</array>
 	<key>aps-environment</key>
 	<string>development</string>
 	<key>com.apple.developer.aps-environment</key>
@@ -15,12 +11,14 @@
 		<string>webcredentials:www.alexanderrohrig.com</string>
 		<string>applinks:www.alexanderrohrig.com</string>
 	</array>
+	<key>com.apple.developer.financekit</key>
+	<array>
+		<string>financial-data</string>
+	</array>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array/>
 	<key>com.apple.developer.icloud-services</key>
-	<array>
-		<string>CloudKit</string>
-	</array>
+	<array/>
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
 	<key>com.apple.security.files.downloads.read-only</key>

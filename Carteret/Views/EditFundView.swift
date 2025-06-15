@@ -50,6 +50,7 @@ struct EditFundView: View {
                         .onSubmit {
                             focusedField = .amount
                         }
+                        .popoverTip(CarTip.explainFund)
                     
                     CurrencyField(amount: $newGoalAmount, focusedField: $focusedField)
                 } footer: {
@@ -83,6 +84,7 @@ struct EditFundView: View {
     
     func save(_ fund: Fund) {
         guard let newGoalAmount else { return }
+        CarTip.explainFund.invalidate(reason: .actionPerformed)
         fund.fundDescription = newDescription
         fund.goalAmount = newGoalAmount
         modelContext.insert(fund)

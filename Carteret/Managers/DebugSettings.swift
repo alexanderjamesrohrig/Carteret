@@ -13,6 +13,7 @@ import Foundation
         case connectToWallet
         case connectToAkoya
         case connectToPlaid
+        case loanItem
     }
     
     init() {
@@ -26,10 +27,12 @@ import Foundation
         .connectToWallet
     ]
     
+    // Default production values
     @Published var showSavingsRow = true
     @Published var connectToWalletEnabled = false
     @Published var connectToAkoyaEnabled = false
     @Published var connectToPlaidEnabled = false
+    @Published var loanItem = false
     
     func enabledDebug(features: Set<Feature>) {
         for feature in features {
@@ -42,6 +45,8 @@ import Foundation
                 connectToAkoyaEnabled = true
             case .connectToPlaid:
                 connectToPlaidEnabled = true
+            case .loanItem:
+                loanItem = true
             }
         }
     }

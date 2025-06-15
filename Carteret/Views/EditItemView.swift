@@ -137,6 +137,7 @@ struct EditItemView: View {
                         withAnimation {
                             do {
                                 try modelContext.save()
+                                CarTip.createRecurringItem.invalidate(reason: .actionPerformed)
                                 dismiss()
                             } catch {
                                 logger.error("Cannot save item changes")

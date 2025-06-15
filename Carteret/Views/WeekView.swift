@@ -80,6 +80,7 @@ struct WeekView: View {
         List {
             Section {
                 LabeledContent(safeToSpendTitle, value: safeToSpend.display)
+                    .popoverTip(CarTip.explainSafeToSpend)
             } header: {
                 if let currentWeek {
                     VStack {

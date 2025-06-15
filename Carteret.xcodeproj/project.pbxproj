@@ -55,6 +55,7 @@
 		0871FDFB2DBD5513000BFB18 /* ConnectPlaidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871FDFA2DBD550A000BFB18 /* ConnectPlaidButton.swift */; };
 		0885FD242DFCEA6C00BFC54C /* Savings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0885FD232DFCEA6300BFC54C /* Savings.swift */; };
 		0885FD262DFCEEB100BFC54C /* EditSavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0885FD252DFCEEAD00BFC54C /* EditSavingsView.swift */; };
+		0885FD282DFE491200BFC54C /* CarTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0885FD272DFE491000BFC54C /* CarTip.swift */; };
 		088CEA692D3DB12A006B279F /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA682D3DB123006B279F /* BudgetManager.swift */; };
 		088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6A2D3DB49B006B279F /* DebugSettings.swift */; };
 		088CEA6D2D3DC0E9006B279F /* OlderTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */; };
@@ -148,6 +149,7 @@
 		0871FDFA2DBD550A000BFB18 /* ConnectPlaidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectPlaidButton.swift; sourceTree = "<group>"; };
 		0885FD232DFCEA6300BFC54C /* Savings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Savings.swift; sourceTree = "<group>"; };
 		0885FD252DFCEEAD00BFC54C /* EditSavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavingsView.swift; sourceTree = "<group>"; };
+		0885FD272DFE491000BFC54C /* CarTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTip.swift; sourceTree = "<group>"; };
 		088CEA682D3DB123006B279F /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		088CEA6A2D3DB49B006B279F /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		088CEA6C2D3DC0E9006B279F /* OlderTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlderTransactionsView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				0858AD632DC144F800BEA6E0 /* PlaidCreateLinkTokenResponse.swift */,
 				08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */,
 				0885FD232DFCEA6300BFC54C /* Savings.swift */,
+				0885FD272DFE491000BFC54C /* CarTip.swift */,
 				0834A5D92B69910000A668EA /* SwiftData */,
 				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
 				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
@@ -535,6 +538,7 @@
 				0857E3262D42F7BC0052904C /* TransactionImport.swift in Sources */,
 				0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */,
 				0835E5A22DBE851C005D6207 /* AkoyaActor.swift in Sources */,
+				0885FD282DFE491200BFC54C /* CarTip.swift in Sources */,
 				089EEFDA2D39A889000D6657 /* BudgetView.swift in Sources */,
 				0870CE582D4EDC4E005A7E27 /* PreviewHelper.swift in Sources */,
 				0857E31B2D42C5920052904C /* BarChart1D.swift in Sources */,

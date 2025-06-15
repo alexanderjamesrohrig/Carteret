@@ -21,6 +21,7 @@ struct BudgetView: View {
     
     @EnvironmentObject private var budgetManager: BudgetManager
     @EnvironmentObject private var debugSettings: DebugSettings
+    @EnvironmentObject private var storeroom: Storeroom
     @Environment(\.modelContext) private var modelContext
     @Query(filter: Item.activeItemsPredicate(),
            sort: \.currencyAmount,
@@ -125,6 +126,7 @@ struct BudgetView: View {
                         itemToEdit = nil
                         showEditItem = true
                     }
+                    .popoverTip(CarTip.createRecurringItem)
                 }
                 
                 Section("Funds") {
@@ -139,6 +141,12 @@ struct BudgetView: View {
                     }
                 }
                 
+                if debugSettings.loanItem {
+                    Section("Loans") {
+                        Text("Coming soon")
+                    }
+                }
+                
                 debugSection
                 
                 Section {
@@ -149,8 +157,7 @@ struct BudgetView: View {
             }
             .onChange(of: incomeTotal) { _, newValue in
                 if newValue > Constant.maxFreeWeeklyIncome {
-                    // TODO: Show force subscription sheet
-                    showUpgrade = true
+                    showUpgrade = !storeroom.hasSubscription(.yearSubscription)
                 }
             }
             .sheet(isPresented: $showEditSavings) {
