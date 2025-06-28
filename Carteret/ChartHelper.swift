@@ -5,6 +5,10 @@
 //  Created by Alexander Rohrig on 6/27/25.
 //
 
+import Foundation
+import Charts
+import SwiftUI
+
 enum ChartHelper {
     static func pieChartSegments(
         from transactions: [Transaction]
@@ -22,5 +26,21 @@ enum ChartHelper {
                 color: $0.key.displayColor)
         }
         return segments
+    }
+    
+    enum BarChart {
+        struct Segment {
+            let id = UUID()
+            let name: String
+            let amount: Decimal
+            let color: Color
+        }
+        
+        static func segments(
+            from transactions: [Transaction]
+        ) -> [Segment] {
+            // TODO: Return segments
+            return []
+        }
     }
 }

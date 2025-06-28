@@ -29,7 +29,7 @@ struct WeekVisuals: View {
             }
             return false
         }
-        self.barData = safeToSpendOnly.map { transaction in
+        self.barData = sorted.map { transaction in
                 .init(date: transaction.date,
                       amount: transaction.currencyAmount,
                       category: transaction.category!)
