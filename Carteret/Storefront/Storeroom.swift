@@ -78,6 +78,10 @@ import OSLog
     @Published private(set) var activeSubscriptions: Set<String> = []
     private var updates: Task<Void, Never>?
     
+    var purchasesAvailable: Bool {
+        AppStore.canMakePayments
+    }
+    
     var inventory: [Product] {
         get async {
             do {

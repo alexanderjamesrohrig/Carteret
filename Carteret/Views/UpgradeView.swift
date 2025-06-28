@@ -37,12 +37,25 @@ struct UpgradeView: View {
     }
     
     @ViewBuilder var thankYou: some View {
-        VStack {
+        VStack(spacing: 25) {
             Image(systemName: "checkmark.circle.fill")
                 .foregroundStyle(Color.green)
                 .font(.system(.largeTitle, design: .default, weight: .heavy))
             
             Text("Thank you for being a subscriber.")
+            
+            if let window = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                Button("Manage subscription") {
+                    Task {
+                        do {
+                            try await AppStore.showManageSubscriptions(in: window)
+                        } catch {
+                            logger.error("Unable to open App Store - \(error)")
+                        }
+                    }
+                }
+                .buttonStyle(.bordered)
+            }
         }
         .presentationDragIndicator(.visible)
     }

@@ -18,6 +18,8 @@ struct TestView: View {
     private let wallet = WalletActor()
     private let cloud = CloudKitActor()
     
+    @EnvironmentObject private var storeroom: Storeroom
+    
     @State private var plaidAPIStatus = "Unknown"
     @State private var akoyaAPIStatus = "Unknown"
     @State private var walletAvailable = "Unknown"
@@ -25,6 +27,8 @@ struct TestView: View {
     @State private var showLinkView = false
     @State private var walletAccountsCount = 0
     @State private var iCloudDriveAvailable = "Unknown"
+    @State private var yearlySubscription = "Unknown"
+    @State private var inAppPurchases = "Unknown"
     
     var body: some View {
         Form {
@@ -47,6 +51,12 @@ struct TestView: View {
             Section("CloudKit") {
                 LabeledContent("iCloud Drive", value: iCloudDriveAvailable)
             }
+            
+            Section("Subscription") {
+                LabeledContent("In app purchases", value: inAppPurchases)
+                
+                LabeledContent("Yearly subscription", value: yearlySubscription)
+            }
         }
         .fullScreenCover(isPresented: $showLinkView) {}
         .task {
@@ -55,6 +65,8 @@ struct TestView: View {
             walletAuthorization = await wallet.authorized ? "Yes" : "No"
             walletAccountsCount = await wallet.accounts().count
             iCloudDriveAvailable = await cloud.iCloudDriveAvailable.display
+            yearlySubscription = storeroom.hasSubscription(.yearSubscription).display
+            inAppPurchases = storeroom.purchasesAvailable.display
         }
     }
 }
