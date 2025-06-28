@@ -17,8 +17,16 @@ struct EditTransactionView: View {
     
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @Query private var items: [Item]
-    @Query private var funds: [Fund]
+    @Query(
+        filter: Item.activeItemsPredicate(),
+        sort: \.itemDescription,
+        order: .forward)
+    private var items: [Item]
+    @Query(
+        filter: Fund.activeFundsPredicate,
+        sort: \.fundDescription,
+        order: .forward)
+    private var funds: [Fund]
     @FocusState private var focusedField: InputField?
     @State private var destination: TransactionDestination?
     @State private var transactionCategory: TransactionCategory?
