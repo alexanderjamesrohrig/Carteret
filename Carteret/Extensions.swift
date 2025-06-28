@@ -186,3 +186,10 @@ extension Data {
         String(data: self, encoding: .utf8) ?? "nil"
     }
 }
+
+// MARK: - Bool
+extension Bool {
+    var display: String {
+        return self ? "Yes" : "No"
+    }
+}

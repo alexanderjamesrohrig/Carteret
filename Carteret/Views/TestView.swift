@@ -16,12 +16,15 @@ struct TestView: View {
     private let akoya = AkoyaActor()
     private let plaid = PlaidActor()
     private let wallet = WalletActor()
+    private let cloud = CloudKitActor()
     
     @State private var plaidAPIStatus = "Unknown"
+    @State private var akoyaAPIStatus = "Unknown"
     @State private var walletAvailable = "Unknown"
     @State private var walletAuthorization = "Unknown"
     @State private var showLinkView = false
     @State private var walletAccountsCount = 0
+    @State private var iCloudDriveAvailable = "Unknown"
     
     var body: some View {
         Form {
@@ -30,7 +33,7 @@ struct TestView: View {
             }
             
             Section("Akoya") {
-                LabeledContent("API status", value: "TBD")
+                LabeledContent("API status", value: akoyaAPIStatus)
             }
             
             Section("FinanceKit") {
@@ -40,6 +43,10 @@ struct TestView: View {
                 
                 LabeledContent("Accounts", value: "\(walletAccountsCount)")
             }
+            
+            Section("CloudKit") {
+                LabeledContent("iCloud Drive", value: iCloudDriveAvailable)
+            }
         }
         .fullScreenCover(isPresented: $showLinkView) {}
         .task {
@@ -47,6 +54,7 @@ struct TestView: View {
             walletAvailable = wallet.isAvailable ? "Yes" : "No"
             walletAuthorization = await wallet.authorized ? "Yes" : "No"
             walletAccountsCount = await wallet.accounts().count
+            iCloudDriveAvailable = await cloud.iCloudDriveAvailable.display
         }
     }
 }

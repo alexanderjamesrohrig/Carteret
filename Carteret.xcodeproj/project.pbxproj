@@ -86,6 +86,7 @@
 		08C31B992DC19D4C00A59A26 /* Storeroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B982DC19D3500A59A26 /* Storeroom.swift */; };
 		08C31B9B2DC3D8CA00A59A26 /* UniversalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */; };
 		08DC30232DFB464800630AF7 /* ConnectWalletButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DC30222DFB464400630AF7 /* ConnectWalletButton.swift */; };
+		08F56FEB2E0F840300EC9FB5 /* CloudKitActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F56FEA2E0F83FE00EC9FB5 /* CloudKitActor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		08C31B982DC19D3500A59A26 /* Storeroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storeroom.swift; sourceTree = "<group>"; };
 		08C31B9A2DC3D8C400A59A26 /* UniversalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalImage.swift; sourceTree = "<group>"; };
 		08DC30222DFB464400630AF7 /* ConnectWalletButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWalletButton.swift; sourceTree = "<group>"; };
+		08F56FEA2E0F83FE00EC9FB5 /* CloudKitActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitActor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +346,7 @@
 				0835E5A12DBE8518005D6207 /* AkoyaActor.swift */,
 				0858AD5D2DC11E1C00BEA6E0 /* WalletActor.swift */,
 				0835E5A32DBE8A46005D6207 /* AuthHelper.swift */,
+				08F56FEA2E0F83FE00EC9FB5 /* CloudKitActor.swift */,
 				0835E5A52DBE913E005D6207 /* AkoyaTransactionResponse.swift */,
 				0835E5AB2DBE9B27005D6207 /* OpenFinancialExchangeParser.swift */,
 				0858AD5F2DC13E7000BEA6E0 /* PlaidStatusResponse.swift */,
@@ -548,6 +551,7 @@
 				083BA39C2DFF3305008A896C /* SendableTransaction.swift in Sources */,
 				0857E3242D42F7450052904C /* WeeklyTransaction.swift in Sources */,
 				0835E5A22DBE851C005D6207 /* AkoyaActor.swift in Sources */,
+				08F56FEB2E0F840300EC9FB5 /* CloudKitActor.swift in Sources */,
 				0885FD282DFE491200BFC54C /* CarTip.swift in Sources */,
 				089EEFDA2D39A889000D6657 /* BudgetView.swift in Sources */,
 				0870CE582D4EDC4E005A7E27 /* PreviewHelper.swift in Sources */,
