@@ -15,6 +15,7 @@
 		080E27632D3AC2A600595DE8 /* TransactionDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27622D3AC2A100595DE8 /* TransactionDestination.swift */; };
 		080E27652D3ADB3800595DE8 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27642D3ADB3400595DE8 /* TransactionRowView.swift */; };
 		080E27692D3AF4FA00595DE8 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E27682D3AF4F900595DE8 /* Week.swift */; };
+		080F1DFF2E0F77210078D096 /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F1DFE2E0F771E0078D096 /* ChartHelper.swift */; };
 		0822ACD92D70F700008E709F /* EditFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACD82D70F6FC008E709F /* EditFundView.swift */; };
 		0822ACDB2D70FB60008E709F /* FundDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDA2D70FB5C008E709F /* FundDetailView.swift */; };
 		0822ACDD2D71089F008E709F /* MailComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822ACDC2D71089C008E709F /* MailComposeView.swift */; };
@@ -113,6 +114,7 @@
 		080E27622D3AC2A100595DE8 /* TransactionDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDestination.swift; sourceTree = "<group>"; };
 		080E27642D3ADB3400595DE8 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
 		080E27682D3AF4F900595DE8 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		080F1DFE2E0F771E0078D096 /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
 		0822ACD82D70F6FC008E709F /* EditFundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFundView.swift; sourceTree = "<group>"; };
 		0822ACDA2D70FB5C008E709F /* FundDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundDetailView.swift; sourceTree = "<group>"; };
 		0822ACDC2D71089C008E709F /* MailComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeView.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				0857E32C2D432B130052904C /* ViewModifier.swift */,
 				084E0B702D4DAFFC00D955AC /* FormatStyle.swift */,
 				0870CE572D4EDC49005A7E27 /* PreviewHelper.swift */,
+				080F1DFE2E0F771E0078D096 /* ChartHelper.swift */,
 				0871FDF32DBD3B51000BFB18 /* PlaidActor.swift */,
 				0835E5A12DBE8518005D6207 /* AkoyaActor.swift */,
 				0858AD5D2DC11E1C00BEA6E0 /* WalletActor.swift */,
@@ -576,6 +579,7 @@
 				0858AD662DC169DD00BEA6E0 /* TestView.swift in Sources */,
 				0835E5A42DBE8A4E005D6207 /* AuthHelper.swift in Sources */,
 				0834A5D62B698EC100A668EA /* CarteretImage.swift in Sources */,
+				080F1DFF2E0F77210078D096 /* ChartHelper.swift in Sources */,
 				088CEA6B2D3DB4A1006B279F /* DebugSettings.swift in Sources */,
 				08C31B992DC19D4C00A59A26 /* Storeroom.swift in Sources */,
 				080E27652D3ADB3800595DE8 /* TransactionRowView.swift in Sources */,

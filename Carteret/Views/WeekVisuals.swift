@@ -29,11 +29,6 @@ struct WeekVisuals: View {
             }
             return false
         }
-        self.pieData = sorted.map { transaction in
-                .init(name: transaction.category?.displayName ?? "nil",
-                      amount: transaction.currencyAmount,
-                      color: transaction.category?.displayColor ?? .blue)
-        }
         self.barData = safeToSpendOnly.map { transaction in
                 .init(date: transaction.date,
                       amount: transaction.currencyAmount,
@@ -42,16 +37,13 @@ struct WeekVisuals: View {
     }
     
     let transactions: [Transaction]
-    let pieData: [PieChart.PieChartSegment]
     let barData: [BarPlot]
     
     var body: some View {
         Form {
             Section("Safe-to-spend") {
                 VStack {
-                    PieChart(data: pieData)
-                    
-                    legend
+                    PieChart(data: ChartHelper.pieChartSegments(from: transactions))
                 }
             }
             
