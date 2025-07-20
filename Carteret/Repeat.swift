@@ -10,6 +10,7 @@ enum Repeat: Int, Codable, CaseIterable {
     case every2Weeks
     case twiceAMonth
     case everyMonth
+    case everySixMonths
     case everyYear
     case none
     
@@ -18,6 +19,7 @@ enum Repeat: Int, Codable, CaseIterable {
         .every2Weeks,
         .twiceAMonth,
         .everyMonth,
+        .everySixMonths,
         .everyYear
     ]
     
@@ -31,6 +33,8 @@ enum Repeat: Int, Codable, CaseIterable {
             "Twice a month"
         case .everyMonth:
             "Every month"
+        case .everySixMonths:
+            "Every 6 months"
         case .everyYear:
             "Every year"
         case .none:
@@ -48,6 +52,8 @@ enum Repeat: Int, Codable, CaseIterable {
             52 / 12 / 2
         case .everyMonth:
             52 / 12
+        case .everySixMonths:
+            52 / 2
         case .everyYear:
             52
         case .none:
