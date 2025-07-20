@@ -6,5 +6,5 @@
 //
 
 enum InputField: Hashable {
-    case description, amount
+    case description, amount, note
 }

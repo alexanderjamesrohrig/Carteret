@@ -60,6 +60,7 @@ struct EditFundView: View {
                 
                 Section("Note") {
                     TextField("Optional note", text: $newNote)
+                        .focused($focusedField, equals: .note)
                         .textInputAutocapitalization(.sentences)
                 }
             }
