@@ -356,13 +356,13 @@
 				0885FD232DFCEA6300BFC54C /* Savings.swift */,
 				0885FD272DFE491000BFC54C /* CarTip.swift */,
 				083BA39B2DFF3301008A896C /* SendableTransaction.swift */,
+				0834A5D22B698AB800A668EA /* Managers */,
+				08C31B952DC19C8500A59A26 /* Storefront */,
 				0834A5D92B69910000A668EA /* SwiftData */,
 				08A8E73E2B69827D00575C9B /* Assets.xcassets */,
 				08A8E7402B69827D00575C9B /* Carteret.entitlements */,
 				08A8E7442B69827D00575C9B /* Info.plist */,
-				08C31B952DC19C8500A59A26 /* Storefront */,
 				08A8E7412B69827D00575C9B /* Preview Content */,
-				0834A5D22B698AB800A668EA /* Managers */,
 			);
 			path = Carteret;
 			sourceTree = "<group>";

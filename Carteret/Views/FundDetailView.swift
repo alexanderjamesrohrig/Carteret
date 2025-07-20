@@ -55,6 +55,14 @@ struct FundDetailView: View {
                 LabeledContent("Progress", value: progress)
             }
             
+            if let note = fund.note {
+                Section("Note") {
+                    Text(note)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(100)
+                }
+            }
+            
             // TODO: Add balance line chart
             
             if !fund.transactions.isEmpty {
@@ -98,5 +106,6 @@ struct FundDetailView: View {
     FundDetailView(fund: Fund(description: "Preview",
                               goalAmount: 106.84,
                               transactions: [],
-                              fundRepeat: .none))
+                              fundRepeat: .none,
+                              note: "This is a note."))
 }

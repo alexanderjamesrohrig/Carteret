@@ -25,11 +25,13 @@ final class Fund {
     init(description: String,
          goalAmount: Currency,
          transactions: [Transaction],
-         fundRepeat: Repeat) {
+         fundRepeat: Repeat,
+         note: String? = nil) {
         self.fundDescription = description
         self.goalAmount = goalAmount
         self.transactions = transactions
         self.fundRepeat = fundRepeat
+        self.note = note
     }
     
     init() {
@@ -37,6 +39,7 @@ final class Fund {
         self.goalAmount = Currency.zero
         self.transactions = []
         self.fundRepeat = .none
+        self.note = nil
     }
 
     var fundDescription: String
@@ -44,6 +47,7 @@ final class Fund {
     @Relationship(deleteRule: .deny, inverse: \Transaction.fund)
     var transactions: [Transaction]
     var fundRepeat: Repeat
+    var note: String?
     private var rawState: Int = 0
     
     var currentBalance: Currency {

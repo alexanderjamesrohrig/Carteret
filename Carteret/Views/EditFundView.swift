@@ -15,6 +15,7 @@ struct EditFundView: View {
     
     @State private var newDescription = ""
     @State private var newGoalAmount: Currency? = nil
+    @State private var newNote: String = ""
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @FocusState private var focusedField: InputField?
@@ -56,6 +57,11 @@ struct EditFundView: View {
                 } footer: {
                     Text("Enter how much you want to save in the amount field.")
                 }
+                
+                Section("Note") {
+                    TextField("Optional note", text: $newNote)
+                        .textInputAutocapitalization(.sentences)
+                }
             }
             .onAppear {
                 focusedField = .description
@@ -87,6 +93,9 @@ struct EditFundView: View {
         CarTip.explainFund.invalidate(reason: .actionPerformed)
         fund.fundDescription = newDescription
         fund.goalAmount = newGoalAmount
+        if !newNote.isEmpty {
+            fund.note = newNote
+        }
         modelContext.insert(fund)
         withAnimation {
             do {
