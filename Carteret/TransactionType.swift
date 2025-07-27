@@ -10,4 +10,13 @@ enum TransactionType: Int, Codable, CaseIterable {
             "Expense"
         }
     }
+    
+    var inverse: Self {
+        switch self {
+        case .income:
+                .expense
+        case .expense:
+                .income
+        }
+    }
 }

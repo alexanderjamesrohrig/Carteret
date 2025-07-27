@@ -1,9 +1,10 @@
 import TipKit
 
-struct CarTip {
+enum CarTip {
     static let createRecurringItem = CreateRecurringItem()
     static let explainSafeToSpend = ExplainSafeToSpend()
     static let explainFund = ExplainFund()
+    static let explainTakeFromSafeToSpend = ExplainTakeFromSafeToSpend()
     
     struct ExplainFund: Tip {
         var title: Text {
@@ -37,5 +38,10 @@ struct CarTip {
         var message: Text? {
             Text("Safe to spend is how much money is left over after paying your bills and saving the desired amount.")
         }
+    }
+    
+    struct ExplainTakeFromSafeToSpend: Tip {
+        let title: Text = Text("Using money from safe to spend")
+        let message: Text? = Text("Enabling this toggle will create a duplicate transaction adding or removing the specified amount to your safe to spend.")
     }
 }

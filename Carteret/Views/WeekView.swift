@@ -69,6 +69,11 @@ struct WeekView: View {
         } else {
             "Over budget"
         }
+        /*
+         TODO: If over budget, save week with over budget amount to UserDefaults
+         At next open, check if week is different
+         and add an over-budget transation
+        */
     }
     
     var olderTransactionsSectionFooter: String {

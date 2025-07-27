@@ -15,6 +15,7 @@ struct EditTransactionView: View {
                         category: "EditTransactionView")
     let transaction: Transaction?
     
+    @EnvironmentObject private var debugSettings: DebugSettings
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     @Query(
@@ -37,6 +38,7 @@ struct EditTransactionView: View {
     @State private var type: TransactionType = .expense
     @State private var date = Date.now
     @State private var showDifferentAmountAlert: Bool = false
+    @State private var takeFromSafeToSpend: Bool = false
     
     var title: String {
         transaction == nil ? "Create transaction" : "Edit transaction"
@@ -56,6 +58,10 @@ struct EditTransactionView: View {
     
     var noDestinationSelected: Bool {
         recurringItem == nil && transactionCategory  == nil && selectedFund == nil
+    }
+    
+    var differentRecurringAmount: Bool {
+        destination == .recurringItem && recurringItem?.currencyAmount != inputAmount
     }
     
     var categoryPicker: some View {
@@ -82,7 +88,7 @@ struct EditTransactionView: View {
         }
     }
     
-    var fundPicker: some View {
+    @ViewBuilder var fundPicker: some View {
         Picker("Fund", selection: $selectedFund) {
             Text("Select a fund")
                 .tag(nil as Fund?)
@@ -92,10 +98,9 @@ struct EditTransactionView: View {
                     .tag(fund as Fund?)
             }
         }
-    }
-    
-    var differentRecurringAmount: Bool {
-        destination == .recurringItem && recurringItem?.currencyAmount != inputAmount
+        
+        Toggle("Use money from safe to spend", isOn: $takeFromSafeToSpend)
+            .popoverTip(CarTip.explainTakeFromSafeToSpend)
     }
     
     var body: some View {
@@ -118,10 +123,14 @@ struct EditTransactionView: View {
                 
                 Section {
                     switch destination {
-                    case .safeToSpend: categoryPicker
-                    case .recurringItem: recurringItemPicker
-                    case .fund: fundPicker
-                    case nil: EmptyView()
+                    case .safeToSpend:
+                        categoryPicker
+                    case .recurringItem:
+                        recurringItemPicker
+                    case .fund:
+                        fundPicker
+                    case nil:
+                        EmptyView()
                     }
                 }
                 
@@ -152,14 +161,7 @@ struct EditTransactionView: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(confirmButtonTitle) {
-                        if destination == nil {
-                            return
-                        }
-                        if differentRecurringAmount {
-                            showDifferentAmountAlert = true
-                            return
-                        }
-                        save(transaction: transaction)
+                        confirmButtonPressed()
                     }
                     .disabled(saveDisabled)
                 }
@@ -175,6 +177,11 @@ struct EditTransactionView: View {
                     inputAmount = newItem.currencyAmount
                     description = newItem.itemDescription
                 }
+            }
+            .onChange(of: destination) { _, newDestination in
+                transactionCategory = nil
+                recurringItem = nil
+                selectedFund = nil
             }
             .onAppear {
                 if let transaction {
@@ -212,6 +219,38 @@ struct EditTransactionView: View {
             })
             .interactiveDismissDisabled()
         }
+    }
+    
+    func confirmButtonPressed() {
+        if destination == nil {
+            return
+        }
+        if differentRecurringAmount {
+            showDifferentAmountAlert = true
+            return
+        }
+        if destination == .fund && takeFromSafeToSpend {
+            insertDuplicateSafeToSpendExpense()
+        }
+        save(transaction: transaction)
+    }
+    
+    func insertDuplicateSafeToSpendExpense() {
+        guard destination == .fund,
+              let inputAmount else {
+            logger.error("Transaction destination is nil")
+            return
+        }
+        let duplicate = Transaction(
+            destination: .safeToSpend,
+            category: .other,
+            item: nil,
+            fund: nil,
+            amount: inputAmount,
+            type: type.inverse,
+            transactionDescription: description,
+            date: date)
+        modelContext.insert(duplicate)
     }
     
     func save(transaction: Transaction?) {
